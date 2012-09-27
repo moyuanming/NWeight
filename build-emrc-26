@@ -1,0 +1,41 @@
+#!/bin/bash
+
+
+rm config.cache config.status -f
+
+CC=/toolchain_r3/2.95.3/bin/arm-linux-gcc \
+CPP=/toolchain_r3/2.95.3/bin/cpp \
+LD=/toolchain_r3/2.95.3/bin/arm-linux-ld \
+AR=/toolchain_r3/2.95.3/bin/arm-linux-ar \
+RANLIB=/toolchain_r3/2.95.3/bin/arm-linux-ranlib \
+STRIP=/toolchain_r3/2.95.3/bin/arm-linux-strip \
+./configure  \
+	--prefix=/toolchain_r3/2.95.3/arm-linux \
+	--build=i386-linux \
+	--host=arm-linux \
+	--target=arm-linux \
+#	--with-ftp=no \
+#	--with-html=no --with-http=no --with-html=no
+
+#    --disable-static \
+#    --disable-lite \
+#    --with-style=flat \
+#    --disable-galqvfb \
+#    --disable-qvfbial \
+#    --disable-dummyial \
+#    --disable-micemoveable \
+#    --disable-vbfsupport \
+#    --disable-latin9support \
+#    --disable-big5support \
+#    --disable-savebitmap \
+#    --disable-jpgsupport \
+#    --disable-pngsupport \
+#    --disable-imegb2312 \
+#    --disable-aboutdlg \
+#    --disable-savescreen \
+	\
+# 	--enable-nativeimps2=no \
+#	--enable-nativems=no \
+#	--enable-nativems3=no \
+#	--enable-nativeps2=no \
+#	--enable-nativegpm=no

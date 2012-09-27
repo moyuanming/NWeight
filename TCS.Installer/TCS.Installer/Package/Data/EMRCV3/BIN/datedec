@@ -1,0 +1,22 @@
+#date=YYYYMMDD
+#Usage:command date days
+str=$(  date  '+%Y%m%d' )
+days=$1
+yy=$(echo $str|cut -c 1-4)
+mm=$(echo $str|cut -c 5-6)
+dd=$(echo $str |cut -c 7-8)
+sav_dd=$days
+days=$(expr $days - $dd)
+while [ $days -ge 0 ]
+do
+       mm=$(expr $mm  - 1)
+       [ $mm -eq 0 ] && mm=12 && yy=`expr $yy - 1`
+       aaa=`cal $mm $yy`
+       bbb=`echo $aaa|awk '{print $NF}'`
+       days=`expr $days - $bbb`
+done
+dd=`expr 0 - $days`
+expr $dd : ".$" > /dev/null && dd=0$dd
+expr $mm : ".$" > /dev/null && mm=0$mm
+echo $yy$mm$dd
+                                        

@@ -1,0 +1,46 @@
+#/bin/sh
+
+ConfigFile=../CONFIG/Config.ini
+
+RecvArchiveDays=$(grep RecvArchiveDays  $ConfigFile | awk -F'<' '{print $2}' | sed 's/>//') 
+RecvClearDays=$(grep RecvClearDays  $ConfigFile | awk -F'<' '{print $2}' | sed 's/>//')         
+while [ 1 -lt 5  ]
+do
+	ymdh=$(date '+%Y%m%d%H')
+	Data=$(date '+%Y%m%d')03 
+	Log=$(date '+%Y%m%d')04
+	Image=$(date '+%Y%m%d')05  
+	echo $ymdh $Data $Log $Image
+	date '+%Y-%m-%d %H:%M:%S' >>/Data/log
+	#if  [ $ymdh -eq $Data ]
+	#then
+		echo "ture"
+		SendArchiveDays=$(grep SendArchiveDays  $ConfigFile | awk -F'<' '{print $2}' | sed 's/>//')                                        
+		SendClearDays=$(grep SendClearDays  $ConfigFile | awk -F'<' '{print $2}' | sed 's/>//')           
+		echo "Data Archive Days: "$SendArchiveDays 
+		echo "Clear Days: "$SendClearDays
+		./DataArchive $SendArchiveDays $SendClearDays
+	#else 
+	#if [ $ymdh -eq $Log ]
+	#then 
+		LogClearDays=$(grep LogClearDays  $ConfigFile | awk -F'<' '{print $2}' | sed 's/>//')         
+		LogArchiveDays=$(grep LogArchiveDays  $ConfigFile | awk -F'<' '{print $2}' | sed 's/>//')
+		echo "Log Archive Days: "$LogArchiveDays 
+		echo "Clear Days: "$LogClearDays   
+		./LogArchive $LogArchiveDays $LogClearDays
+	#else 
+	
+	#if [ $ymdh -eq $Image ]
+	#then
+		ImageTempClearDays=$(grep ImageTempClearDays  $ConfigFile | awk -F'<' '{print $2}' | sed 's/>//') 
+		echo "Image Clear Days: "$ImageTempClearDays
+		./ImageArchive 1 $ImageTempClearDays
+	#fi	 
+	#fi
+	#fi 
+	#./DataArchive $SendArchiveDays $SendClearDays 
+	#./LogArchive $LogArchiveDays $LogClearDays
+	#./ImageArchive 1 $ImageTempClearDays      
+	sleep 50 
+done
+

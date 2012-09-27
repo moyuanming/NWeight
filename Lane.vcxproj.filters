@@ -1,0 +1,804 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\global\3des.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sysconfig\AppFunctionConfig.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systemcontext\CardContext.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systemcontext\CarInfoContext.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systemcontext\ClearDebtTmp.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\global\common_ic_methods.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\global\common_main.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sysconfig\CommunctionConfig.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\device.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systemcontext\DeviceContext.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\communication\EmrcSocket.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\messageBody\ExitBS.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\messageBody\ExitEI.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\messageBody\ExitES.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\messageBody\ExitHt.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\messageBody\ExitTR.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\messageBody\ExitVI.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systemcontext\FileContext.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\global\FileOperator.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\global\global.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\i_dev_ic.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\i_dev_ioboard.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\i_dev_keyboard.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\i_dev_led.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\i_dev_main.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\i_dev_printer.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\i_dev_vdm.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sysconfig\IcKey.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systemcontext\Image.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\global\imf.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\informationShow.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\workflow\init.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\IO_Board_Test.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sysconfig\LanConfig.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systemcontext\LaneContext.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\messageBody\LaneInfo.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\logc\LogC.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SubProgarm\LsFile.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\global\mac.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\MemSyncFile.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\communication\MessageBuild.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\communication\MessageHandl.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\MIF_Interface.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\mmi.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\messageBody\MsgAK.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\messageBody\MsgEI.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\messageBody\MsgEM.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\messageBody\MsgGR.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\messageBody\MsgInfo.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\messageBody\MsgOF.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\messageBody\MsgRevsion.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\parameter\ParameterCarClass.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\parameter\parameterCarKind.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\parameter\ParameterCollect.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\parameter\ParameterFareList.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sysconfig\ParameterFileList.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\parameter\ParameterLaneNo.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\parameter\ParameterPlaza.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\parameter\ParameterStaff.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\parameter\ParameterTable.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\parameter\ParameterYHKList.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\parameter\ParameterYHRateDescription.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\parameter\ParameterYPKList.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\printer.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\communication\RecvMessageDataHandl.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\messageBody\SendMsg.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\workflow\setWorkState.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SubProgarm\Smartupdata.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SubProgarm\SmartUpdate.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\sound.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\workflow\st_main.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\parameter\SVRCardList.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systemcontext\SwitchContext.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SubProgarm\Sync.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systemcontext\systemContext.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\communication\Udp.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SubProgarm\Uploader.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systemcontext\UserContext.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\workflow\wf_ic.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\workflow\wf_ioboard.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\workflow\wf_printer.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\workflow\workstate_ic.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\workflow\workstate_main.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\workflow\workstate_peccancy.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\workflow\workstate_simulate.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\workflow\workstate_team.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\workflow\workstate_test.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\ui.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\TFI\i_dev_led.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\TFI\i_dev_TFI_303.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\TFI\i_dev_TFI_KK.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\Weight\wds_protocol.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\Weight\wds_thread.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\Weight\Weight_InterFace.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\i_dev_KK_print.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\IO_BaseIO_State.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\s303_printer.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\VideoCaptureImage.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\parameter\FreeCarList.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systemcontext\MethodPayContext.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\workflow\workstate_Driver.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\workflow\workstate_Login_Logout.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\workflow\workstate_Lstdnyc.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\workflow\workstate_Month_Abate.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\workflow\workstate_QianKuan.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\workflow\workstate_simulate_first.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\workflow\workstate_simulate_second.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\workflow\workstate_Urgent.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\640_480\From_640_480.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\800_600\From_800_600.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\800_600\From_Unit_800_600.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\UI_InterFace.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SQLite\EmrcDBOperator.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\communication\Emrc_Udp.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\csc_rhy_dll\csc_rhy_dll\3des.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\csc_rhy_dll\csc_rhy_dll\dal_imf.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\csc_rhy_dll\csc_rhy_dll\i_dev_ic.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\csc_rhy_dll\csc_rhy_dll\IcKey.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\csc_rhy_dll\csc_rhy_dll\mac.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\csc_rhy_dll\csc_rhy_dll\MIF_Interface.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\global\carlist.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\global\list.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\global\serial.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SetConifgFile\SetConfigWorkState.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SubProgarm\ClearAndArchiveData.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SubProgarm\MiniCom.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Test\AutoRunWorkFlow.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systemcontext\WeightContext.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\parameter\ConstantTable.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systemcontext\FareCalculation.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systemcontext\FareContext.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\Print\i_dev_KK_printer.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\Print\i_dev_printer.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\Print\i_dev_S303_printer.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\Print\i_dev_TWD_printer.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\workflow\workstate_WeightMenu.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\Com\Com.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sysconfig\TTYConfig.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sysconfig\include\TTYConfig.h">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\TFI\i_dev_TFI_HN.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\sysconfig\include\AppFunctionConfig.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sysconfig\include\AppUseFilePathAndName.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\systemcontext\include\CardContext.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\systemcontext\include\CarInfoContext.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\global\include\common_ic_methods.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\global\include\common_main.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sysconfig\include\CommunctionConfig.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\include\DevCommunicationState.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\include\device.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\systemcontext\include\DeviceContext.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\communication\include\EmrcSocket.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\include\emrcver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\messageBody\include\ExitBS.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\messageBody\include\ExitEI.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\messageBody\include\ExitES.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\messageBody\include\ExitHt.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\messageBody\include\ExitTR.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\messageBody\include\ExitVI.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\systemcontext\include\FileContext.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\global\include\global.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\include\i_dev_ic.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\include\i_dev_ioboard.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\include\i_dev_keyboard.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sysconfig\include\IcKey.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\systemcontext\include\Image.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\global\include\imf.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\include\informationShow.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\workflow\include\init.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\include\IO_Board_Test.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\include\keyboard.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sysconfig\include\LanConfig.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\systemcontext\include\LaneContext.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\messageBody\include\LaneInfo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\global\include\linux_include.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\global\include\LocalIncludeFile.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\logc\include\LogC.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\include\MemSyncFile.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\communication\include\MessageBuild.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\communication\include\MessageDef.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\communication\include\MessageHandl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\include\MIF_Interface.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\include\mmi.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\messageBody\include\MsgAK.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\messageBody\include\MsgEI.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\messageBody\include\MsgEM.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\messageBody\include\MsgGR.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\messageBody\include\MsgInfo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\messageBody\include\MsgOF.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\messageBody\include\MsgRevsion.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\parameter\include\ParameterCarClass.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\parameter\include\parameterCarKind.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\parameter\include\ParameterCollect.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\parameter\include\ParameterFareList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sysconfig\include\ParameterFileList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\parameter\include\ParameterLaneNo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\parameter\include\ParameterPlaza.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\parameter\include\ParameterStaff.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\parameter\include\ParameterTable.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\parameter\include\ParameterYHKList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\parameter\include\ParameterYHRateDescription.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\parameter\include\ParameterYPKList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\paramtest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\include\printer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\communication\include\RecvMessageDataHandl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\msgQueueToFile\include\SaveMsg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\messageBody\include\SendMsg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\workflow\include\setWorkState.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\include\sound.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\workflow\include\st_main.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\parameter\include\SVRCardList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\systemcontext\include\SwitchContext.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\systemcontext\include\systemContext.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\communication\include\Udp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\systemcontext\include\UserContext.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\workflow\include\wf_printer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\workflow\include\workState.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\include\ui.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\include\queue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\Weight\include\Weight_InterFace.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\parameter\include\FreeCarList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\workflow\include\workstate_Lstdnyc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\640_480\include\640_480.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\640_480\include\From_640_480.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\800_600\include\800_600.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\800_600\include\From_800_600.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\include\UI_InterFace.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\include\UI_Macro.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SQLite\include\EmrcDBOperator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SQLite\include\sqlite3.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\communication\include\Emrc_Udp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\csc_rhy_dll\csc_rhy_dll\3des.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\csc_rhy_dll\csc_rhy_dll\dal_imf.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\csc_rhy_dll\csc_rhy_dll\i_dev_ic.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\csc_rhy_dll\csc_rhy_dll\IcKey.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\csc_rhy_dll\csc_rhy_dll\linux_include.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\csc_rhy_dll\csc_rhy_dll\LocalIncludeFile.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\csc_rhy_dll\csc_rhy_dll\mac.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\csc_rhy_dll\csc_rhy_dll\MIF_Interface.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\include\i_dev_TFI_303.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\include\i_dev_TFI_KK.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\include\VideoCaptureImage.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\include\wds_protocol.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\include\wds_thread.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\global\include\3des.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\global\include\carlist.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\global\include\list.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\global\include\mac.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\global\include\serial.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\global\include\Version.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RemoteControl\include\RemoteControl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RemoteControl\include\UdpBase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SetConifgFile\include\SetConfigWorkState.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\systemcontext\include\MethodPayContext.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\systemcontext\include\WeightContext.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\parameter\include\ConstantTable.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\include\i_dev_TFI_HN.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\systemcontext\include\FareCalculation.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\Print\include\i_dev_KK_printer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\Print\include\i_dev_S303_printer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\Print\include\i_dev_TWD_printer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\systemcontext\include\FareContext.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

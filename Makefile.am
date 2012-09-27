@@ -1,0 +1,7 @@
+COMMON_SUBDIRS = src
+
+
+DIST_SUBDIRS = $(COMMON_SUBDIRS)  
+SUBDIRS = $(COMMON_SUBDIRS) 
+
+EXTRA_DIST = autogen.sh Version

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Lane">
+</Property><Property Name="解决方案文件" Value="E:\JKZG\branches\ic_src\Lane\Lane.sln">
+</Property><Property Name="Date" Value="2011年3月31日">
+</Property><Property Name="Time" Value="15:54:43">
+</Property></Properties><Event ErrorLevel="0" Project="Lane" Source="Lane.vcproj" Description="Converting project file 'E:\JKZG\branches\ic_src\Lane\Lane.vcproj'.">
+</Event><Event ErrorLevel="1" Project="Lane" Source="Lane.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="Lane" Source="Lane.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="1" Project="Lane" Source="Lane.vcproj" Description="Attribute 'Detect64BitPortabilityProblems' of 'VCCLCompilerTool' is not supported in this version and has been removed during conversion.">
+</Event><Event ErrorLevel="0" Project="Lane" Source="Lane.vcproj" Description="Done converting to new project file 'E:\JKZG\branches\ic_src\Lane\Lane.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="Lane" Source="Lane.vcproj" Description="Converted">
+</Event></UpgradeLog>

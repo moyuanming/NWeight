@@ -1,0 +1,23 @@
+#!/bin/sh
+BUILDDATE=$(grep BUILDDATA src/ui/informationShow.c  | head -n 1 )
+CURRENTDATE=$(date +%y%m%d%H%M )
+sed "s/$BUILDDATE/\#define BUILDDATA \"$CURRENTDATE\"/" src/ui/informationShow.c  -i
+make
+cp  src/emrc_main  /nfs4arm/emrcr3/EMRCV3/BIN/
+cp  src/emrc_main  ./TCS.Installer/TCS.Installer/Package/Data/EMRCV3/BIN
+cp  src/emrc_main  ./EMRCV3/BIN
+cp  src/Uploader  /nfs4arm/emrcr3/EMRCV3/BIN/
+cp  src/Uploader  ./EMRCV3/BIN
+cp  src/Uploader  ./TCS.Installer/TCS.Installer/Package/Data/EMRCV3/BIN
+cp  src/Sync  /nfs4arm/emrcr3/EMRCV3/BIN/
+cp  src/Sync  ./TCS.Installer/TCS.Installer/Package/Data/EMRCV3/BIN
+cp  src/Sync  ./EMRCV3/BIN
+#cp  src/RemoteView  /nfs4arm/emrcr3/EMRCV3/BIN/
+#cp  src/RemoteView  ./TCS.Installer/TCS.Installer/Package/Data/EMRCV3/BIN
+#cp  src/RemoteView  ./EMRCV3/BIN
+md5sum src/emrc_main 
+md5sum src/Uploader
+md5sum src/Sync
+#md5sum src/RemoteView
+
+

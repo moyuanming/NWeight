@@ -1,0 +1,22 @@
+#!/bin/sh
+BUILDDATE=$(grep BUILDDATA src/global/include/Version.h  | head -n 1 )
+CURRENTDATE=$(date +%y%m%d%H%M )
+sed "s/$BUILDDATE/\#define BUILDDATA \"$CURRENTDATE\"/" src/global/include/Version.h -i
+make
+echo "拷贝已编译文件..."
+cp  src/emrc_main  ./EMRCV4/BIN/   
+cp  src/Uploader  ./EMRCV4/BIN/  
+cp  src/Sync  ./EMRCV4/BIN/  
+echo "更新应用程序"
+cp ./EMRCV4/BIN/  /root/EMRCV4/  -r  
+echo "更新配置文件"
+cp ./EMRCV4/CONFIG/  /root/EMRCV4/  -r  
+#cp ./EMRCV4/PARAMETER/ /root/EMRCV4/  -r  
+echo "校验"
+md5sum src/emrc_main 
+md5sum src/Uploader
+md5sum src/Sync
+#md5sum src/RemoteView
+ 
+
+

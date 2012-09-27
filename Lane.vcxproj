@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{07DFCF86-1BB3-4515-AA24-70DB9F4DD709}</ProjectGuid>
+    <RootNamespace>Lane</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\communication\Emrc_Udp.c" />
+    <ClCompile Include="src\csc_rhy_dll\csc_rhy_dll\3des.c" />
+    <ClCompile Include="src\csc_rhy_dll\csc_rhy_dll\dal_imf.c" />
+    <ClCompile Include="src\csc_rhy_dll\csc_rhy_dll\IcKey.c" />
+    <ClCompile Include="src\csc_rhy_dll\csc_rhy_dll\i_dev_ic.c" />
+    <ClCompile Include="src\csc_rhy_dll\csc_rhy_dll\mac.c" />
+    <ClCompile Include="src\csc_rhy_dll\csc_rhy_dll\MIF_Interface.c" />
+    <ClCompile Include="src\dev\Com\Com.c" />
+    <ClCompile Include="src\dev\IO_BaseIO_State.c" />
+    <ClCompile Include="src\dev\i_dev_KK_print.c" />
+    <ClCompile Include="src\dev\Print\i_dev_KK_printer.c" />
+    <ClCompile Include="src\dev\Print\i_dev_printer.c" />
+    <ClCompile Include="src\dev\Print\i_dev_S303_printer.c" />
+    <ClCompile Include="src\dev\Print\i_dev_TWD_printer.c" />
+    <ClCompile Include="src\dev\s303_printer.c" />
+    <ClCompile Include="src\dev\TFI\i_dev_led.c" />
+    <ClCompile Include="src\dev\TFI\i_dev_TFI_303.c" />
+    <ClCompile Include="src\dev\TFI\i_dev_TFI_HN.c" />
+    <ClCompile Include="src\dev\TFI\i_dev_TFI_KK.c" />
+    <ClCompile Include="src\dev\VideoCaptureImage.c" />
+    <ClCompile Include="src\dev\Weight\wds_protocol.c" />
+    <ClCompile Include="src\dev\Weight\wds_thread.c" />
+    <ClCompile Include="src\dev\Weight\Weight_InterFace.c" />
+    <ClCompile Include="src\global\3des.c" />
+    <ClCompile Include="src\global\carlist.c" />
+    <ClCompile Include="src\global\list.c" />
+    <ClCompile Include="src\global\serial.c" />
+    <ClCompile Include="src\parameter\ConstantTable.c" />
+    <ClCompile Include="src\parameter\FreeCarList.c" />
+    <ClCompile Include="src\SetConifgFile\SetConfigWorkState.c" />
+    <ClCompile Include="src\SQLite\EmrcDBOperator.c" />
+    <ClCompile Include="src\SubProgarm\ClearAndArchiveData.c" />
+    <ClCompile Include="src\SubProgarm\MiniCom.c" />
+    <ClCompile Include="src\sysconfig\AppFunctionConfig.c" />
+    <ClCompile Include="src\sysconfig\include\TTYConfig.h" />
+    <ClCompile Include="src\sysconfig\TTYConfig.c" />
+    <ClCompile Include="src\systemcontext\CardContext.c" />
+    <ClCompile Include="src\systemcontext\CarInfoContext.c" />
+    <ClCompile Include="src\systemcontext\ClearDebtTmp.c" />
+    <ClCompile Include="src\global\common_ic_methods.c" />
+    <ClCompile Include="src\global\common_main.c" />
+    <ClCompile Include="src\sysconfig\CommunctionConfig.c" />
+    <ClCompile Include="src\dev\device.c" />
+    <ClCompile Include="src\systemcontext\DeviceContext.c" />
+    <ClCompile Include="src\communication\EmrcSocket.c" />
+    <ClCompile Include="src\messageBody\ExitBS.c" />
+    <ClCompile Include="src\messageBody\ExitEI.c" />
+    <ClCompile Include="src\messageBody\ExitES.c" />
+    <ClCompile Include="src\messageBody\ExitHt.c" />
+    <ClCompile Include="src\messageBody\ExitTR.c" />
+    <ClCompile Include="src\messageBody\ExitVI.c" />
+    <ClCompile Include="src\systemcontext\FareCalculation.c" />
+    <ClCompile Include="src\systemcontext\FareContext.c" />
+    <ClCompile Include="src\systemcontext\FileContext.c" />
+    <ClCompile Include="src\global\FileOperator.c" />
+    <ClCompile Include="src\global\global.c" />
+    <ClCompile Include="src\dev\i_dev_ic.c" />
+    <ClCompile Include="src\dev\i_dev_ioboard.c" />
+    <ClCompile Include="src\dev\i_dev_keyboard.c" />
+    <ClCompile Include="src\dev\i_dev_led.c" />
+    <ClCompile Include="src\dev\i_dev_main.c" />
+    <ClCompile Include="src\dev\i_dev_printer.c" />
+    <ClCompile Include="src\dev\i_dev_vdm.c" />
+    <ClCompile Include="src\sysconfig\IcKey.c" />
+    <ClCompile Include="src\systemcontext\Image.c" />
+    <ClCompile Include="src\global\imf.c" />
+    <ClCompile Include="src\systemcontext\MethodPayContext.c" />
+    <ClCompile Include="src\systemcontext\WeightContext.c" />
+    <ClCompile Include="src\Test\AutoRunWorkFlow.c" />
+    <ClCompile Include="src\ui\640_480\From_640_480.c" />
+    <ClCompile Include="src\ui\800_600\From_800_600.c" />
+    <ClCompile Include="src\ui\800_600\From_Unit_800_600.c" />
+    <ClCompile Include="src\ui\informationShow.c" />
+    <ClCompile Include="src\ui\ui.c" />
+    <ClCompile Include="src\ui\UI_InterFace.c" />
+    <ClCompile Include="src\workflow\init.c" />
+    <ClCompile Include="src\dev\IO_Board_Test.c" />
+    <ClCompile Include="src\sysconfig\LanConfig.c" />
+    <ClCompile Include="src\systemcontext\LaneContext.c" />
+    <ClCompile Include="src\messageBody\LaneInfo.c" />
+    <ClCompile Include="src\logc\LogC.c" />
+    <ClCompile Include="src\SubProgarm\LsFile.c" />
+    <ClCompile Include="src\global\mac.c" />
+    <ClCompile Include="src\dev\MemSyncFile.c" />
+    <ClCompile Include="src\communication\MessageBuild.c" />
+    <ClCompile Include="src\communication\MessageHandl.c" />
+    <ClCompile Include="src\dev\MIF_Interface.c" />
+    <ClCompile Include="src\ui\mmi.c" />
+    <ClCompile Include="src\messageBody\MsgAK.c" />
+    <ClCompile Include="src\messageBody\MsgEI.c" />
+    <ClCompile Include="src\messageBody\MsgEM.c" />
+    <ClCompile Include="src\messageBody\MsgGR.c" />
+    <ClCompile Include="src\messageBody\MsgInfo.c" />
+    <ClCompile Include="src\messageBody\MsgOF.c" />
+    <ClCompile Include="src\messageBody\MsgRevsion.c" />
+    <ClCompile Include="src\parameter\ParameterCarClass.c" />
+    <ClCompile Include="src\parameter\parameterCarKind.c" />
+    <ClCompile Include="src\parameter\ParameterCollect.c" />
+    <ClCompile Include="src\parameter\ParameterFareList.c" />
+    <ClCompile Include="src\sysconfig\ParameterFileList.c" />
+    <ClCompile Include="src\parameter\ParameterLaneNo.c" />
+    <ClCompile Include="src\parameter\ParameterPlaza.c" />
+    <ClCompile Include="src\parameter\ParameterStaff.c" />
+    <ClCompile Include="src\parameter\ParameterTable.c" />
+    <ClCompile Include="src\parameter\ParameterYHKList.c" />
+    <ClCompile Include="src\parameter\ParameterYHRateDescription.c" />
+    <ClCompile Include="src\parameter\ParameterYPKList.c" />
+    <ClCompile Include="src\dev\printer.c" />
+    <ClCompile Include="src\communication\RecvMessageDataHandl.c" />
+    <ClCompile Include="src\messageBody\SendMsg.c" />
+    <ClCompile Include="src\workflow\setWorkState.c" />
+    <ClCompile Include="src\SubProgarm\Smartupdata.c" />
+    <ClCompile Include="src\SubProgarm\SmartUpdate.c" />
+    <ClCompile Include="src\dev\sound.c" />
+    <ClCompile Include="src\workflow\st_main.c" />
+    <ClCompile Include="src\parameter\SVRCardList.c" />
+    <ClCompile Include="src\systemcontext\SwitchContext.c" />
+    <ClCompile Include="src\SubProgarm\Sync.c" />
+    <ClCompile Include="src\systemcontext\systemContext.c" />
+    <ClCompile Include="src\communication\Udp.c" />
+    <ClCompile Include="src\SubProgarm\Uploader.c" />
+    <ClCompile Include="src\systemcontext\UserContext.c" />
+    <ClCompile Include="src\workflow\wf_ic.c" />
+    <ClCompile Include="src\workflow\wf_ioboard.c" />
+    <ClCompile Include="src\workflow\wf_printer.c" />
+    <ClCompile Include="src\workflow\workstate_Driver.c" />
+    <ClCompile Include="src\workflow\workstate_ic.c" />
+    <ClCompile Include="src\workflow\workstate_Login_Logout.c" />
+    <ClCompile Include="src\workflow\workstate_Lstdnyc.c" />
+    <ClCompile Include="src\workflow\workstate_main.c" />
+    <ClCompile Include="src\workflow\workstate_Month_Abate.c" />
+    <ClCompile Include="src\workflow\workstate_peccancy.c" />
+    <ClCompile Include="src\workflow\workstate_QianKuan.c" />
+    <ClCompile Include="src\workflow\workstate_simulate.c" />
+    <ClCompile Include="src\workflow\workstate_simulate_first.c" />
+    <ClCompile Include="src\workflow\workstate_simulate_second.c" />
+    <ClCompile Include="src\workflow\workstate_team.c" />
+    <ClCompile Include="src\workflow\workstate_test.c" />
+    <ClCompile Include="src\workflow\workstate_Urgent.c" />
+    <ClCompile Include="src\workflow\workstate_WeightMenu.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\communication\include\Emrc_Udp.h" />
+    <ClInclude Include="src\csc_rhy_dll\csc_rhy_dll\3des.h" />
+    <ClInclude Include="src\csc_rhy_dll\csc_rhy_dll\dal_imf.h" />
+    <ClInclude Include="src\csc_rhy_dll\csc_rhy_dll\IcKey.h" />
+    <ClInclude Include="src\csc_rhy_dll\csc_rhy_dll\i_dev_ic.h" />
+    <ClInclude Include="src\csc_rhy_dll\csc_rhy_dll\linux_include.h" />
+    <ClInclude Include="src\csc_rhy_dll\csc_rhy_dll\LocalIncludeFile.h" />
+    <ClInclude Include="src\csc_rhy_dll\csc_rhy_dll\mac.h" />
+    <ClInclude Include="src\csc_rhy_dll\csc_rhy_dll\MIF_Interface.h" />
+    <ClInclude Include="src\dev\include\i_dev_TFI_303.h" />
+    <ClInclude Include="src\dev\include\i_dev_TFI_HN.h" />
+    <ClInclude Include="src\dev\include\i_dev_TFI_KK.h" />
+    <ClInclude Include="src\dev\include\VideoCaptureImage.h" />
+    <ClInclude Include="src\dev\include\wds_protocol.h" />
+    <ClInclude Include="src\dev\include\wds_thread.h" />
+    <ClInclude Include="src\dev\Print\include\i_dev_KK_printer.h" />
+    <ClInclude Include="src\dev\Print\include\i_dev_S303_printer.h" />
+    <ClInclude Include="src\dev\Print\include\i_dev_TWD_printer.h" />
+    <ClInclude Include="src\dev\Weight\include\Weight_InterFace.h" />
+    <ClInclude Include="src\global\include\3des.h" />
+    <ClInclude Include="src\global\include\carlist.h" />
+    <ClInclude Include="src\global\include\list.h" />
+    <ClInclude Include="src\global\include\mac.h" />
+    <ClInclude Include="src\global\include\serial.h" />
+    <ClInclude Include="src\global\include\Version.h" />
+    <ClInclude Include="src\parameter\include\ConstantTable.h" />
+    <ClInclude Include="src\parameter\include\FreeCarList.h" />
+    <ClInclude Include="src\RemoteControl\include\RemoteControl.h" />
+    <ClInclude Include="src\RemoteControl\include\UdpBase.h" />
+    <ClInclude Include="src\SetConifgFile\include\SetConfigWorkState.h" />
+    <ClInclude Include="src\SQLite\include\EmrcDBOperator.h" />
+    <ClInclude Include="src\SQLite\include\sqlite3.h" />
+    <ClInclude Include="src\sysconfig\include\AppFunctionConfig.h" />
+    <ClInclude Include="src\sysconfig\include\AppUseFilePathAndName.h" />
+    <ClInclude Include="src\systemcontext\include\CardContext.h" />
+    <ClInclude Include="src\systemcontext\include\CarInfoContext.h" />
+    <ClInclude Include="src\global\include\common_ic_methods.h" />
+    <ClInclude Include="src\global\include\common_main.h" />
+    <ClInclude Include="src\sysconfig\include\CommunctionConfig.h" />
+    <ClInclude Include="src\dev\include\DevCommunicationState.h" />
+    <ClInclude Include="src\dev\include\device.h" />
+    <ClInclude Include="src\systemcontext\include\DeviceContext.h" />
+    <ClInclude Include="src\communication\include\EmrcSocket.h" />
+    <ClInclude Include="src\systemcontext\include\FareCalculation.h" />
+    <ClInclude Include="src\systemcontext\include\FareContext.h" />
+    <ClInclude Include="src\systemcontext\include\MethodPayContext.h" />
+    <ClInclude Include="src\systemcontext\include\WeightContext.h" />
+    <ClInclude Include="src\ui\640_480\include\640_480.h" />
+    <ClInclude Include="src\ui\640_480\include\From_640_480.h" />
+    <ClInclude Include="src\ui\800_600\include\800_600.h" />
+    <ClInclude Include="src\ui\800_600\include\From_800_600.h" />
+    <ClInclude Include="src\ui\include\emrcver.h" />
+    <ClInclude Include="src\messageBody\include\ExitBS.h" />
+    <ClInclude Include="src\messageBody\include\ExitEI.h" />
+    <ClInclude Include="src\messageBody\include\ExitES.h" />
+    <ClInclude Include="src\messageBody\include\ExitHt.h" />
+    <ClInclude Include="src\messageBody\include\ExitTR.h" />
+    <ClInclude Include="src\messageBody\include\ExitVI.h" />
+    <ClInclude Include="src\systemcontext\include\FileContext.h" />
+    <ClInclude Include="src\global\include\global.h" />
+    <ClInclude Include="src\dev\include\i_dev_ic.h" />
+    <ClInclude Include="src\dev\include\i_dev_ioboard.h" />
+    <ClInclude Include="src\dev\include\i_dev_keyboard.h" />
+    <ClInclude Include="src\sysconfig\include\IcKey.h" />
+    <ClInclude Include="src\systemcontext\include\Image.h" />
+    <ClInclude Include="src\global\include\imf.h" />
+    <ClInclude Include="src\ui\include\informationShow.h" />
+    <ClInclude Include="src\ui\include\queue.h" />
+    <ClInclude Include="src\ui\include\ui.h" />
+    <ClInclude Include="src\ui\include\UI_InterFace.h" />
+    <ClInclude Include="src\ui\include\UI_Macro.h" />
+    <ClInclude Include="src\workflow\include\init.h" />
+    <ClInclude Include="src\dev\include\IO_Board_Test.h" />
+    <ClInclude Include="src\dev\include\keyboard.h" />
+    <ClInclude Include="src\sysconfig\include\LanConfig.h" />
+    <ClInclude Include="src\systemcontext\include\LaneContext.h" />
+    <ClInclude Include="src\messageBody\include\LaneInfo.h" />
+    <ClInclude Include="src\global\include\linux_include.h" />
+    <ClInclude Include="src\global\include\LocalIncludeFile.h" />
+    <ClInclude Include="src\logc\include\LogC.h" />
+    <ClInclude Include="src\dev\include\MemSyncFile.h" />
+    <ClInclude Include="src\communication\include\MessageBuild.h" />
+    <ClInclude Include="src\communication\include\MessageDef.h" />
+    <ClInclude Include="src\communication\include\MessageHandl.h" />
+    <ClInclude Include="src\dev\include\MIF_Interface.h" />
+    <ClInclude Include="src\ui\include\mmi.h" />
+    <ClInclude Include="src\messageBody\include\MsgAK.h" />
+    <ClInclude Include="src\messageBody\include\MsgEI.h" />
+    <ClInclude Include="src\messageBody\include\MsgEM.h" />
+    <ClInclude Include="src\messageBody\include\MsgGR.h" />
+    <ClInclude Include="src\messageBody\include\MsgInfo.h" />
+    <ClInclude Include="src\messageBody\include\MsgOF.h" />
+    <ClInclude Include="src\messageBody\include\MsgRevsion.h" />
+    <ClInclude Include="src\parameter\include\ParameterCarClass.h" />
+    <ClInclude Include="src\parameter\include\parameterCarKind.h" />
+    <ClInclude Include="src\parameter\include\ParameterCollect.h" />
+    <ClInclude Include="src\parameter\include\ParameterFareList.h" />
+    <ClInclude Include="src\sysconfig\include\ParameterFileList.h" />
+    <ClInclude Include="src\parameter\include\ParameterLaneNo.h" />
+    <ClInclude Include="src\parameter\include\ParameterPlaza.h" />
+    <ClInclude Include="src\parameter\include\ParameterStaff.h" />
+    <ClInclude Include="src\parameter\include\ParameterTable.h" />
+    <ClInclude Include="src\parameter\include\ParameterYHKList.h" />
+    <ClInclude Include="src\parameter\include\ParameterYHRateDescription.h" />
+    <ClInclude Include="src\parameter\include\ParameterYPKList.h" />
+    <ClInclude Include="src\paramtest.h" />
+    <ClInclude Include="src\dev\include\printer.h" />
+    <ClInclude Include="src\communication\include\RecvMessageDataHandl.h" />
+    <ClInclude Include="src\msgQueueToFile\include\SaveMsg.h" />
+    <ClInclude Include="src\messageBody\include\SendMsg.h" />
+    <ClInclude Include="src\workflow\include\setWorkState.h" />
+    <ClInclude Include="src\dev\include\sound.h" />
+    <ClInclude Include="src\workflow\include\st_main.h" />
+    <ClInclude Include="src\parameter\include\SVRCardList.h" />
+    <ClInclude Include="src\systemcontext\include\SwitchContext.h" />
+    <ClInclude Include="src\systemcontext\include\systemContext.h" />
+    <ClInclude Include="src\communication\include\Udp.h" />
+    <ClInclude Include="src\systemcontext\include\UserContext.h" />
+    <ClInclude Include="src\workflow\include\wf_printer.h" />
+    <ClInclude Include="src\workflow\include\workState.h" />
+    <ClInclude Include="src\workflow\include\workstate_Lstdnyc.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileCompilerC="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileCompilerCXX="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileRM="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileMKDIR="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileIntDir="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileDestDir="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileCFLAGS="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileCXXFLAGS="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strMakefileLDFLAGS="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteBuildCommand="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteRebuildCommand="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteCleanCommand="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteDeployCommand="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathRemoteBuildDirectory="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteBuildVariables="" WinGDB_qVB57QUOT0lynJh0o1aKEg_bDeployBeforeStartDebugging="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_bDeployOnlyIfFileChanged="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathDeployFile="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathDeployTargetDirectory="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteSolutionBuildCommand="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteSolutionRebuildCommand="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteSolutionCleanCommand="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteSolutionDeployCommand="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathRemoteSolutionBuildDirectory="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strRemoteSolutionBuildVariables="" WinGDB_qVB57QUOT0lynJh0o1aKEg_bSolutionDeployOnlyIfFileChanged="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathSolutionDeployFile="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathSolutionDeployTargetDirectory="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathCore="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathWorkingDirectory="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strLaunchArguments="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strLaunchEnvironment="" WinGDB_qVB57QUOT0lynJh0o1aKEg_bStopInMain="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_strTarget="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathLoadProgramPath="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathExecutableOnTarget="" WinGDB_qVB57QUOT0lynJh0o1aKEg_bServerAutoLaunch="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_bUseSysroot="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathDynamicLinker="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathServerLibraryPaths="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathServerPath="" WinGDB_qVB57QUOT0lynJh0o1aKEg_bServerPortIsForwarded="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathExecutable="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathCustomPreLoadInitScript="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathCustomInitScript="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathCustomCondPreLoadInitScript="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathCondCustomInitScript="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strAdditionalDebuggerOptions="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathSourceDirectories="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathDebugInfoDirectory="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathSysrootOnHost="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathSysrootOnTarget="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathSharedLibraryDirectories="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strVisualizerProfile="" WinGDB_qVB57QUOT0lynJh0o1aKEg_bSourceSession="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_bDisableHangReporter="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_bUseProtoCtl="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathProtoCtlLogFile="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathDebugger="" WinGDB_qVB57QUOT0lynJh0o1aKEg_pathToolchain="" WinGDB_qVB57QUOT0lynJh0o1aKEg_bReuseStandardBuildCommand="false" WinGDB_qVB57QUOT0lynJh0o1aKEg_strDebugHostLogin="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strBuildHostLogin="" WinGDB_qVB57QUOT0lynJh0o1aKEg_strDebugTargetLogin="" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

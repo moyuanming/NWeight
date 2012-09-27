@@ -1,0 +1,552 @@
+<!DOCTYPE Project SYSTEM "http://www.slickedit.com/dtd/vse/10.0/vpj.dtd">
+<Project
+	Version="10.0"
+	VendorName="SlickEdit"
+	TemplateName="GNU C/C++"
+	WorkingDir="."
+	BuildSystem="vsbuild">
+	<Config
+		Name="Debug"
+		Type="gnuc"
+		DebugCallbackName="gdb"
+		Version="1"
+		OutputFile="%bdKTLane"
+		CompilerConfigName="Latest Version">
+		<Menu>
+			<Target
+				Name="Compile"
+				MenuCaption="&amp;Compile"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				OutputExts="*.o"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='gcc -c %xup  %defd -g -o "%bd%n%oe" %i "%f"'/>
+			</Target>
+			<Target
+				Name="Link"
+				MenuCaption="&amp;Link"
+				ShowOnMenu="Never"
+				Dialog="_gnuc_options_form Link"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='gcc %xup -g -o "%o" %f %libs'/>
+			</Target>
+			<Target
+				Name="Build"
+				MenuCaption="&amp;Build"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t build'/>
+			</Target>
+			<Target
+				Name="Rebuild"
+				MenuCaption="&amp;Rebuild"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t rebuild'/>
+			</Target>
+			<Target
+				Name="Debug"
+				MenuCaption="&amp;Debug"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveNone"
+				RunFromDir="%rw">
+				<Exec CmdLine='vsdebugio -prog "%o"'/>
+			</Target>
+			<Target
+				Name="Execute"
+				MenuCaption="E&amp;xecute"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%o"'/>
+			</Target>
+			<Target
+				Name="dash"
+				MenuCaption="-"
+				Deletable="0">
+				<Exec/>
+			</Target>
+			<Target
+				Name="GNU C Options"
+				MenuCaption="GNU C &amp;Options..."
+				ShowOnMenu="HideIfNoCmdLine"
+				Deletable="0"
+				SaveOption="SaveNone">
+				<Exec
+					CmdLine="gnucoptions"
+					Type="Slick-C"/>
+			</Target>
+		</Menu>
+		<List Name="GNUC Options">
+			<Item
+				Name="LinkerOutputType"
+				Value="Executable"/>
+		</List>
+	</Config>
+	<Config
+		Name="Release"
+		Type="gnuc"
+		DebugCallbackName="gdb"
+		Version="1"
+		OutputFile="%bdKTLane"
+		CompilerConfigName="Latest Version">
+		<Menu>
+			<Target
+				Name="Compile"
+				MenuCaption="&amp;Compile"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				OutputExts="*.o"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='gcc -c %xup %defd -o "%bd%n%oe" %i "%f"'/>
+			</Target>
+			<Target
+				Name="Link"
+				MenuCaption="&amp;Link"
+				ShowOnMenu="Never"
+				Dialog="_gnuc_options_form Link"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='gcc %xup -o "%o" %f %libs'/>
+			</Target>
+			<Target
+				Name="Build"
+				MenuCaption="&amp;Build"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t build'/>
+			</Target>
+			<Target
+				Name="Rebuild"
+				MenuCaption="&amp;Rebuild"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t rebuild'/>
+			</Target>
+			<Target
+				Name="Debug"
+				MenuCaption="&amp;Debug"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveNone"
+				RunFromDir="%rw">
+				<Exec CmdLine='vsdebugio -prog "%o"'/>
+			</Target>
+			<Target
+				Name="Execute"
+				MenuCaption="E&amp;xecute"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%o"'/>
+			</Target>
+			<Target
+				Name="dash"
+				MenuCaption="-"
+				Deletable="0">
+				<Exec/>
+			</Target>
+			<Target
+				Name="GNU C Options"
+				MenuCaption="GNU C &amp;Options..."
+				ShowOnMenu="HideIfNoCmdLine"
+				Deletable="0"
+				SaveOption="SaveNone">
+				<Exec
+					CmdLine="gnucoptions"
+					Type="Slick-C"/>
+			</Target>
+		</Menu>
+		<List Name="GNUC Options">
+			<Item
+				Name="LinkerOutputType"
+				Value="Executable"/>
+		</List>
+	</Config>
+	<CustomFolders>
+		<Folder
+			Name="Source Files"
+			Filters="*.c;*.C;*.cc;*.cpp;*.cp;*.cxx;*.c++;*.prg;*.pas;*.dpr;*.asm;*.s;*.bas;*.java;*.cs;*.sc;*.e;*.cob;*.html;*.rc;*.tcl;*.py;*.pl;*.d;*.m;*.mm">
+		</Folder>
+		<Folder
+			Name="Header Files"
+			Filters="*.h;*.H;*.hh;*.hpp;*.hxx;*.inc;*.sh;*.cpy;*.if">
+		</Folder>
+		<Folder
+			Name="Resource Files"
+			Filters="*.ico;*.cur;*.dlg"/>
+		<Folder
+			Name="Bitmaps"
+			Filters="*.bmp"/>
+		<Folder
+			Name="Other Files"
+			Filters="">
+		</Folder>
+	</CustomFolders>
+	<Files AutoFolders="DirectoryView">
+		<Folder Name="src">
+			<Folder Name="communication">
+				<Folder Name="include">
+					<F N="src/communication/include/Emrc_Udp.h"/>
+					<F N="src/communication/include/EmrcSocket.h"/>
+					<F N="src/communication/include/MessageBuild.h"/>
+					<F N="src/communication/include/MessageDef.h"/>
+					<F N="src/communication/include/MessageHandl.h"/>
+					<F N="src/communication/include/RecvMessageDataHandl.h"/>
+					<F N="src/communication/include/Udp.h"/>
+				</Folder>
+				<F N="src/communication/Emrc_Udp.c"/>
+				<F N="src/communication/EmrcSocket.c"/>
+				<F N="src/communication/MessageBuild.c"/>
+				<F N="src/communication/MessageHandl.c"/>
+				<F N="src/communication/RecvMessageDataHandl.c"/>
+				<F N="src/communication/Udp.c"/>
+			</Folder>
+			<Folder Name="csc_rhy_dll">
+				<Folder Name="csc_rhy_dll">
+					<F N="src/csc_rhy_dll/csc_rhy_dll/3des.c"/>
+					<F N="src/csc_rhy_dll/csc_rhy_dll/3des.h"/>
+					<F N="src/csc_rhy_dll/csc_rhy_dll/dal_imf.c"/>
+					<F N="src/csc_rhy_dll/csc_rhy_dll/dal_imf.h"/>
+					<F N="src/csc_rhy_dll/csc_rhy_dll/i_dev_ic.c"/>
+					<F N="src/csc_rhy_dll/csc_rhy_dll/i_dev_ic.h"/>
+					<F N="src/csc_rhy_dll/csc_rhy_dll/IcKey.c"/>
+					<F N="src/csc_rhy_dll/csc_rhy_dll/IcKey.h"/>
+					<F N="src/csc_rhy_dll/csc_rhy_dll/linux_include.h"/>
+					<F N="src/csc_rhy_dll/csc_rhy_dll/LocalIncludeFile.h"/>
+					<F N="src/csc_rhy_dll/csc_rhy_dll/mac.c"/>
+					<F N="src/csc_rhy_dll/csc_rhy_dll/mac.h"/>
+					<F N="src/csc_rhy_dll/csc_rhy_dll/MIF_Interface.c"/>
+					<F N="src/csc_rhy_dll/csc_rhy_dll/MIF_Interface.h"/>
+				</Folder>
+			</Folder>
+			<Folder Name="dev">
+				<Folder Name="Com">
+					<F N="src/dev/Com/Com.c"/>
+				</Folder>
+				<Folder Name="include">
+					<F N="src/dev/include/device.h"/>
+					<F N="src/dev/include/i_dev_ic.h"/>
+					<F N="src/dev/include/i_dev_ioboard.h"/>
+					<F N="src/dev/include/i_dev_keyboard.h"/>
+					<F N="src/dev/include/i_dev_TFI_303.h"/>
+					<F N="src/dev/include/i_dev_TFI_HN.h"/>
+					<F N="src/dev/include/i_dev_TFI_KK.h"/>
+					<F N="src/dev/include/MemSyncFile.h"/>
+					<F N="src/dev/include/MIF_Interface.h"/>
+					<F N="src/dev/include/VideoCaptureImage.h"/>
+					<F N="src/dev/include/wds_protocol.h"/>
+					<F N="src/dev/include/wds_thread.h"/>
+				</Folder>
+				<Folder Name="Print">
+					<Folder Name="include">
+						<F N="src/dev/Print/include/i_dev_KK_printer.h"/>
+						<F N="src/dev/Print/include/i_dev_S303_printer.h"/>
+						<F N="src/dev/Print/include/i_dev_TWD_printer.h"/>
+					</Folder>
+					<F N="src/dev/Print/i_dev_KK_printer.c"/>
+					<F N="src/dev/Print/i_dev_printer.c"/>
+					<F N="src/dev/Print/i_dev_S303_printer.c"/>
+					<F N="src/dev/Print/i_dev_TWD_printer.c"/>
+				</Folder>
+				<Folder Name="TFI">
+					<F N="src/dev/TFI/i_dev_led.c"/>
+					<F N="src/dev/TFI/i_dev_TFI_303.c"/>
+					<F N="src/dev/TFI/i_dev_TFI_HN.c"/>
+					<F N="src/dev/TFI/i_dev_TFI_KK.c"/>
+				</Folder>
+				<Folder Name="Weight">
+					<Folder Name="include">
+						<F N="src/dev/Weight/include/Weight_InterFace.h"/>
+					</Folder>
+					<F N="src/dev/Weight/wds_protocol.c"/>
+					<F N="src/dev/Weight/wds_thread.c"/>
+					<F N="src/dev/Weight/Weight_InterFace.c"/>
+				</Folder>
+				<F N="src/dev/device.c"/>
+				<F N="src/dev/i_dev_ic.c"/>
+				<F N="src/dev/i_dev_ioboard.c"/>
+				<F N="src/dev/i_dev_keyboard.c"/>
+				<F N="src/dev/i_dev_vdm.c"/>
+				<F N="src/dev/IO_BaseIO_State.c"/>
+				<F N="src/dev/MemSyncFile.c"/>
+				<F N="src/dev/MIF_Interface.c"/>
+				<F N="src/dev/VideoCaptureImage.c"/>
+			</Folder>
+			<Folder Name="global">
+				<Folder Name="include">
+					<F N="src/global/include/3des.h"/>
+					<F N="src/global/include/carlist.h"/>
+					<F N="src/global/include/common_ic_methods.h"/>
+					<F N="src/global/include/common_main.h"/>
+					<F N="src/global/include/global.h"/>
+					<F N="src/global/include/imf.h"/>
+					<F N="src/global/include/linux_include.h"/>
+					<F N="src/global/include/list.h"/>
+					<F N="src/global/include/LocalIncludeFile.h"/>
+					<F N="src/global/include/mac.h"/>
+					<F N="src/global/include/serial.h"/>
+					<F N="src/global/include/Version.h"/>
+				</Folder>
+				<F N="src/global/3des.c"/>
+				<F N="src/global/carlist.c"/>
+				<F N="src/global/common_ic_methods.c"/>
+				<F N="src/global/common_main.c"/>
+				<F N="src/global/FileOperator.c"/>
+				<F N="src/global/global.c"/>
+				<F N="src/global/imf.c"/>
+				<F N="src/global/list.c"/>
+				<F N="src/global/mac.c"/>
+				<F N="src/global/serial.c"/>
+			</Folder>
+			<Folder Name="logc">
+				<Folder Name="include">
+					<F N="src/logc/include/LogC.h"/>
+				</Folder>
+				<F N="src/logc/LogC.c"/>
+			</Folder>
+			<Folder Name="messageBody">
+				<Folder Name="include">
+					<F N="src/messageBody/include/ExitBS.h"/>
+					<F N="src/messageBody/include/ExitEI.h"/>
+					<F N="src/messageBody/include/ExitES.h"/>
+					<F N="src/messageBody/include/ExitHt.h"/>
+					<F N="src/messageBody/include/ExitTR.h"/>
+					<F N="src/messageBody/include/ExitVI.h"/>
+					<F N="src/messageBody/include/LaneInfo.h"/>
+					<F N="src/messageBody/include/MsgAK.h"/>
+					<F N="src/messageBody/include/MsgEI.h"/>
+					<F N="src/messageBody/include/MsgEM.h"/>
+					<F N="src/messageBody/include/MsgGR.h"/>
+					<F N="src/messageBody/include/MsgInfo.h"/>
+					<F N="src/messageBody/include/MsgOF.h"/>
+					<F N="src/messageBody/include/MsgRevsion.h"/>
+					<F N="src/messageBody/include/SendMsg.h"/>
+					<F N="src/messageBody/include/TrafficStat.h"/>
+				</Folder>
+				<F N="src/messageBody/ExitBS.c"/>
+				<F N="src/messageBody/ExitEI.c"/>
+				<F N="src/messageBody/ExitES.c"/>
+				<F N="src/messageBody/ExitHt.c"/>
+				<F N="src/messageBody/ExitTR.c"/>
+				<F N="src/messageBody/ExitVI.c"/>
+				<F N="src/messageBody/LaneInfo.c"/>
+				<F N="src/messageBody/MsgAK.c"/>
+				<F N="src/messageBody/MsgEI.c"/>
+				<F N="src/messageBody/MsgEM.c"/>
+				<F N="src/messageBody/MsgGR.c"/>
+				<F N="src/messageBody/MsgInfo.c"/>
+				<F N="src/messageBody/MsgOF.c"/>
+				<F N="src/messageBody/MsgRevsion.c"/>
+				<F N="src/messageBody/SendMsg.c"/>
+			</Folder>
+			<Folder Name="msgQueueToFile">
+				<Folder Name="include">
+					<F N="src/msgQueueToFile/include/SaveMsg.h"/>
+				</Folder>
+			</Folder>
+			<Folder Name="parameter">
+				<Folder Name="include">
+					<F N="src/parameter/include/ConstantTable.h"/>
+					<F N="src/parameter/include/FreeCarList.h"/>
+					<F N="src/parameter/include/ParameterCarClass.h"/>
+					<F N="src/parameter/include/parameterCarKind.h"/>
+					<F N="src/parameter/include/ParameterCollect.h"/>
+					<F N="src/parameter/include/ParameterFareList.h"/>
+					<F N="src/parameter/include/ParameterLaneNo.h"/>
+					<F N="src/parameter/include/ParameterPlaza.h"/>
+					<F N="src/parameter/include/ParameterStaff.h"/>
+					<F N="src/parameter/include/ParameterTable.h"/>
+					<F N="src/parameter/include/ParameterYHKList.h"/>
+					<F N="src/parameter/include/ParameterYHRateDescription.h"/>
+					<F N="src/parameter/include/ParameterYPKList.h"/>
+					<F N="src/parameter/include/SVRCardList.h"/>
+				</Folder>
+				<F N="src/parameter/ConstantTable.c"/>
+				<F N="src/parameter/FreeCarList.c"/>
+				<F N="src/parameter/ParameterCarClass.c"/>
+				<F N="src/parameter/parameterCarKind.c"/>
+				<F N="src/parameter/ParameterCollect.c"/>
+				<F N="src/parameter/ParameterFareList.c"/>
+				<F N="src/parameter/ParameterLaneNo.c"/>
+				<F N="src/parameter/ParameterPlaza.c"/>
+				<F N="src/parameter/ParameterStaff.c"/>
+				<F N="src/parameter/ParameterTable.c"/>
+				<F N="src/parameter/ParameterYHKList.c"/>
+				<F N="src/parameter/ParameterYHRateDescription.c"/>
+				<F N="src/parameter/ParameterYPKList.c"/>
+				<F N="src/parameter/SVRCardList.c"/>
+			</Folder>
+			<Folder Name="RemoteControl">
+				<Folder Name="include">
+					<F N="src/RemoteControl/include/RemoteControl.h"/>
+					<F N="src/RemoteControl/include/UdpBase.h"/>
+				</Folder>
+			</Folder>
+			<Folder Name="SetConifgFile">
+				<Folder Name="include">
+					<F N="src/SetConifgFile/include/SetConfigWorkState.h"/>
+				</Folder>
+				<F N="src/SetConifgFile/SetConfigWorkState.c"/>
+			</Folder>
+			<Folder Name="SQLite">
+				<Folder Name="include">
+					<F N="src/SQLite/include/EmrcDBOperator.h"/>
+					<F N="src/SQLite/include/sqlite3.h"/>
+				</Folder>
+				<F N="src/SQLite/EmrcDBOperator.c"/>
+			</Folder>
+			<Folder Name="SubProgarm">
+				<F N="src/SubProgarm/ClearAndArchiveData.c"/>
+				<F N="src/SubProgarm/LsFile.c"/>
+				<F N="src/SubProgarm/MiniCom.c"/>
+				<F N="src/SubProgarm/SmartUpdate.c"/>
+				<F N="src/SubProgarm/Sync.c"/>
+				<F N="src/SubProgarm/Uploader.c"/>
+			</Folder>
+			<Folder Name="sysconfig">
+				<Folder Name="include">
+					<F N="src/sysconfig/include/AppFunctionConfig.h"/>
+					<F N="src/sysconfig/include/AppUseFilePathAndName.h"/>
+					<F N="src/sysconfig/include/CommunctionConfig.h"/>
+					<F N="src/sysconfig/include/IcKey.h"/>
+					<F N="src/sysconfig/include/LanConfig.h"/>
+					<F N="src/sysconfig/include/ParameterFileList.h"/>
+					<F N="src/sysconfig/include/TTYConfig.h"/>
+				</Folder>
+				<F N="src/sysconfig/AppFunctionConfig.c"/>
+				<F N="src/sysconfig/CommunctionConfig.c"/>
+				<F N="src/sysconfig/IcKey.c"/>
+				<F N="src/sysconfig/LanConfig.c"/>
+				<F N="src/sysconfig/ParameterFileList.c"/>
+				<F N="src/sysconfig/TTYConfig.c"/>
+			</Folder>
+			<Folder Name="systemcontext">
+				<Folder Name="include">
+					<F N="src/systemcontext/include/CardContext.h"/>
+					<F N="src/systemcontext/include/CarInfoContext.h"/>
+					<F N="src/systemcontext/include/DeviceContext.h"/>
+					<F N="src/systemcontext/include/FareCalculation.h"/>
+					<F N="src/systemcontext/include/FareContext.h"/>
+					<F N="src/systemcontext/include/FileContext.h"/>
+					<F N="src/systemcontext/include/Image.h"/>
+					<F N="src/systemcontext/include/LaneContext.h"/>
+					<F N="src/systemcontext/include/MethodPayContext.h"/>
+					<F N="src/systemcontext/include/SwitchContext.h"/>
+					<F N="src/systemcontext/include/systemContext.h"/>
+					<F N="src/systemcontext/include/UserContext.h"/>
+					<F N="src/systemcontext/include/WeightContext.h"/>
+				</Folder>
+				<F N="src/systemcontext/CardContext.c"/>
+				<F N="src/systemcontext/CarInfoContext.c"/>
+				<F N="src/systemcontext/ClearDebtTmp.c"/>
+				<F N="src/systemcontext/DeviceContext.c"/>
+				<F N="src/systemcontext/FareCalculation.c"/>
+				<F N="src/systemcontext/FareContext.c"/>
+				<F N="src/systemcontext/FileContext.c"/>
+				<F N="src/systemcontext/Image.c"/>
+				<F N="src/systemcontext/LaneContext.c"/>
+				<F N="src/systemcontext/MethodPayContext.c"/>
+				<F N="src/systemcontext/SwitchContext.c"/>
+				<F N="src/systemcontext/systemContext.c"/>
+				<F N="src/systemcontext/UserContext.c"/>
+				<F N="src/systemcontext/WeightContext.c"/>
+			</Folder>
+			<Folder Name="Test">
+				<F N="src/Test/AutoRunWorkFlow.c"/>
+			</Folder>
+			<Folder Name="ui">
+				<Folder Name="640_480">
+					<Folder Name="include">
+						<F N="src/ui/640_480/include/640_480.h"/>
+						<F N="src/ui/640_480/include/From_640_480.h"/>
+					</Folder>
+					<F N="src/ui/640_480/From_640_480.c"/>
+				</Folder>
+				<Folder Name="800_600">
+					<Folder Name="include">
+						<F N="src/ui/800_600/include/800_600.h"/>
+						<F N="src/ui/800_600/include/From_800_600.h"/>
+					</Folder>
+					<F N="src/ui/800_600/From_800_600.c"/>
+					<F N="src/ui/800_600/From_Unit_800_600.c"/>
+				</Folder>
+				<Folder Name="include">
+					<F N="src/ui/include/emrcver.h"/>
+					<F N="src/ui/include/ui.h"/>
+					<F N="src/ui/include/UI_InterFace.h"/>
+					<F N="src/ui/include/UI_Macro.h"/>
+				</Folder>
+				<F N="src/ui/ui.c"/>
+				<F N="src/ui/UI_InterFace.c"/>
+			</Folder>
+			<Folder Name="workflow">
+				<Folder Name="include">
+					<F N="src/workflow/include/init.h"/>
+					<F N="src/workflow/include/setWorkState.h"/>
+					<F N="src/workflow/include/st_main.h"/>
+					<F N="src/workflow/include/wf_printer.h"/>
+					<F N="src/workflow/include/workState.h"/>
+					<F N="src/workflow/include/workstate_Lstdnyc.h"/>
+				</Folder>
+				<F N="src/workflow/init.c"/>
+				<F N="src/workflow/setWorkState.c"/>
+				<F N="src/workflow/st_main.c"/>
+				<F N="src/workflow/wf_ic.c"/>
+				<F N="src/workflow/wf_ioboard.c"/>
+				<F N="src/workflow/wf_printer.c"/>
+				<F N="src/workflow/workstate_Driver.c"/>
+				<F N="src/workflow/workstate_ic.c"/>
+				<F N="src/workflow/workstate_Login_Logout.c"/>
+				<F N="src/workflow/workstate_Lstdnyc.c"/>
+				<F N="src/workflow/workstate_main.c"/>
+				<F N="src/workflow/workstate_Month_Abate.c"/>
+				<F N="src/workflow/workstate_peccancy.c"/>
+				<F N="src/workflow/workstate_QianKuan.c"/>
+				<F N="src/workflow/workstate_simulate_first.c"/>
+				<F N="src/workflow/workstate_simulate_second.c"/>
+				<F N="src/workflow/workstate_test.c"/>
+				<F N="src/workflow/workstate_Urgent.c"/>
+				<F N="src/workflow/workstate_WeightMenu.c"/>
+			</Folder>
+			<F
+				N="src/Makefile.am"
+				Type="Makefile"/>
+		</Folder>
+		<F
+			N="Makefile.am"
+			Type="Makefile"/>
+	</Files>
+</Project>

@@ -1,0 +1,39 @@
+#!/bin/bash
+
+
+rm config.cache config.status -f
+
+CC=/armtools/bin/arm-linux-gcc \
+CPP=/armtools/bin/cpp \
+LD=/armtools//bin/arm-linux-ld \
+AR=/armtools/bin/arm-linux-ar \
+RANLIB=/armtools/bin/arm-linux-ranlib \
+STRIP=/armtools/bin/arm-linux-strip \
+./configure  \
+	--prefix=/armtools/arm-linux \
+        --disable-static \
+	--build=i386-linux \
+    --host=arm-linux \
+    --target=arm-linux \
+#    --disable-static \
+#    --disable-lite \
+#    --with-style=flat \
+#    --disable-galqvfb \
+#    --disable-qvfbial \
+#    --disable-dummyial \
+#    --disable-micemoveable \
+#    --disable-vbfsupport \
+#    --disable-latin9support \
+#    --disable-big5support \
+#    --disable-savebitmap \
+#    --disable-jpgsupport \
+#    --disable-pngsupport \
+#    --disable-imegb2312 \
+#    --disable-aboutdlg \
+#    --disable-savescreen \
+	\
+# 	--enable-nativeimps2=no \
+#	--enable-nativems=no \
+#	--enable-nativems3=no \
+#	--enable-nativeps2=no \
+#	--enable-nativegpm=no

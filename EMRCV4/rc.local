@@ -1,0 +1,13 @@
+#! /bin/sh
+#Program Autorun
+echo Start Program!!
+
+#video
+/bin/video.sh
+
+#program
+cd /EMRC-S303/BIN
+#watch ./ClearAndArchiveData &
+#watch ./Sync &
+#./emrc_main &
+
