@@ -78,9 +78,7 @@ static void Init_MsgThread(void)
 }
 static void Init_Message(void)
 {
-	echoic("Run Is!");
 	LoadMemSyncFile();
-	echoic("Run Is!");
 	InitMsgMsgGR();	
 	InitMsgExitTR();	
 	InitMsgExitBS();
