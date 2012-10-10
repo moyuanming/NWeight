@@ -45,7 +45,7 @@ void TFI_HFW_clean(BOOL IsSound)
 	serial_write(LED_COM, command, HFW_FULL_MaxCommandLen);
 	if (IsSound)
 	{
-		TFI_HFW_SoundOuther("141");
+	//	TFI_HFW_SoundOuther("141");
 	}
 }
 int getloc(char *src, char c)
@@ -71,6 +71,9 @@ void HFW_SZ(float   value)
 	int  dot;
 	char  lastchar = '\n';
 	int len;
+	char tmpcmd[255];
+	int cmdL;
+	memset(tmpcmd, 0x00, 255);
 	memset(tempnum, 0x00, 255);
 	memset(tmp1, 0x00, 255);
 	sprintf(tmp1, "%5.2f", value);
@@ -84,8 +87,9 @@ void HFW_SZ(float   value)
 	{
 		s = 5 - dot;
 	}
-	len=5;
-	for (i = s; i <len ; i++)
+	len = 5;
+	cmdL = 0;
+	for (i = s; i < len; i++)
 	{
 		 if (tmp1[i - s] != ' ' )
 		{
@@ -97,7 +101,7 @@ void HFW_SZ(float   value)
 				 {
 					if (lastchar != '0')
 					{
-
+							cmdL += 1;
 						sprintf(str1, "%d", 64);
 					}
 				 }
@@ -106,19 +110,32 @@ void HFW_SZ(float   value)
 			{
 				if (i == len - 1)
 				{
+					cmdL += 1;
 					sprintf(str1, "%d", 64 + (int)tmp1[i - s] - 48); //第五位是万，相等时为元
 				}
 				else
 				{
+					cmdL += 2;
 					sprintf(str1, "%d+%d", 64 + (int)tmp1[i - s] - 48, i == 0 ? 165 :  76 - i + 1); //第五位是万，相等时为元
 
 				}
 			}
 			echoic("%s::%d %d %d", str1, i, s, dot);
-			TFI_HFW_SoundOuther(str1);
-			sleep(1);
+			sprintf(tmpcmd, "%s%s%s", tmpcmd, strlen(tmpcmd) == 0 ? "" : "+", str1);
+			if (cmdL == 8)
+			{
+				TFI_HFW_SoundOuther(tmpcmd);
+				sleep(1);
+				memset(tmpcmd, 0x00, 255);
+				cmdL = 0;
+			}
 			lastchar = tmp1[i - s];
 		}
+
+	}
+	if (cmdL > 0)
+	{
+		TFI_HFW_SoundOuther(tmpcmd);
 	}
 }
 
@@ -127,30 +144,29 @@ void  TFI_HFW_BaoJia(int CarType, int charge)
 { 
 	float weight;
  	weight =GetFareContext_CarWeight();
-	TFI_HFW_SoundOuther("V141");
+	TFI_HFW_SoundOuther("141");
 	if(CarType>0&&CarType<6)
 	{
 		byte str1[255];
 		memset(str1, 0x00, 255);
-		sprintf(str1, "%d",40+CarType-1);
+		sprintf(str1, "%d", 40 + CarType - 1);
 		TFI_HFW_SoundOuther(str1);
-	 sleep(1);
+		sleep(1);
 	}
-	if(WeightCarClassBUS!=GetWeightCarClass()&&WeightCarClassTruckISNotUseWeight!=GetWeightCarClass()&&weight>0)
+	if (WeightCarClassBUS != GetWeightCarClass() && WeightCarClassTruckISNotUseWeight != GetWeightCarClass() && weight > 0)
 	{
     	HFW_SZ(weight);
-		TFI_HFW_SoundOuther("138");
 		sleep(1);
+		TFI_HFW_SoundOuther("138");
+ 
 	}
 	if (charge > 0 && charge < 50000)
 	{
 		TFI_HFW_SoundOuther("156");
+		sleep(1);
 		HFW_SZ(charge);
-		TFI_HFW_SoundOuther("77");
 		sleep(1);
-		TFI_HFW_SoundOuther("1");
-		sleep(1);
-
+		TFI_HFW_SoundOuther("77+1");
 	}
 }
 
@@ -172,6 +188,7 @@ void  TFI_HFW_LedShow(int CarType, int charge)
 	memcpy((char *)&command[3], str1, HFW_DATALen);
 	command[HFW_FULL_MaxCommandLen - 1] = 0x0d;
 	serial_write(LED_COM, command, HFW_FULL_MaxCommandLen);
+	echoic("费显内容:%s",str1);
 	TFI_HFW_BaoJia(CarType, charge);
 
 }

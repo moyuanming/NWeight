@@ -139,7 +139,7 @@ void LedShowCharge(char CarType,int charge)
 	}
 	else if(0==strcmp("HFW",GetTFIDLL()))
 	{
-		TFI_HFW_LedShow(CarType,charge);
+		TFI_HFW_LedShow((int)CarType -0x30 ,charge);
 	}
 
 }
