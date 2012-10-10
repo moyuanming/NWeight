@@ -262,6 +262,7 @@
 					<F N="src/dev/include/i_dev_ioboard.h"/>
 					<F N="src/dev/include/i_dev_keyboard.h"/>
 					<F N="src/dev/include/i_dev_TFI_303.h"/>
+					<F N="src/dev/include/i_dev_TFI_HFW.h"/>
 					<F N="src/dev/include/i_dev_TFI_HN.h"/>
 					<F N="src/dev/include/i_dev_TFI_KK.h"/>
 					<F N="src/dev/include/MemSyncFile.h"/>
@@ -284,6 +285,7 @@
 				<Folder Name="TFI">
 					<F N="src/dev/TFI/i_dev_led.c"/>
 					<F N="src/dev/TFI/i_dev_TFI_303.c"/>
+					<F N="src/dev/TFI/i_dev_TFI_HFW.c"/>
 					<F N="src/dev/TFI/i_dev_TFI_HN.c"/>
 					<F N="src/dev/TFI/i_dev_TFI_KK.c"/>
 				</Folder>
