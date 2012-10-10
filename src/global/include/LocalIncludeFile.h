@@ -72,6 +72,7 @@
 #include "i_dev_TFI_KK.h"
 #include "i_dev_TFI_303.h"
 #include "i_dev_TFI_HN.h"
+#include "i_dev_TFI_HFW.h"
 #include "EmrcDBOperator.h"
 #include "UI_InterFace.h"
 #include "UI_Macro.h"

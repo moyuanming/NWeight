@@ -1,109 +1,95 @@
-#ifndef		IO_Board_Test_H
-#define		IO_Board_Test_H
+#ifndef		_IO_BOARD_H_
+#define		_IO_BOARD_H_
 
-
-#define WRITE_CMD		0xF0
-#define WRITE_IO		0xF1
-#define WRITE_USART		0xF2
-#define WRITE_VDM 		0xF3
-#define WRITE_IO_SIZE		3
-
-#define READ_CMD	0xE0
-#define READ_IO 	0xE1
-
-#define M16_PA	0x0a
-#define M16_PB	0x0b
-#define M16_PC	0x0c
-#define M16_PD	0x0d
-
-#define VDM_LINE		120
-#define VDM_RESET		108
-#define VDM_DATA_TIME	100
-
-
-
-#define IO_MAX_SIZE		32
-
-
-#define SPI_IO_MASK     1<<0
-#define SPI_VDM_MASK    1<<1
-#define SPI_USART_MASK  1<<2
-typedef struct
-{
-	int IO_fd;
-	sem_t IO_Semt;
-	pthread_t Thread_io;
-#if 0
-	unsigned char IO_SET;
-	unsigned char IO_CLR;
-	
-	unsigned char read_io;
-	unsigned char Vdm_time[6];
-	unsigned char *Vdm_char;
-	unsigned char vmd_line;
-	unsigned char vdm_coloum;
-	unsigned char vmd_size;
-	unsigned char *Usart_tx;
-	unsigned char Usart_rx[30];
-	unsigned int mask;
-#endif
-}io_board_t; 
-
-
-#define PIND4	(1<<12)
-#define PIND5	(1<<13)
-#define PIND6	(1<<14)
-#define PIND7	(1<<15)
-
-#define PINC2	(1<<2)
-#define PINC3	(1<<3)
-#define PINC5	(1<<5)
-#define PINC6	(1<<6)
+/*IO输出定义*/
+#define T_LAMP_R (1<<14)  		/*顶棚红*/
+#define T_LAMP_G (1<<15)		/*顶棚绿*/
+#define C_LAMP_R (1<<12)		/*通行红*/
+#define C_LAMP_G (1<<13)		/*通行绿*/
+#define ALARM_LAMP (1<<2)		/*报警灯*/
+#define FOG_LAMP (1<<3)			/*雾灯*/
+#define C_BAR 	 (1<<6) 		/*1抬杆*/
 
 
 
 
+#define OUTPUT2	 (1<<7) 
 
-//303代码的定义。 
-/*以下带过零检测控制*/
-#define T_LAMP_R PIND7  /*顶棚红*/
-#define T_LAMP_G PIND6	/*顶棚绿*/
-#define C_LAMP_R PIND5	/*通行红*/
-#define C_LAMP_G PIND4	/*通行绿*/
+#define GuangShanUp		(1<<0)
+#define GuangShanDown	(1<<1)
+#define LineZhaPaiUp	(1<<2)
+#define LineZhaPaiDown	(1<<3)
+#define LinePassUp		(1<<4)
+#define LinePassDown	(1<<5)
+#define ConnError		(1<<31)
  
- //辽宁代码
-// #define T_LAMP_R PIND4  /*顶棚红*/
-// #define T_LAMP_G PIND5  /*顶棚绿*/
- //#define C_LAMP_R PIND6  /*通行红*/
- //#define C_LAMP_G PIND7  /*通行绿*/
- 
-#define ALARM_LAMP PINC2	/*报警灯*/
-#define FOG_LAMP PINC3		/*雾气灯*/
-/*以下为继电器输出开关量*/
-#define RL_1 PINC6
-#define RL_2 PINC5
+/*IO输入定义*/
+#define LineCap     0x22	//抓拍线圈
+#define LinePass    0x11	//通过线圈
+#define GuangShan   0xCC	//光栅信号
+
+/******************************************************************************
+lpIoInputFunc：声明回调函数指针类型
+功能：
+	在IO输入状态改变时回调此函数
+	初始化时传入
+unsigned char status：
+	表示IO状态 （参照IO输入定义）
+******************************************************************************/
+typedef void(*lpIoInputFunc)(unsigned int status);
+
+/******************************************************************************
+IO_Board_Init:接口初始化
+输入：lpIoInputFunc 为处理 IO状态改变时的函数指针
+	（参照 lpIoInputFunc：声明回调函数指针类型）
+返回：0 表示成功
+  	  -1 表示系统错误 例如：read() write() open()
+******************************************************************************/
+int IO_Board_Init(lpIoInputFunc Func);
+
+/******************************************************************************
+IO_Board_Out:IO输出驱动雨棚灯、栏杆、通行灯、报警等
+输入： TurnOn  要开启的设备（参照IO输出定义）例如：T_LAMP_R|C_LAMP_R
+	   TurnOff 要关闭的设备（参照IO输出定义）例如：C_LAMP_G|C_BAR
+返回：0 表示成功
+	  -1 表示系统错误 例如：read() write() open()
+	  -100 表示通信错误
+******************************************************************************/
+int IO_Board_Out(unsigned int TurnOn,unsigned int TurnOff);
+
+
+/******************************************************************************
+IO_Usart_Tx: 通过IO板串口发送数据（用于控制 金额显示器）
+输入： *tx 发送数据的指针
+	   len 发送数据的长度
+返回：0 表示成功
+	  -1 表示系统错误 例如：read() write() open()
+	  -100 表示通信错误
+******************************************************************************/
+int IO_Usart_Tx(char *tx ,int len);
+
+/******************************************************************************
+Vdm_line: 控制字符叠加
+输入： line 行
+	   coloum 列
+	   nlen 长度
+	   *VdmChar 叠加的字符指针
+返回：0 表示成功
+	  -1 表示系统错误 例如：read() write() open()
+	  -100 表示通信错误
+******************************************************************************/
+int	Vdm_line(unsigned char line ,unsigned char coloum,unsigned char nlen,char *VdmChar);
+
+/*同步时间*/
+int Sync_Vdm_Time(void);
+
+/*字符叠加初始化*/
+int Vdm_init(void);
+
+/*同步输入*/
+int IO_Board_GetInput(void);
 
 
 
-
-
-/*IO延时时间*/
-#define IO_DELAY do{usleep(1000);}while(0)
-
-#define		CRC8		0x80
-#define		CRC16		0xA001
-#define		CRC16_CCITT	0x8408
-#define		CRC32		0xEDB88320unsigned int get_crc8(unsigned char cdata[], unsigned int nlength);
-unsigned int get_crc(unsigned int ninit_checksum, unsigned int ncrc_type, const unsigned char cdata[], unsigned int nlength);
-io_board_t  * IOBoard_init(void);
-int IOBoard_exit(io_board_t *io);
-io_board_t * GetIo_board(void);
-int IO_Board_Out(io_board_t *io,unsigned int SET,unsigned int CLR);
-void  Sync_Vdm_Time(io_board_t *io);
-int	Vdm_line(io_board_t *io ,unsigned char line ,unsigned char coloum, 
-	unsigned char nlen,char *VdmChar);
-int  IO_Usart_Tx(io_board_t *io ,unsigned  char *tx ,int len);
-void Analyse_Gpio_in(unsigned char in);
-unsigned int get_crc8(unsigned char cdata[], unsigned int nlength);
 
 #endif

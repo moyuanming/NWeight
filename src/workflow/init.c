@@ -16,25 +16,32 @@ static void I_DEV_Weight_Init(void)
 }
 static void Init_DevInit(void)
 {	
+	echoic("初始化IO板");
 	I_DEV_IOBoard_Init();
-    I_DEV_Printer_Init();
-    I_DEV_LED_Init();
-	if(EnabledVideo())
+	echoic("初始化票打");
+	I_DEV_Printer_Init();
+	echoic("初始化费显");
+	I_DEV_LED_Init();
+	echoic("初始化费显");
+	if (EnabledVideo())
 	{
+		echoic("启用了摄像机，开始初始化");
 		Create_camera();
 	}
-	if(EnabledWeight()&&UI_DISPLAY_RESOLUTION==DISPPLAY_800_600)
+	if (EnabledWeight() && UI_DISPLAY_RESOLUTION == DISPPLAY_800_600)
 	{
+		echoic("启用了记重设备，开始初始化");
 		I_DEV_Weight_Init();
+		echoic("启用了记重设备，初始化完成");
 	}
-	if (TRUE==GetEnableIC())
+	if (TRUE == GetEnableIC())
 	{
 		echoic("启用了IC卡,开始初始化...");
-		SyncToDo("SYNCREMOTE");  
-		WF_IC_Init(    UI_Get_From_Handl( )  );
-
+		SyncToDo("SYNCREMOTE");
+		WF_IC_Init(UI_Get_From_Handl());
 	}
-	SetCloseDev();	
+	SetCloseDev();
+	echoic("设备就绪");
 }
 static void Init_SEM(void)
 {	

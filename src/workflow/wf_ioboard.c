@@ -142,7 +142,8 @@ void SetPassCar()
 {
 	if(1!=GetG_IsTuoche())
 	{
-		I_DEV_IOBoard_CommandSender(T,C_LAMP_G|RL_1,C_LAMP_R);
+		//LogCAppLogDebug("Open Jiao Tong Open LanGan");
+		I_DEV_IOBoard_CommandSender(T,C_LAMP_G|C_BAR,C_LAMP_R);
 		Setg_bJiaoTong(T);
 		Setg_bLanGan(T);
 		G_CurrentSystemDevStatus.LanGan = 1;
@@ -160,7 +161,15 @@ void SetJiaoTong(BOOL bFlag)
     {
         Setg_bJiaoTong(bFlag);
 		G_CurrentSystemDevStatus.JIaoTong = (bFlag?1:0);
-		I_DEV_IOBoard_CommandSender(bFlag,C_LAMP_G,C_LAMP_R);
+		if(IsRichTFI())
+		{
+			echo("Setg_bJiaoTong <%d>",bFlag);
+			TFI_SetTongXingDeng(bFlag);
+		}
+		else
+		{
+			I_DEV_IOBoard_CommandSender(bFlag,C_LAMP_G,C_LAMP_R);
+		}
         
     }
 }
@@ -168,7 +177,7 @@ void SetLanGan(BOOL bFlag)
 {
 	Setg_bLanGan(bFlag);
 	G_CurrentSystemDevStatus.LanGan = (bFlag?1:0);
-	I_DEV_IOBoard_CommandSender(bFlag,RL_1,0);
+	I_DEV_IOBoard_CommandSender(bFlag,C_BAR,0);
     
 }
 BOOL COM_RINGVOIDE = F;
@@ -179,7 +188,7 @@ void SetRingVoide(BOOL  bFla)
 	if (COM_RINGVOIDE!=bFla)
 	{
 		COM_RINGVOIDE =bFla;
-		I_DEV_IOBoard_CommandSender(bFla,RL_2,0);
+		I_DEV_IOBoard_CommandSender(bFla,OUTPUT2,0);
 	}
 }
 
@@ -188,7 +197,7 @@ void  SetMoney(BOOL bFlag)
 	if (COM_RINGVOIDE!=bFlag)
 	{
 		COM_RINGVOIDE =bFlag;
-		I_DEV_IOBoard_CommandSender(bFlag,RL_2,0);
+		//I_DEV_IOBoard_CommandSender(bFlag,RL_2,0);
 	}
 }
 int MoneyTimer = 0;
@@ -202,14 +211,18 @@ int GetMoneyTimer()
 }
 void OpenMoneyBox(void)
 {
+#ifdef MONEYBOX
 	echoic("´ò¿ªÇ®Ïä\n");
 	MoneyTimer = 0;
-	I_DEV_IOBoard_CommandSender(F,RL_2,0);
+	I_DEV_IOBoard_CommandSender(F,OUTPUT2,0);
+#endif
 }
 void CloseMoneyBox(void)
 {
+#ifdef MONEYBOX
 	echoic("¹Ø±ÕÇ®Ïä\n");
-	I_DEV_IOBoard_CommandSender(T,RL_2,0);
+	I_DEV_IOBoard_CommandSender(T,OUTPUT2,0);
+#endif
 }
 void SetRing(BOOL bFlag)
 {
@@ -217,13 +230,22 @@ void SetRing(BOOL bFlag)
     {
         Setg_Ring(bFlag);
 		G_CurrentSystemDevStatus.Ring =(bFlag?1:0);
-		I_DEV_IOBoard_CommandSender(bFlag,ALARM_LAMP,0);
+		if(IsRichTFI())
+		{
+			echo("SetRing <%d>",bFlag);
+		 	TFI_SetHuangShan(bFlag);
+		}
+		else
+		{
+			I_DEV_IOBoard_CommandSender(bFlag,ALARM_LAMP,0);
+		}
+		
     }
 }
 void SetCloseDev()
 {
-    I_DEV_IOBoard_CommandSender(T,T_LAMP_R|C_LAMP_R|RL_2,T_LAMP_G|C_LAMP_G|RL_1|FOG_LAMP |ALARM_LAMP);
-    I_DEV_IOBoard_CommandSender(T,RL_2,0);
+    I_DEV_IOBoard_CommandSender(T,T_LAMP_R|C_LAMP_R|OUTPUT2,T_LAMP_G|C_LAMP_G|C_BAR|FOG_LAMP |ALARM_LAMP);
+    I_DEV_IOBoard_CommandSender(F,OUTPUT2,0);
 
     sleep(1);
 }

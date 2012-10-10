@@ -8,6 +8,7 @@ int AutoIndex = 0;
 
 int CDCWinProc (HWND hWnd, int message, WPARAM wParam, LPARAM lParam)
 {
+
 	switch (message)
 	{
 		case MSG_CREATE:
@@ -72,7 +73,8 @@ int CDCWinProc (HWND hWnd, int message, WPARAM wParam, LPARAM lParam)
 		case MSG_KEYUP:
 			KeyDown = T;
 			break;
-		case MSG_BAR_UP:
+	case MSG_BAR_UP:
+		echoic("MSG_BAR_UPMSG_BAR_UPMSG_BAR_UPMSG_BAR_UPMSG_BAR_UP");
 			G_CurrentSystemDevStatus.TongGuoLine = 1;
 			PassLineUP();
 			break;
@@ -189,6 +191,7 @@ int MiniGUIMain (int args, const char* arg[])
 	HWND hMainWnd;
 	MSG Msg;
 	MAINWINCREATE CreateInfo;	
+	
 	DoSysCmd("date >> CurrentVer");
 	DoSysCmd("echo \""PROVER"\" >> CurrentVer");
 	init();

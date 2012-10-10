@@ -67,6 +67,11 @@ void LedClare(BOOL IsSound)
 	{
 		TFI_HN_clean();
 	}
+	else if(0==strcmp("HFW",GetTFIDLL()))
+	{
+		TFI_HFW_clean(T);
+	}
+	
 }
 void LedVolume(int VolumeValue)
 {	
@@ -132,6 +137,10 @@ void LedShowCharge(char CarType,int charge)
 		echo("HN %c  %d  %d",CarType,CarType,charge);
 		TFI_HN_LedShow ( (int)CarType -0x30 ,  charge );
 	}
+	else if(0==strcmp("HFW",GetTFIDLL()))
+	{
+		TFI_HFW_LedShow(CarType,charge);
+	}
 
 }
 
@@ -177,6 +186,37 @@ void  LedClear()
 	{
 		TFI_HN_clean();
 	}
+	else if (0 == strcmp("HFW", GetTFIDLL()))
+	{
+		TFI_HFW_clean(F);
+	}
     return;
+}
+
+BOOL  IsRichTFI(void)
+{
+	BOOL result = F;
+	if (0 == strcmp("HFW", GetTFIDLL()))
+	{
+		result = T;
+	}
+	return result;
+
+}
+
+void TFI_SetTongXingDeng(BOOL bFlag)
+{
+	if (0 == strcmp("HFW", GetTFIDLL()))
+	{
+		TFI_HFW_SetTongXingDeng(bFlag);
+	}
+}
+
+void TFI_SetHuangShan(BOOL bFlag)
+{
+	if (0 == strcmp("HFW", GetTFIDLL()))
+	{
+		TFI_HFW_SetHuangShan(bFlag);
+	}
 }
 

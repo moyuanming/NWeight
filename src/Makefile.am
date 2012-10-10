@@ -112,6 +112,7 @@ dev/TFI/i_dev_led.c  \
 dev/TFI/i_dev_TFI_KK.c \
 dev/TFI/i_dev_TFI_303.c \
 dev/TFI/i_dev_TFI_HN.c \
+dev/TFI/i_dev_TFI_HFW.c \
 dev/Print/i_dev_printer.c \
 dev/Print/i_dev_KK_printer.c \
 dev/Print/i_dev_TWD_printer.c \

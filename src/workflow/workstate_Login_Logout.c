@@ -65,19 +65,40 @@ void WorkStation_00_Wait_Begin_Work(int nKey)
 {
 	switch (nKey)
 	{
-		case VK_SHANGBAN:
-			SendLaneInfo("正在登录");
-			Set_WorkStation_01_Handl_Input_Number();
-			ReadBillNumber();
-			break;
-		case S_PASSLINEUP:
-			AddTotalTraffic();
-			YaxianquanNum=0;
-			break;	
-		default:
-			echoic("%d",nKey);
-			ErrorPressKey();
-			break;
+	case VK_0:
+		TFI_HFW_LedShow(2, 5);
+		break;
+	case VK_1:
+		TFI_HFW_LedShow(1, 12345);
+		break;
+	case VK_2:
+		TFI_HFW_LedShow(2, 20);
+		break;
+	case VK_3:
+		TFI_HFW_SetHuangShan(T);
+		break;
+	case VK_4:
+		TFI_HFW_SetHuangShan(F);
+		break;
+	case VK_5:
+		TFI_HFW_SetTongXingDeng(T);
+		break;
+	case VK_6:
+		TFI_HFW_SetTongXingDeng(F);
+		break;
+	case VK_SHANGBAN:
+		SendLaneInfo("正在登录");
+		Set_WorkStation_01_Handl_Input_Number();
+		ReadBillNumber();
+		break;
+	case S_PASSLINEUP:
+		AddTotalTraffic();
+		YaxianquanNum = 0;
+		break;
+	default:
+		echoic("%d", nKey);
+		ErrorPressKey();
+		break;
 	}
 }
 void GetUserNumberFromStatffCard()

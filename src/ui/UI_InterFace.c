@@ -7,8 +7,16 @@
 //´°Ìå¾ä±ú
 /*******************************************************************************************/
 HWND  UI_Get_From_Handl(void)
-{	
-	return UI_Out_640_480_Get_From_Handl();
+{
+	if (DISPPLAY_640_480 == UI_DISPLAY_RESOLUTION)
+	{
+		return UI_Out_640_480_Get_From_Handl();
+
+	}
+	else
+	{
+		return UI_Out_800_600_Get_From_Handl();
+	}
 }
 void UI_Set_From_Handl(HWND hwnd)
 {	

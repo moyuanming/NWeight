@@ -288,7 +288,7 @@ void Init_GUI_Var ( void )
 	gui_Information->text.valign = DT_TOP ;
 
 	set_XYWH ( gui_Video , RtVideo ) ;
-	Create_camera (  ) ;
+	 
 
 
 	//ср╠ъ
