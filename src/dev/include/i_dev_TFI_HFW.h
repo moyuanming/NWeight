@@ -7,5 +7,5 @@ void TFI_HFW_SetTongXingDeng(BOOL bFlag);
 void TFI_HFW_SetHuangShan(BOOL bFlag);
 void  TFI_HFW_BaoJia(int CarType, int charge);
 int getloc(char *src, char c);
-void HFW_SZ(float   value);
+void HFW_SZ(float   value,int soundtype);
 #endif

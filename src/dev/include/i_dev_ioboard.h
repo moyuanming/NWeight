@@ -10,9 +10,6 @@
 #define FOG_LAMP (1<<3)			/*ÎíµÆ*/
 #define C_BAR 	 (1<<6) 		/*1Ì§¸Ë*/
 
-
-
-
 #define OUTPUT2	 (1<<7) 
 
 #define GuangShanUp		(1<<0)

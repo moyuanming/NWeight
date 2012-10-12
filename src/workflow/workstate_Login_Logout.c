@@ -81,10 +81,10 @@ void WorkStation_00_Wait_Begin_Work(int nKey)
 		TFI_HFW_SetHuangShan(F);
 		break;
 	case VK_5:
-		TFI_HFW_SetTongXingDeng(T);
+		SetJiaoTong(T);
 		break;
 	case VK_6:
-		TFI_HFW_SetTongXingDeng(F);
+		SetJiaoTong(F);
 		break;
 	case VK_SHANGBAN:
 		SendLaneInfo("ÕýÔÚµÇÂ¼");

@@ -143,9 +143,9 @@ void SetPassCar()
 	if(1!=GetG_IsTuoche())
 	{
 		//LogCAppLogDebug("Open Jiao Tong Open LanGan");
-		I_DEV_IOBoard_CommandSender(T,C_LAMP_G|C_BAR,C_LAMP_R);
-		Setg_bJiaoTong(T);
-		Setg_bLanGan(T);
+		//I_DEV_IOBoard_CommandSender(T,C_LAMP_G|C_BAR,C_LAMP_R);
+		SetJiaoTong(T);
+		SetLanGan(T);
 		G_CurrentSystemDevStatus.LanGan = 1;
 		G_CurrentSystemDevStatus.JIaoTong = 1;;
 		SendLaneInfo("正在过车");
@@ -163,7 +163,7 @@ void SetJiaoTong(BOOL bFlag)
 		G_CurrentSystemDevStatus.JIaoTong = (bFlag?1:0);
 		if(IsRichTFI())
 		{
-			echo("Setg_bJiaoTong <%d>",bFlag);
+			echoic("Setg_bJiaoTong <%d>",bFlag);
 			TFI_SetTongXingDeng(bFlag);
 		}
 		else

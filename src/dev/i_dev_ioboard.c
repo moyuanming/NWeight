@@ -1,5 +1,5 @@
 #include "LocalIncludeFile.h"
-
+#include "i_dev_ioboard.h"
 
 char oldbt;
 unsigned char  oldStatus;
@@ -24,14 +24,38 @@ void I_DEV_IOBoard_Exit(void)
 /*IO输入量处理函数，请自行分析 例如：线圈*/
 void I_DEV_IOBoard_Callback(unsigned char Input)
 {
-	char bt;
-	if (oldStatus!=Input)
+ 
+	switch (Input)
 	{
-		bt=(char)Input;
-		ReadDeviceStatus_Loop(2, bt, oldbt );//到达线圈
-		ReadDeviceStatus_Loop(3, bt, oldbt );//离开线圈
-		oldStatus=Input;
-		oldbt=oldStatus;
+	case GuangShanUp:
+
+		echoic("光栅到达");
+		break;
+	case GuangShanDown:
+
+		echoic("光栅离开");
+		break;
+	case LineZhaPaiUp:
+		PostMessage(UI_Get_From_Handl(), MSG_PIC_UP, 0, 0);
+		echoic("抓拍线圈到达");
+		break;
+	case LineZhaPaiDown:
+		PostMessage(UI_Get_From_Handl(), MSG_PIC_DOWN, 0, 0);
+		echoic("抓拍线圈离开");
+
+		break;
+	case LinePassUp:
+		PostMessage(UI_Get_From_Handl(), MSG_BAR_UP, 0, 0);
+		echoic("通过线圈到达");
+
+		break;
+	case LinePassDown:
+		PostMessage(UI_Get_From_Handl(), MSG_BAR_DOWN, 0, 0);
+		echoic("通过线圈离开");
+		break;
+	case ConnError:
+		//	fprintf(stderr,"%s通信错误%s\n",GCor,PCor);
+		break;
 	}
 }
 
@@ -54,39 +78,7 @@ void I_DEV_IOBoard_CommandSender(int bFlag ,int command1,int command2)
 		IO_Board_Out(temp1,temp2);
 	}
 }
-/*一下为逻辑控制部分*/
-  void ReadDeviceStatus_Loop(int i, char bt, char oldbt)
-{
-	int a=0,   b=0;
-	a   =(bt	&	(1<<i));	//当前
-	b   =(oldbt & (1<<i));	//旧有
-
-	if ( a!=b)
-	{
-		switch (i )
-		{
-			case 2:
-
-				if (a!=0 )
-				{
-					PostMessage(UI_Get_From_Handl(),MSG_BAR_UP,0,0);
-					CurrenttimeUP = time(NULL);
-				}
-				else
-				{
-					CurrenttimeDown = time(NULL);
-					if ((CurrenttimeDown-CurrenttimeUP) >=1)
-					{
-						PostMessage(UI_Get_From_Handl(),MSG_BAR_DOWN,0,0);
-					}
-				}
-				break;
-			case 3:
-				PostMessage(UI_Get_From_Handl(),((a!=0)?MSG_PIC_UP:MSG_PIC_DOWN),0,0);
-				break;
-		}
-	}
-}
+ 
 /* 以下为 iO板控制部分的代码 */
 /******************************************************************************
  函 数 名： get_crc

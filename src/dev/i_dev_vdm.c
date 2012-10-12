@@ -40,7 +40,7 @@ void I_DEV_VDM_Reset(void)
 	I_DEV_VDM_CarType(" ");	
 	I_DEV_VDM_CarKind(0);	
 	I_DEV_VDM_Cash(-1);	
-	I_DEV_VDM_TextOut("DATE   -  -       :  :  ",11,0,23);	 
+	//I_DEV_VDM_TextOut("DATE   -  -       :  :  ",11,0,23);	 
 }
 //µþ¼Ó³µÖÖ
 void I_DEV_VDM_CarKind(int CarKind)

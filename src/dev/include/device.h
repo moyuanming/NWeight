@@ -39,7 +39,7 @@ void SetPassCar(void);
 void OpenMoneyBox(void);
 void CloseMoneyBox(void);
 void SetCloseDev(void);
-
+void I_DEV_IOBoard_Callback(unsigned char Input);
 void LedSound(int Index);
 
 void LedShowCharge(char CarType,int charge);

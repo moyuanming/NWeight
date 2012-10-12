@@ -45,7 +45,7 @@ void TFI_HFW_clean(BOOL IsSound)
 	serial_write(LED_COM, command, HFW_FULL_MaxCommandLen);
 	if (IsSound)
 	{
-	//	TFI_HFW_SoundOuther("141");
+		//TFI_HFW_SoundOuther("1");
 	}
 }
 int getloc(char *src, char c)
@@ -60,8 +60,8 @@ int getloc(char *src, char c)
 	}
 	return i;
 }
-void HFW_SZ(float   value)
-{
+void HFW_SZ(float   value,int soundtype)
+{ 
 	char tempnum[255];
 	char tmp1[255];
 	char str1[255];
@@ -77,8 +77,8 @@ void HFW_SZ(float   value)
 	memset(tempnum, 0x00, 255);
 	memset(tmp1, 0x00, 255);
 	sprintf(tmp1, "%5.2f", value);
-	echoic("tmp1=%s",tmp1);
-	dot =  strchr(tmp1,'.')-tmp1;
+	echoic("value=%f  soundtype=%d", value,soundtype);
+	dot =  strchr(tmp1, '.') - tmp1;
 	if (dot > 5)
 	{
 		s = 0;
@@ -89,22 +89,27 @@ void HFW_SZ(float   value)
 	}
 	len = 5;
 	cmdL = 0;
+	if (soundtype = 2)
+	{
+		sprintf(tmpcmd, "%s", "156");
+		cmdL += 1;
+	}
 	for (i = s; i < len; i++)
 	{
-		 if (tmp1[i - s] != ' ' )
+		if (tmp1[i - s] != ' ')
 		{
 			char str1[255];
 			memset(str1, 0x00, 255);
-			if (tmp1[i - s] == '0' )
+			if (tmp1[i - s] == '0')
 			{
-				 if (i <4)
-				 {
+				if (i < 4)
+				{
 					if (lastchar != '0')
 					{
-							cmdL += 1;
+						cmdL += 1;
 						sprintf(str1, "%d", 64);
 					}
-				 }
+				}
 			}
 			else
 			{
@@ -122,7 +127,7 @@ void HFW_SZ(float   value)
 			}
 			echoic("%s::%d %d %d", str1, i, s, dot);
 			sprintf(tmpcmd, "%s%s%s", tmpcmd, strlen(tmpcmd) == 0 ? "" : "+", str1);
-			if (cmdL == 8)
+			if (cmdL >= 6)
 			{
 				TFI_HFW_SoundOuther(tmpcmd);
 				sleep(1);
@@ -131,9 +136,32 @@ void HFW_SZ(float   value)
 			}
 			lastchar = tmp1[i - s];
 		}
-
 	}
-	if (cmdL > 0)
+	if (soundtype == 1)
+	{
+		if (cmdL + 1 >= 8)
+		{
+			TFI_HFW_SoundOuther(tmpcmd);
+			//sleep(1);
+			memset(tmpcmd, 0x00, 255);
+			cmdL = 0;
+		}
+		sprintf(tmpcmd, "%s%s%s", tmpcmd, strlen(tmpcmd) == 0 ? "" : "+", "138");
+		cmdL += 1;
+	}
+	if (soundtype == 2)
+	{
+		if (cmdL + 1 >= 8)
+		{
+			TFI_HFW_SoundOuther(tmpcmd);
+			//sleep(1);
+			memset(tmpcmd, 0x00, 255);
+			cmdL = 0;
+		}
+		sprintf(tmpcmd, "%s%s%s", tmpcmd, strlen(tmpcmd) == 0 ? "" : "+", "77");
+		cmdL += 1;
+	}
+	if (cmdL  > 0)
 	{
 		TFI_HFW_SoundOuther(tmpcmd);
 	}
@@ -155,18 +183,13 @@ void  TFI_HFW_BaoJia(int CarType, int charge)
 	}
 	if (WeightCarClassBUS != GetWeightCarClass() && WeightCarClassTruckISNotUseWeight != GetWeightCarClass() && weight > 0)
 	{
-    	HFW_SZ(weight);
+		HFW_SZ(weight, 1);
 		sleep(1);
-		TFI_HFW_SoundOuther("138");
- 
+
 	}
 	if (charge > 0 && charge < 50000)
 	{
-		TFI_HFW_SoundOuther("156");
-		sleep(1);
-		HFW_SZ(charge);
-		sleep(1);
-		TFI_HFW_SoundOuther("77+1");
+		HFW_SZ(charge, 2);
 	}
 }
 
@@ -202,8 +225,8 @@ void TFI_HFW_SetTongXingDeng(BOOL bFlag)
 	command[3] = '0'; //不处理，
 	command[4] = 0x0d;
 	serial_write(LED_COM, command, 5);
+	echoic("TFI_HFW_SetTongXingDeng %s", command);
 }
-
 void TFI_HFW_SetHuangShan(BOOL bFlag)
 {
 	byte command[5];
@@ -211,7 +234,7 @@ void TFI_HFW_SetHuangShan(BOOL bFlag)
 	command[0] = 'K'; //0x44(D)
 	command[1] = '0'; //红灯状态 0 不处理，
 	command[2] = '0'; //绿灯状态 0 不处理，
-	command[3] =  bFlag == T ? '2' : '1'; ; //不处理，
+	command[3] =  bFlag == T ? '2' : '1';; //不处理，
 	command[4] = 0x0d;
-	 serial_write(LED_COM, command, 5);
+	serial_write(LED_COM, command, 5);
 }
