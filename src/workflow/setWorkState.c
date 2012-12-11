@@ -88,6 +88,7 @@ void Set_WorkStation_03_Main_Work_extracted2(void)
 
 void Set_WorkStation_03_Main_Work(char *left,char *right)
 {   	
+	ClearCPHM();
 	Set_WorkStation_03_Main_Work_extracted1(left, right);
 	if(!GetYuPengState())
 	{
@@ -160,13 +161,15 @@ void Set_WorkStation_07_General_Second_OK(char *left,char *rihgt)
 	sprintf(charge,"%1.0f",Get_G_Current_Actual_pay());    
 	memset(temp,'\0',200); 
 	UI_Show_WeightData(); 
+	memset(temp,'\0',200); 
+	sprintf(tmpxxx,"³µÅÆºÅ£º%s \n",GetCPHM(temp));
 	if (GetEnableIC())
 	{
 		sprintf(tmpxxx,"³Ö¿¨³µÁ¾ÇëË¢¿¨\n");
 	}
 	if(' '!=carnumber[0])
 	{
-		sprintf(tmpxxx,"³µÅÆºÅ£º%s,\n",carnumber);
+		sprintf(tmpxxx,"³µÅÆºÅ£º%s \n",carnumber);
 	}
 	if (0==GetG_IsTuoche())
 	{

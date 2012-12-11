@@ -45,6 +45,7 @@ struct MSG_IMAGE
 	char RateFareWeight[10];
 	char DetectAxleCount[10];
 	char tmp[2];
+	char CPHM[20];
 };//endstructImage
 void InitMsgImage(void);
 struct MSG_IMAGE *GetMsgImage(void);
@@ -55,6 +56,7 @@ void SetImageMsgYear(char* InputYear);
 void SetImageMsgDay(char* InputDay);
 void SetImageMsgHour(char* InputHour);
 void SetImageMsgYMD(char* InputYMD);
+void SetImageMsgCPHM(char* InputCPHM);
 void SetImageMsgTime(char* InputTime);
 void SetImageMsgLaneType(char InputLaneType);
 void SetImageMsgLaneName(char* InputLaneName);

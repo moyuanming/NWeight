@@ -65,27 +65,27 @@ void WorkStation_00_Wait_Begin_Work(int nKey)
 {
 	switch (nKey)
 	{
-	case VK_0:
-		TFI_HFW_LedShow(2, 5);
-		break;
-	case VK_1:
-		TFI_HFW_LedShow(1, 12345);
-		break;
-	case VK_2:
-		TFI_HFW_LedShow(2, 20);
-		break;
-	case VK_3:
-		TFI_HFW_SetHuangShan(T);
-		break;
-	case VK_4:
-		TFI_HFW_SetHuangShan(F);
-		break;
-	case VK_5:
-		SetJiaoTong(T);
-		break;
-	case VK_6:
-		SetJiaoTong(F);
-		break;
+//  case VK_0:
+//  	TFI_HFW_LedShow(2, 5);
+//  	break;
+//  case VK_1:
+//  	TFI_HFW_LedShow(1, 12345);
+//  	break;
+//  case VK_2:
+//  	TFI_HFW_LedShow(2, 20);
+//  	break;
+//  case VK_3:
+//  	TFI_HFW_SetHuangShan(T);
+//  	break;
+//  case VK_4:
+//  	TFI_HFW_SetHuangShan(F);
+//  	break;
+//  case VK_5:
+//  	SetJiaoTong(T);
+//  	break;
+//  case VK_6:
+//  	SetJiaoTong(F);
+//  	break;
 	case VK_SHANGBAN:
 		SendLaneInfo("ÕýÔÚµÇÂ¼");
 		Set_WorkStation_01_Handl_Input_Number();

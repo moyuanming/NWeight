@@ -456,10 +456,11 @@ void SetEixtTRInfo(int carTypeIndex,int carKindIndex)
 void Set_AllKindData()
 {   
 	
-
+char cphm[50];
 
 	SetExitTRMsgExitClass(GetCarKindChar(Getg_CurrentCarKindIndex()));	
 	SetExitTRMsgExitType(Get_Current_Car_Type());	
+		SetExitTRMsgEntrySignal(GetCPHM(cphm));
 	if(0==(int)Get_G_Current_Actual_pay())
 	{	
 		SetExitTRMsgReceipt('0');	

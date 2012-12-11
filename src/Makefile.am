@@ -1,4 +1,4 @@
-noinst_PROGRAMS=emrc_main  Sync Uploader ClearAndArchiveData AutoTest
+noinst_PROGRAMS=emrc_main  Sync Uploader ClearAndArchiveData
 #lib_LTLIBRARIES=libRHY_UI_800_600.so libRHY_640_480 
 #lib_LTLIBRARIES=libemrc_logc.la libemrc_billstyle.la libemrc_s303billstyle.la libemrc_communication.la
 #libemrc_billstyle_la_LIBADD=-lemrc_logc
@@ -120,6 +120,7 @@ dev/Print/i_dev_S303_printer.c \
 dev/i_dev_vdm.c  \
 dev/i_dev_keyboard.c \
 dev/MIF_Interface.c \
+dev/CPSB.c \
 parameter/ParameterCollect.c \
 parameter/ParameterYPKList.c \
 parameter/ParameterYHRateDescription.c \

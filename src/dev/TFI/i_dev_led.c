@@ -11,6 +11,19 @@ void I_DEV_LED_Init(void)
 	{
 		echoic("费显串口初始化成功！");
 	}
+	 if(0==strcmp("HFW",GetTFIDLL()))
+	{
+		TFI_HFW_Init();
+	}
+}
+void  I_DEV_LED_Close(void)
+{
+	if (0 == strcmp("HFW", GetTFIDLL()))
+	{
+		TFI_HFW_Close();
+	}
+	serial_close(LED_COM);
+
 }
 void setLed(void)
 {
@@ -115,12 +128,12 @@ void LedShowCharge(char CarType,int charge)
 		echo("TWD %c  %d  %d",CarType,CarType,charge);
 		if (' '!=CarType && '0'!=CarType)
 		{
-			ShowCarType(CarType);
+			TWD_ShowCarType(CarType);
 		}
 		usleep(10);
 		if (0!=charge)
 		{
-			Showcharge(charge);
+			TWD_Showcharge(charge);
 		}
 	}
 	else if(0==strcmp("KK",GetTFIDLL()))
@@ -144,7 +157,7 @@ void LedShowCharge(char CarType,int charge)
 
 }
 
-void ShowCarType(char ct)
+void TWD_ShowCarType(char ct)
 {
 	unsigned char strCMD[9];
 	memset(strCMD,0x00,9);
@@ -152,7 +165,7 @@ void ShowCarType(char ct)
 	echo1("指令:%s  车型:%c  端口COM%d",strCMD,ct,LED_COM);
 	serial_write(LED_COM,strCMD ,sizeof(strCMD));
 }
-void Showcharge(int ct)
+void TWD_Showcharge(int ct)
 {
 	unsigned char strCMD[9];
 	char  tmpx1[10];
@@ -192,7 +205,7 @@ void  LedClear()
 	}
     return;
 }
-
+//是否为 一体设备， 比如恒富威的  黄闪 通行灯 费显一体的设备 
 BOOL  IsRichTFI(void)
 {
 	BOOL result = F;

@@ -257,6 +257,7 @@
 					<F N="src/dev/Com/Com.c"/>
 				</Folder>
 				<Folder Name="include">
+					<F N="src/dev/include/CPSB.h"/>
 					<F N="src/dev/include/device.h"/>
 					<F N="src/dev/include/i_dev_ic.h"/>
 					<F N="src/dev/include/i_dev_ioboard.h"/>
@@ -297,6 +298,7 @@
 					<F N="src/dev/Weight/wds_thread.c"/>
 					<F N="src/dev/Weight/Weight_InterFace.c"/>
 				</Folder>
+				<F N="src/dev/CPSB.c"/>
 				<F N="src/dev/device.c"/>
 				<F N="src/dev/i_dev_ic.c"/>
 				<F N="src/dev/i_dev_ioboard.c"/>

@@ -157,6 +157,7 @@ void SetPassCar()
 }
 void SetJiaoTong(BOOL bFlag)
 {
+	echo_cj("交通灯:%s",bFlag==T?"绿色":"红色");
     if(Getg_bJiaoTong() != bFlag)
     {
         Setg_bJiaoTong(bFlag);
@@ -175,6 +176,7 @@ void SetJiaoTong(BOOL bFlag)
 }
 void SetLanGan(BOOL bFlag)
 {
+	echo_cj("状态%d 栏杆:%s",GetWorkState(),bFlag==T?"抬起":"落下");
 	Setg_bLanGan(bFlag);
 	G_CurrentSystemDevStatus.LanGan = (bFlag?1:0);
 	I_DEV_IOBoard_CommandSender(bFlag,C_BAR,0);

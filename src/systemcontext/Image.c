@@ -38,6 +38,12 @@ void SetImageMsgYMD(char* InputYMD)
 {
     strncpy(MsgImage->YMD,InputYMD,sizeof(MsgImage->YMD));
 }
+void SetImageMsgCPHM(char* InputCPHM)
+{
+    //strncpy(MsgImage->CPHM,InputCPHM,sizeof(MsgImage->CPHM));
+	char temp[sizeof(MsgImage->CPHM)+1];
+	strncpy(MsgImage->CPHM,PadLeft('@',InputCPHM,temp,sizeof(MsgImage->CPHM)),sizeof(MsgImage->CPHM));   
+}
 void SetImageMsgTime(char* InputTime)
 {
     strncpy(MsgImage->Time,InputTime,sizeof(MsgImage->Time));
@@ -187,6 +193,7 @@ void BuildImageFiles(char * msghead,     struct MSG_EXITTR*exittr)
 	struct MSG_HEAD  mh ;
 	char desImage1[100];
 	char desImage2[100];
+	char temp[50];
 	memset(desImage1,0x00,sizeof(desImage1));
 	memset(desImage2,0x00,sizeof(desImage2));
 	memset(&mh,' ',sizeof(struct MSG_HEAD));
@@ -212,6 +219,8 @@ void BuildImageFiles(char * msghead,     struct MSG_EXITTR*exittr)
 	SetImageMsgYMD(mh.YYYYMMDD);
 	//09年7月13日对Image添加了票据号和支付方法、争议类型。
 	strncpy( GetMsgImage()->ReceiptNo,exittr->ReceiptNo,sizeof(GetMsgImage()->ReceiptNo));
+	//增加车牌号码
+	SetImageMsgCPHM(GetCPHM(temp));
 	GetMsgImage()->Method_Pay=exittr->Method_Pay;
 	GetMsgImage()->DisputeType=exittr->DisputeType;
     CreateCapImgName();

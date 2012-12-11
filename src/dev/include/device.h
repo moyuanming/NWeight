@@ -43,8 +43,8 @@ void I_DEV_IOBoard_Callback(unsigned char Input);
 void LedSound(int Index);
 
 void LedShowCharge(char CarType,int charge);
-void ShowCarType(char ct);
-void Showcharge(int ct);
+void TWD_ShowCarType(char ct);
+void TWD_Showcharge(int ct);
 void LedClare(BOOL IsSound);
 int getJiaoTongDengState(void);
 int getGetPrintState(void);

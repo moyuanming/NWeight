@@ -20,7 +20,8 @@ void I_DEV_IOBoard_Exit(void)
 {
 	
 }
-
+time_t CurrenttimeUP ;
+time_t CurrenttimeDown ;
 /*IO输入量处理函数，请自行分析 例如：线圈*/
 void I_DEV_IOBoard_Callback(unsigned char Input)
 {
@@ -28,30 +29,35 @@ void I_DEV_IOBoard_Callback(unsigned char Input)
 	switch (Input)
 	{
 	case GuangShanUp:
-
-		echoic("光栅到达");
+		echo_cj("状态%d 光栅到达",GetWorkState());
 		break;
 	case GuangShanDown:
-
-		echoic("光栅离开");
+		echo_cj("状态%d 光栅离开",GetWorkState());
 		break;
 	case LineZhaPaiUp:
 		PostMessage(UI_Get_From_Handl(), MSG_PIC_UP, 0, 0);
-		echoic("抓拍线圈到达");
+		echo_cj("状态%d 抓拍线圈到达",GetWorkState());
 		break;
 	case LineZhaPaiDown:
 		PostMessage(UI_Get_From_Handl(), MSG_PIC_DOWN, 0, 0);
-		echoic("抓拍线圈离开");
-
+		echo_cj("状态%d 抓拍线圈离开",GetWorkState());
 		break;
 	case LinePassUp:
 		PostMessage(UI_Get_From_Handl(), MSG_BAR_UP, 0, 0);
-		echoic("通过线圈到达");
-
+		CurrenttimeUP = time(NULL);
+		echo_cj("状态%d 通过线圈到达",GetWorkState());
 		break;
 	case LinePassDown:
-		PostMessage(UI_Get_From_Handl(), MSG_BAR_DOWN, 0, 0);
-		echoic("通过线圈离开");
+		CurrenttimeDown = time(NULL);
+		if ((CurrenttimeDown - CurrenttimeUP) >= 1)
+		{
+			PostMessage(UI_Get_From_Handl(), MSG_BAR_DOWN, 0, 0);
+			echo_cj("状态%d 通过线圈离开",GetWorkState());
+		}
+		else
+		{
+			echo_cj("状态%d 通过线圈离开----干扰信号，已抛弃",GetWorkState());
+		}
 		break;
 	case ConnError:
 		//	fprintf(stderr,"%s通信错误%s\n",GCor,PCor);

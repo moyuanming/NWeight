@@ -68,7 +68,8 @@ void SetExitTRMsgEntryCollector(char* InputEntryCollector)
 }
 void SetExitTRMsgEntrySignal(char* InputEntrySignal)
 {	
-    strncpy(MsgExitTR.EntrySignal,InputEntrySignal,sizeof(MsgExitTR.EntrySignal));	
+    char temp[sizeof(MsgExitTR.EntrySignal)+1];
+	strncpy(MsgExitTR.EntrySignal,PadLeft('@',InputEntrySignal,temp,sizeof(MsgExitTR.EntrySignal)),sizeof(MsgExitTR.EntrySignal));   
 }
 void SetExitTRMsgICCard_Type(char InputICCard_Type)
 {	

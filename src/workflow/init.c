@@ -40,6 +40,7 @@ static void Init_DevInit(void)
 		SyncToDo("SYNCREMOTE");
 		WF_IC_Init(UI_Get_From_Handl());
 	}
+	CPSB_Load();
 	SetCloseDev();
 	echoic("Éè±¸¾ÍÐ÷");
 }
@@ -107,12 +108,13 @@ void init(void)
 
 void system_close(void)
 {	
-    serial_close(LED_COM);	
+   I_DEV_LED_Close();
     I_DEV_Printer_Close();
     sem_destroy(&Device_semt);
 	CarListDestroy();
 	UI_Destroy_SEM();
 	wds_Destroy_SEM();
+		CPSB_UnLoad();
     return;
 }
 
