@@ -84,14 +84,14 @@ int GetFareValue(int InputVehiClass)
 {	
 	int FareValue=-1;
 	int i ;
-	char FareSum[5];
+	char FareSum[11];
 	char  lanenox[4];
 	char lanenoa[4];
 	memset(lanenoa,0x00,4);
 	memset(lanenox,0x00,4);
 	strncpy(lanenoa,GetLanConfigLaneNo(),3);
 	strncpy(lanenox,(char*)&lanenoa[1],2);
-	FareSum[4]=0x00;
+	memset(FareSum,0x00,11);
 	  
 	for (i=0;i<RowsCount;i++)
 	{
