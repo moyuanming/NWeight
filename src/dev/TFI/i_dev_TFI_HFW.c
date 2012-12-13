@@ -223,12 +223,21 @@ void  TFI_HFW_LedShow(int CarType, int charge)
 		command[0] = 'D'; //0x44(D)
 		command[1] = '0'; //红灯状态 0 不处理，
 		command[2] = '0'; //红灯状态 0 不处理，
-		sprintf(str1, "车    型:%4s%1d型金    额:%5d元承载标准:%5.0f吨车货总重:%5.0f吨",
-				GetWeightCarClass() == WeightCarClassBUS ? "客" : "货",
-				CarType,
-				charge,
-				GetWeightContext_WeightLimit_ByTon(),
-				GetFareContext_CarWeight());
+		if (NotUseWeight != GetWeightFunctions())
+		{
+			sprintf(str1, "车    型:%4s%1d型金    额:%5d元承载标准:%5.0f吨车货总重:%5.0f吨",
+					GetWeightCarClass() == WeightCarClassBUS ? "客" : "货",
+					CarType,
+					charge,
+					GetWeightContext_WeightLimit_ByTon(),
+					GetFareContext_CarWeight());
+		}
+		else
+		{
+			sprintf(str1, "车    型:    %1d型金    额:%5d元",
+					CarType,
+					charge);
+		}
 		memcpy((char *)&command[3], str1, HFW_DATALen);
 		command[HFW_FULL_MaxCommandLen - 1] = 0x0d;
 		serial_write(LED_COM, command, HFW_FULL_MaxCommandLen);

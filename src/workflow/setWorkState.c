@@ -550,12 +550,21 @@ void Set_WorkStation_66_InputCarNo(char *left)
 
 void Set_WorkStation_67_WeightMenu()
 {
-	SetLastWorkState(GetWorkState());
-	Set_WorkStation(67);
-	SetG_WeightMenuStues(-1);
-	UI_Show_Info("提示：\n请按【数字】键选择菜单\n按【取消】键取消。");
-	Draw_MenuCZ_GUI();
-}  
+	if (NotUseWeight != GetWeightFunctions())
+	{
+		SetLastWorkState(GetWorkState());
+		Set_WorkStation(67);
+		SetG_WeightMenuStues(-1);
+		UI_Show_Info("提示：\n请按【数字】键选择菜单\n按【取消】键取消。");
+		Draw_MenuCZ_GUI();
+	}
+	else
+	{
+		echoic("修改配置文件常量表中的字段");
+		UI_Show_Help_Info("计重功能没启用！");
+	}
+}
+  
 
 void Set_WorkStation_68_WeightMenuCC()
 {

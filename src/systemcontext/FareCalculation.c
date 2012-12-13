@@ -297,90 +297,123 @@ int GetG_WeightFare(void)
 int G_Calculate_Final_Fare()
 {
 	int FiveCarTollFare,WeightFare;
+	echoic("开始计算费率");
 	if(NewCalculateFare==GetCalculateFareMode())
 	{
+			echoic("新5型车收费");
 		if(WeightCarClassBUS == GetWeightCarClass() && OLD312JaoKeCalculateFareMode == GetJaoKeCalculateFareMode())
 		{
+				echoic("G312吨位计费");
 			FiveCarTollFare = FareT(atoi(Get_Current_Car_Type()),Get_XIAOYU_10T(),Get_DAYU_10T());	
+			echoic("FiveCarTollFare=%d  %c  %c",FiveCarTollFare,GetWeightCarClass(),GetJaoKeCalculateFareMode());
 		}
 		else
 		{
+			echoic("正常5型车计费");
 			FiveCarTollFare = GetFareValue(Get_Current_Car_Type_Index());
+			echoic("FiveCarTollFare=%d",FiveCarTollFare);
 		}
 		
 	}
 	else
 	{
-		FiveCarTollFare = FareT(atoi(Get_Current_Car_Type()),Get_XIAOYU_10T(),Get_DAYU_10T());		
+		 
+		FiveCarTollFare = FareT(atoi(Get_Current_Car_Type()),Get_XIAOYU_10T(),Get_DAYU_10T());	
+		echoic("FiveCarTollFare=%d",FiveCarTollFare);	
 	}
 	if(WeightCarClassBIGTruckVehicles == GetWeightCarClass())
 	{
+		
 		WeightFare = FareForBigTrucks(GetFareContext_CarWeight(),GetFareContext_CarAxleNumber(),GetTollFareDistance());
+		echoic("FiveCarTollFare=%d",FiveCarTollFare);
 	}
 	else
 	{
+		
 		WeightFare = FareForTrucks(GetFareContext_CarWeight(),GetFareContext_CarAxleNumber(),GetTollFareDistance());
+		echoic("FiveCarTollFare=%d",FiveCarTollFare);
 	}
+	echoic("FiveCarTollFare=%d",FiveCarTollFare);
 	echoic("################################ %d",WeightFare);
 	SetG_WeightFare(WeightFare);
 	if(FullWeight == GetWeightFunctions())
 	{
 		if(WeightCarClassTruck == GetWeightCarClass())
 		{
+ 	echoic("fare");
 			Set_G_Current_Toll_Fare(WeightFare);
 		}
 		else
 		{
+		
 			Set_G_Current_Toll_Fare(FiveCarTollFare);
+			echoic("FiveCarTollFare=%d",FiveCarTollFare);
 		}
 		switch (GetCarKindChar(Getg_CurrentCarKindIndex()))
 		{
 			case CARKIND_SHOUFEI:
 				if(WeightCarClassBUS == GetWeightCarClass()||WeightCarClassTruckISNotUseWeight == GetWeightCarClass())
 				{
+				 
 					Set_G_Current_Toll_Fare(FiveCarTollFare);
 					Set_G_Current_Actual_pay(FiveCarTollFare);
+							echoic("FiveCarTollFare=%d",FiveCarTollFare);
 				}
 				else
 				{
+					echoic("fare");
 					Set_G_Current_Actual_pay(WeightFare);
+
 				}				
 				break;
 			case CARKIND_YHC:	
 				if(WeightCarClassBUS == GetWeightCarClass()||WeightCarClassTruckISNotUseWeight == GetWeightCarClass())
 				{
+					echoic("fare");
 					Set_G_Current_Toll_Fare(FiveCarTollFare);
 					Set_G_Current_Actual_pay(GetFactMoney(FiveCarTollFare,GetYHRate(GetYHCode(GetG_AbateNumber())),GetAdjustMode(GetYHCode(GetG_AbateNumber())),GetCarryMode(GetYHCode(GetG_AbateNumber()))));
-					Setg_DiscountRate(Get_G_Current_Actual_pay(),Get_G_Current_Toll_Fare());	
+					Setg_DiscountRate(Get_G_Current_Actual_pay(),Get_G_Current_Toll_Fare());
+							echoic("FiveCarTollFare=%d",FiveCarTollFare);	
 				}
 				else
 				{					
+					echoic("fare");
 					Set_G_Current_Actual_pay(GetFactMoney(WeightFare,GetYHRate(GetYHCode(GetG_AbateNumber())),GetAdjustMode(GetYHCode(GetG_AbateNumber())),GetCarryMode(GetYHCode(GetG_AbateNumber()))));
 					Setg_DiscountRate(Get_G_Current_Actual_pay(),Get_G_Current_Toll_Fare());					
 				}
 				break;
-			default:
+		default:
+			echoic("fare");
 				Set_G_Current_Actual_pay(0);
 				break;
 		}
+		echoic("FiveCarTollFare=%d",FiveCarTollFare);
 	}
 	else
 	{
+			echoic("FiveCarTollFare=%d",FiveCarTollFare);
 		Set_G_Current_Toll_Fare(FiveCarTollFare);
 		switch (GetCarKindChar(Getg_CurrentCarKindIndex()))
 		{
 		case CARKIND_SHOUFEI:
+			echoic("fare");
 			Set_G_Current_Actual_pay(FiveCarTollFare);
+					echoic("FiveCarTollFare=%d",FiveCarTollFare);
 			break;
-		case CARKIND_YHC:		
+		case CARKIND_YHC:	
+			echoic("fare");	
 			Set_G_Current_Actual_pay(GetFactMoney(FiveCarTollFare,GetYHRate(GetYHCode(GetG_AbateNumber())),GetAdjustMode(GetYHCode(GetG_AbateNumber())),GetCarryMode(GetYHCode(GetG_AbateNumber()))));
 			Setg_DiscountRate(Get_G_Current_Actual_pay(),Get_G_Current_Toll_Fare());	
+					echoic("FiveCarTollFare=%d",FiveCarTollFare);
 			break;
 		default:
+					echoic("FiveCarTollFare=%d",FiveCarTollFare);
 			Set_G_Current_Actual_pay(0);
 			break;
 		}
+				echoic("FiveCarTollFare=%d",FiveCarTollFare);
 	}
+			echoic("FiveCarTollFare=%d",FiveCarTollFare);
 	return 0 ;
 }
 

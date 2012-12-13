@@ -301,15 +301,16 @@ void WorkStation_04_General_Validate_Car_Type_And_First_OK(int nKey)
 				UI_ShowTruck();
 				break;
 			}
-			else
-			{
-				UI_Show_Help_Info("计重功能没启用！");
-				break;
-			}
-		case VK_Weight:
-			Set_WorkStation_67_WeightMenu();
+		else
+		{
+		echoic("修改配置文件常量表中的字段");
+			UI_Show_Help_Info("计重功能没启用！");
 			break;
-		default:		
+		}
+	case VK_Weight:
+		Set_WorkStation_67_WeightMenu();
+		break;
+	default:
 			HandOnceOK( nKey,4);		
 			break;
 	}

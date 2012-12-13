@@ -99,6 +99,7 @@ int Validate_Car_Kind(int keyboardValue)
 	char tempKeyboardValue[3];
 	Current_Kind_Index = -1;
 	memset(tempKeyboardValue,0x00,sizeof(tempKeyboardValue));
+	echoic("车型数量:%d 键码:%d",GetG_Lane_carKindCount(),keyboardValue);
 	for(i=0;i<GetG_Lane_carKindCount();	 i++)
 	{	
 

@@ -102,6 +102,7 @@ void init(void)
 	SynOn=1;
 	LedClare(F);
 	echoic("测试费率 50 4 ：=<%d>",FareForTrucks(95,5,GetTollFareDistance()));
+	echoic("测试费率 车型%d 费额 %d",1,GetFareValue(1));
 }
 
 
