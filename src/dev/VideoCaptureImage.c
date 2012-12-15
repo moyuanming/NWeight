@@ -45,9 +45,12 @@ void Create_camera ( )
 #ifdef PCMACHINE	
 	int ret=0;
 	char * error;
+
+	echo_ci("ccd");
 	//使用动态库方式加载视频  modify by DZ @20101110
 	if ( ( dllhandle_cap = dlopen( "liblane.cap.v4l.so", RTLD_LAZY ) ) != 0 ) 
 	{ 
+		echo_ci("ccd");
 		/*echoic("dlopen ok.\n");*/
 		libcapvideoopen= dlsym( dllhandle_cap, "capvideoopen" ); 
 		if ((error = dlerror()) != NULL)  {
@@ -64,14 +67,17 @@ void Create_camera ( )
 			//echoic("dlerror=%s\n", error);
 			ret = -1;
 		}
+		echo_ci("ccd");
 		ret = (*libcapvideoopen)(); 
 	}
 	else
 	{
+		echo_ci("ccd");
 		//echoic("dlopen error:%s\n",dlerror());
 	}
 #else
 echoic("Video_Init_RHY");
+echo_ci("Video_Init_RHY");
 	Video_Init_RHY(OFFSIZE_X,OFFSIZE_Y,352,288);
 #endif
 	return;
@@ -79,10 +85,12 @@ echoic("Video_Init_RHY");
 void SaveJpg ( char * file_name , int width , int height , int bpp )
 {
 #ifdef PCMACHINE
+echo_ci("SaveJpg_PCMACHINE");
 		//echoic("ImageName:<%s>",file_name);
 	// (*libcapcaptureone)(file_name);
 #else
 echoic("SaveJpg");
+echo_ci("SaveJpg_VideoSaveToJPG_RHY");
 	VideoSaveToJPG_RHY(file_name,quality);
 #endif
 }

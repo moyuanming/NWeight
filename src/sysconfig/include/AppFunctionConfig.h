@@ -9,7 +9,7 @@
 #define FUNENABLEDSCS		EnabledCICM()
 #define FUNENABLEDLPR		EnabledLPR()
 #define FUNENABLEDOPC		EnabledOPC()
-
+int EnabledCPSB(void);//是否启用车牌识别
 int EnabledWeight(void);	//是否启用计重
 int EnabledPrinter(void);	//是否启用打印机
 int EnabledTFI(void);		//是否启用费额显示器

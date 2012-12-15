@@ -8,7 +8,11 @@
 //
 // ***************************************************************
 #include "LocalIncludeFile.h"
-
+int FunCPSB = 1;
+int EnabledCPSB()
+{	
+	return FunCPSB;
+}
 /******************************************************************************************************
 *计重设备是否启用
 ******************************************************************************************************/
@@ -117,7 +121,8 @@ void LoadAppFunction(void)
 	FunVDM = atoi(readItemInIniFile("FunVDM")); 
 	FunIC = atoi(readItemInIniFile("FunIC"));   
 	FunCallTCS = atoi(readItemInIniFile("FunCallTCS")); 
-	FunVideo = atoi(readItemInIniFile("FunVideo")); 
+	FunVideo = atoi(readItemInIniFile("FunVideo"));
+	FunCPSB =0;// atoi(readItemInIniFile("FunCPSB"));    
 	memset(TFIDLL,0x00,20);
 	strcpy(TFIDLL,readItemInIniFile("TFIDLL"));
 	memset(PrintDLL,0x00,20);

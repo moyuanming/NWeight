@@ -186,7 +186,6 @@ BOOL COM_RINGVOIDE = F;
 void SetRingVoide(BOOL  bFla)
 {
 	echoic("打开视频报警\n");
-	return;
 	if (COM_RINGVOIDE!=bFla)
 	{
 		COM_RINGVOIDE =bFla;

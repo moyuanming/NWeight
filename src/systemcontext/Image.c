@@ -141,34 +141,41 @@ int CaptureImg(char imageid)
 	char buf[5];
 	static char Cap_First_Flag=1;
 	char ReadLen=0;
+	echo_ci("CaptureImg");
 	sem_wait((sem_t *)&CaptureImg_Sync);
 	sprintf(TempCapImgNameFullPath,"%s%c%s%c",FILENAME_SAVE_ImageTEMP,imageid,"TEMP.JPG",0x00);
 	if (EnabledVideo())
 	{
+			echo_ci("EnabledVideo");
 		SaveJpg(TempCapImgNameFullPath,352, 288, 16);
 	}
 	else
 	{
+				echo_ci("!!!!!!!!!!!EnabledVideo");
 		if (Cap_First_Flag)
 		{
+				echo_ci("VideoFifo");
 			pipe_fd = open("/dev/shm/VideoFifo", O_WRONLY);
+			echo_ci("VideoRead");
 			pipe_read_fd = open("/dev/shm/VideoRead", O_RDONLY);
+			echo_ci("VideoFifo");
 			Cap_First_Flag=0;
 		}
 		if (pipe_fd== -1)
 		{
+				echo_ci("pipe_fd -1");
 			perror("pipe_fd");
 			//echo("CAPTURE ERROE  \n");
 			return -1;
 		}
-
+		echo_ci("write pipe_fd ");
 		write(pipe_fd,TempCapImgNameFullPath,strlen(TempCapImgNameFullPath)+1);
 		do
 		{
 			ReadLen+=read(pipe_read_fd,buf,3);
 		}while (ReadLen<3);
 	}
-	
+		echo_ci("PostImgSync ");
 	PostImgSync();
 	return 0;
 }

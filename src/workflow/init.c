@@ -40,7 +40,10 @@ static void Init_DevInit(void)
 		SyncToDo("SYNCREMOTE");
 		WF_IC_Init(UI_Get_From_Handl());
 	}
-	CPSB_Load();
+	if (TRUE==EnabledCPSB())
+	{
+		//CPSB_Load();
+	}
 	SetCloseDev();
 	echoic("Éè±¸¾ÍÐ÷");
 }
