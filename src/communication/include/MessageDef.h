@@ -56,6 +56,7 @@ struct MSG_HEAD
     char YYYYMMDDHHMMSS[14];
     char LaneNo[3];
     char Collector[6];
+	char unused[2];
 };
 struct MSG_HOUR *MsgHour;
 //struct MSG_HEAD *MsgHead;

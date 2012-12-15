@@ -42,7 +42,7 @@ static void Init_DevInit(void)
 	}
 	if (TRUE==EnabledCPSB())
 	{
-		//CPSB_Load();
+		 CPSB_Load();
 	}
 	SetCloseDev();
 	echoic("Éè±¸¾ÍÐ÷");

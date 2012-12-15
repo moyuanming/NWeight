@@ -122,7 +122,7 @@ void LoadAppFunction(void)
 	FunIC = atoi(readItemInIniFile("FunIC"));   
 	FunCallTCS = atoi(readItemInIniFile("FunCallTCS")); 
 	FunVideo = atoi(readItemInIniFile("FunVideo"));
-	FunCPSB =0;// atoi(readItemInIniFile("FunCPSB"));    
+	FunCPSB =1;// atoi(readItemInIniFile("FunCPSB"));    
 	memset(TFIDLL,0x00,20);
 	strcpy(TFIDLL,readItemInIniFile("TFIDLL"));
 	memset(PrintDLL,0x00,20);

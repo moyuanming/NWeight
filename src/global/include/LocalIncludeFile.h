@@ -101,7 +101,7 @@
 #define echo1(fmt, args...)	  //printf("ECHO:::: [%s:%d]: " fmt "\n", __FILE__, __LINE__ , ## args)
 #define echo_cj(fmt, args...)    fprintf(stderr,"³µ¼ì¡¢À¸¸Ë[%s:%d]: " fmt "\n", __FILE__, __LINE__ , ## args)
 #define echo(fmt, args...)	  //printf("ECHO:::: [%s:%d]: " fmt "\n", __FILE__, __LINE__ , ## args)
-#define echoic(fmt, args...)     //fprintf(stderr,"echoic:::: [%s:%d]: " fmt "\n", __FILE__, __LINE__ , ## args)
+#define echoic(fmt, args...)     fprintf(stderr,"echoic:::: [%s:%d]: " fmt "\n", __FILE__, __LINE__ , ## args)
 #define echocad(fmt, args...)	   //printf("ECHO:::: [%s:%d]: " fmt "\n", __FILE__, __LINE__ , ## args)
 #define echo_everyline(fmt, args...)	//   printf("ECHO:::: [%s:%d]: " fmt "\n", __FILE__, __LINE__ , ## args)
 #define echocad(fmt, args...)	    //printf("ECHO:::: [%s:%d]: " fmt "\n", __FILE__, __LINE__ , ## args)

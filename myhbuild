@@ -7,6 +7,9 @@ echo "拷贝已编译文件..."
 cp  src/emrc_main  ./EMRCV4/BIN/   
 cp  src/Uploader  ./EMRCV4/BIN/  
 cp  src/Sync  ./EMRCV4/BIN/  
+cp  src/ClearAndArchiveData  ./EMRCV4/BIN/  
+
+
 echo "更新应用程序"
 cp ./EMRCV4/BIN/  /root/EMRCV4/  -r  
 echo "更新配置文件"
@@ -16,7 +19,7 @@ echo "校验"
 md5sum src/emrc_main 
 md5sum src/Uploader
 md5sum src/Sync
-#md5sum src/RemoteView
+md5sum src/ClearAndArchiveData
  
 
 
