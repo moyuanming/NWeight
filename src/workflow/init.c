@@ -44,6 +44,10 @@ static void Init_DevInit(void)
 	{
 		 CPSB_Load();
 	}
+	GetTFIText(0);
+	GetTFIText(1);
+	GetTFIText(2);
+	GetTFIText(3);
 	SetCloseDev();
 	echoic("Éè±¸¾ÍÐ÷");
 }
