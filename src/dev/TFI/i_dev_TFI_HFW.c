@@ -46,8 +46,8 @@ void TFI_HFW_clean(BOOL IsSound)
 
 		byte command[HFW_FULL_MaxCommandLen];
 		byte str1[255];
-	
-		sprintf(str1, " 奎克高速              欢迎您！  计重收费              试运行！");
+		memset(str1, ' ', 255);
+		sprintf(str1, "%64s", GetTFIText(0));
 		memset(command, 0x00, HFW_FULL_MaxCommandLen);
 		command[0] = 'D'; //0x44(D)
 		command[1] = '2'; //红灯状态 0 不处理，
@@ -56,7 +56,7 @@ void TFI_HFW_clean(BOOL IsSound)
 		memcpy((char *)&command[3], str1, HFW_DATALen);
 		command[HFW_FULL_MaxCommandLen - 1] = 0x0d;
 		serial_write(LED_COM, command, HFW_FULL_MaxCommandLen);
-		echoic("重置指令:%s",command);
+		echoic("重置指令:%s",command );
 	}
 	sem_post(&HFW_Semt);
 	if (IsSound)
