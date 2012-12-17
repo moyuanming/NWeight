@@ -85,6 +85,6 @@ int GetWeightFunctions(void);
 int GetCalculateFareMode(void);
 int GetPrinterMode(void);
 int GetAxleContainerTruckWeighLimt(int InputAxleNumber,int Feet);
-char *GetTFIText(void);
+char *GetTFIText(int index);
 #endif 
 	

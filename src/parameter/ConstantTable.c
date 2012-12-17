@@ -20,6 +20,7 @@ int ErecordIndex=-1;
 int FrecordIndex=-1;
 int GrecordIndex=-1;
 int TrecordIndex=-1;
+int TrecordCount=0;
 int ParseRecordConstant(char *RecordStr,CONSTANT_RECORD * RecordTableRow,int index)
 {
 	memset(RecordTableRow,0x00,sizeof(CONSTANT_RECORD));
@@ -46,6 +47,7 @@ int ParseRecordConstant(char *RecordStr,CONSTANT_RECORD * RecordTableRow,int ind
 			break;
 		case 'T':
 			TrecordIndex=index;
+			TrecordCount++;
 			strncpy((char *)&(RecordTableRow->RecordT),&RecordStr[1],67);
 			break;
 	}
@@ -297,6 +299,7 @@ static int LoadRecordtest(char *FileName,struct PARAM_HEAD *Head,int IsFirst)
 		LogCParameter(LOG_ERROR,"参数表 %s 未找到",FileName);
 		return 0;
 	}
+	TrecordCount=0;
 	//lseek(FileFd,SEEK_SET,0);
 	fread(HeadStr,1,PAEAMHEAD_LENGTH,FileFd);
 	//read(FileFd,HeadStr,PAEAMHEAD_LENGTH);
@@ -317,7 +320,7 @@ static int LoadRecordtest(char *FileName,struct PARAM_HEAD *Head,int IsFirst)
 					i=0;
 					ParseRecordConstant(RecordStr,&ConstantRecordTable[j],j);
 					j++;
-					/*LogCParameter(LOG_INFOR,"RecordStr %s ",RecordStr);*/
+					 echoic("RecordStr %s ",RecordStr);
 				}
 			}			
 				
@@ -339,8 +342,26 @@ int LoadConstantRecord(int IsFirst)
 	}
 	return ret;
 }
-char TFIText[64];
-char *GetTFIText()
+char TFIText[100];
+char* GetTFIText(int index)
 {
+	char msgno[10];
+	int  dindex;
+	memset(TFIText, 0x00, 100);
+	if (index < TrecordCount)
+	{
+		dindex = TrecordIndex - TrecordCount +1 + index ;
+		memset(msgno, 0x00, 10);
+		sprintf(msgno, "%03d",  index);
+		if (strncmp(ConstantRecordTable[dindex].RecordT.MsgNo, msgno, 3) == 0)
+		{
+			strncpy(TFIText, ConstantRecordTable[dindex].RecordT.MsgContent, 64);
+		}	
+	}
+	else
+	{
+		echoic("共%d条信息，序号%d无超出范围", TrecordCount, index);
+	}
+	echoic("内容编号:%d,%s",index, TFIText);
 	return TFIText;
 }
