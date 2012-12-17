@@ -110,9 +110,10 @@ void ExecTCOCommand(const   char * InputRevbData)
 			int x=0;
 			echoic("正在加载参数表！");
 			LoadGetParameterFileList();
-			x=LoadParameter(ISLOADFIRST);
+			x = LoadParameter(ISLOADFIRST);
 			LoadAppFunction();
 			LoadLanConfig();
+			LedClare(T);
 			if (x==1)
 			{
 				SendTCOMsg(MSGTCO_CMD_PARAMUPDATE,"参数表更新并加载成功!");
