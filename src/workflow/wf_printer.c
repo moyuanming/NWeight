@@ -167,7 +167,8 @@ BOOL postPrinter(BOOL newNillNumber)
 	SetBillAbateStly();
 	if (Getg_bPrint())
 	{
-		if (0!=strncmp("  0",g_currentPrint.Charge,3))
+		echoic("´òÆ±½ð¶î%d",atoi(g_currentPrint.Charge));
+		if (0!=atoi(g_currentPrint.Charge))
 		{
 			if (newNillNumber)
 			{
