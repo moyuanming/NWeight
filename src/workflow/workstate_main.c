@@ -84,7 +84,7 @@ void WorkStation_03_Main_Work(int nKey)
 		case VK_7:
 		case VK_8:
 		case VK_9:
-			if( Getg_carTypeLen() ==1 && WeightCarClassBUS!=GetWeightCarClass())
+			if( Getg_carTypeLen() ==1)
 			{
 				ErrorPressKey();  
 				break;
