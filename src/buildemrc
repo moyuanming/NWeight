@@ -1,6 +1,0 @@
-#!/bin/bash
-make 
-cp emicst6k /nfs4arm/emrcr3/temp/emrc/
-cp sysconfig.ini /nfs4arm/emrcr3/temp/emrc/
-cp emrc_main /nfs4arm/emrcr3/temp/emrc/ 
-cp res -r /nfs4arm/emrcr3/temp/emrc/
