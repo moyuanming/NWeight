@@ -1,7 +1,0 @@
-cd /etc
-mv  rc.local.base   rc.local
-chmod 777 rc.local
-cd /
-rm EMRCV3 
-ln   /Data/EMRCV3   EMRCV3   -s
-    
