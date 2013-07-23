@@ -247,8 +247,6 @@ void SetCloseDev()
 {
     I_DEV_IOBoard_CommandSender(T,T_LAMP_R|C_LAMP_R|OUTPUT2,T_LAMP_G|C_LAMP_G|C_BAR|FOG_LAMP |ALARM_LAMP);
     I_DEV_IOBoard_CommandSender(F,OUTPUT2,0);
-
-    sleep(1);
 }
 int  getJiaoTongDengState(void)
 {

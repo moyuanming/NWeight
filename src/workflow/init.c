@@ -11,7 +11,7 @@
 void wds_Destroy_SEM(void);
 static void I_DEV_Weight_Init(void)
 {
-	int fd = Serial_Open(GetWeightCOMStr(),Get_WeightCOMSpeed());
+	int fd = Serial_Open((unsigned char * )GetWeightCOMStr(),Get_WeightCOMSpeed());
 	Wds_Run(fd);
 }
 static void Init_DevInit(void)
@@ -22,7 +22,7 @@ static void Init_DevInit(void)
 	I_DEV_Printer_Init();
 	echoic("初始化费显");
 	I_DEV_LED_Init();
-	echoic("初始化费显");
+	echoic("初始化视频");
 	if (EnabledVideo())
 	{
 		echoic("启用了摄像机，开始初始化");
@@ -43,6 +43,10 @@ static void Init_DevInit(void)
 	if (TRUE==EnabledCPSB())
 	{
 		 CPSB_Load();
+	}
+	if (TRUE==EnabledVDM())
+	{
+		I_DEV_VDM_Init();
 	}
 	GetTFIText(0);
 	GetTFIText(1);

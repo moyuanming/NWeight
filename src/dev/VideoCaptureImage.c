@@ -90,8 +90,44 @@ void Create_camera_libcapvide(void )
 }
 void SaveJpg ( char * file_name , int width , int height , int bpp )
 {
-	echoic("SaveJpg");
-	VideoSaveToJPG_RHY(file_name,quality);
+	if (EnabledVideo() == 1)
+	{
+		VideoSaveToJPG_RHY(file_name,quality);
+	}
+	else if (EnabledVideo() == 2)
+	{
+		char ReadLen = 0;
+		char buf[5];
+		static char Cap_First_Flag=1;
+		static int pipe_fd=-1,pipe_read_fd=-1;
+		if (Cap_First_Flag)
+		{
+			pipe_fd = open("/dev/shm/VideoFifo", O_WRONLY);
+			pipe_read_fd = open("/dev/shm/VideoRead", O_RDONLY);
+			Cap_First_Flag = 0;
+		}
+		if (pipe_fd== -1)
+		{
+			perror("pipe_fd");
+
+		}
+		else 
+		{
+			write(pipe_fd,file_name,strlen(file_name)+1);
+			do
+			{
+				ReadLen+=read(pipe_read_fd,buf,3);
+			}while (ReadLen<3);
+		}
+	}
+	else if (EnabledVideo() == 3)
+	{
+		SaveJpg_libcapcaptureone(file_name, 352, 288, 16);
+	}
+	else 
+	{
+		echoic("not use any method to save jpg ");
+	}
 }
 
 void SaveJpg_libcapcaptureone( char * file_name , int width , int height , int bpp )
