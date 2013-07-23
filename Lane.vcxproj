@@ -24,6 +24,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -98,6 +99,7 @@
     <ClCompile Include="src\csc_rhy_dll\csc_rhy_dll\mac.c" />
     <ClCompile Include="src\csc_rhy_dll\csc_rhy_dll\MIF_Interface.c" />
     <ClCompile Include="src\dev\Com\Com.c" />
+    <ClCompile Include="src\dev\CPSB.c" />
     <ClCompile Include="src\dev\IO_BaseIO_State.c" />
     <ClCompile Include="src\dev\i_dev_KK_print.c" />
     <ClCompile Include="src\dev\Print\i_dev_KK_printer.c" />
@@ -107,6 +109,7 @@
     <ClCompile Include="src\dev\s303_printer.c" />
     <ClCompile Include="src\dev\TFI\i_dev_led.c" />
     <ClCompile Include="src\dev\TFI\i_dev_TFI_303.c" />
+    <ClCompile Include="src\dev\TFI\i_dev_TFI_HFW.c" />
     <ClCompile Include="src\dev\TFI\i_dev_TFI_HN.c" />
     <ClCompile Include="src\dev\TFI\i_dev_TFI_KK.c" />
     <ClCompile Include="src\dev\VideoCaptureImage.c" />
@@ -241,7 +244,9 @@
     <ClInclude Include="src\csc_rhy_dll\csc_rhy_dll\LocalIncludeFile.h" />
     <ClInclude Include="src\csc_rhy_dll\csc_rhy_dll\mac.h" />
     <ClInclude Include="src\csc_rhy_dll\csc_rhy_dll\MIF_Interface.h" />
+    <ClInclude Include="src\dev\include\CPSB.h" />
     <ClInclude Include="src\dev\include\i_dev_TFI_303.h" />
+    <ClInclude Include="src\dev\include\i_dev_TFI_HFW.h" />
     <ClInclude Include="src\dev\include\i_dev_TFI_HN.h" />
     <ClInclude Include="src\dev\include\i_dev_TFI_KK.h" />
     <ClInclude Include="src\dev\include\VideoCaptureImage.h" />
@@ -257,6 +262,7 @@
     <ClInclude Include="src\global\include\mac.h" />
     <ClInclude Include="src\global\include\serial.h" />
     <ClInclude Include="src\global\include\Version.h" />
+    <ClInclude Include="src\messageBody\include\TrafficStat.h" />
     <ClInclude Include="src\parameter\include\ConstantTable.h" />
     <ClInclude Include="src\parameter\include\FreeCarList.h" />
     <ClInclude Include="src\RemoteControl\include\RemoteControl.h" />
@@ -360,6 +366,20 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AUTHORS" />
+    <None Include="autogen.sh" />
+    <None Include="config.guess" />
+    <None Include="config.sub" />
+    <None Include="configure" />
+    <None Include="configure.in" />
+    <None Include="install-sh" />
+    <None Include="Makefile.am" />
+    <None Include="Makefile.in" />
+    <None Include="NEWS" />
+    <None Include="README" />
+    <None Include="src\Makefile.am" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
