@@ -1,53 +1,22 @@
 
 #include "LocalIncludeFile.h"
-int g_hCOM[8];
+int g_hCOM[20];
 int serial_init(int nCOM, int nBaud)
-{	
+{
+ 	
     struct termios newtio;
     char szCOM[20];
     sprintf(szCOM,"%s%d",Get_ComName(),nCOM);
     g_hCOM[nCOM-1] = open(szCOM,O_RDWR | O_NOCTTY | O_NONBLOCK);
-
     if(g_hCOM[nCOM-1] < 0)
     {	
         return -1;
     }
-	//return set_Parity(g_hCOM[nCOM-1],8,1,'N');
-
     bzero(&newtio, sizeof(newtio));/* 清除结构体以放入新的序列埠设定值 */
-/*
-BAUDRATE: 设定 bps 的速度. 你也可以用 cfsetispeed 及 cfsetospeed 来设定.
-CRTSCTS : 输出资料的硬体流量控制 (只能在具完整线路的缆线下工作  参考 Serial-HOWTO 第七节)
-CS8     : 8n1 (8 位元, 不做同位元检查,1 个终止位元)
-CLOCAL  : 本地连线, 不具数据机控制功能
-CREAD   : 致能接收字元
-*/
     newtio.c_cflag = nBaud |  CS8 | CLOCAL | CREAD ;
-/*
-IGNPAR  : 忽略经同位元检查後, 错误的位元组
-ICRNL   : 比 CR 对应成 NL (否则当输入讯号有 CR 时不会终止输入)
-            在不然把装置设定成 raw 模式(没有其它的输入处理)
- */
-
     newtio.c_iflag = IGNPAR ;//| ICRNL;/*HH IGNPAR*/
-/*
- Raw 模式输出.
-*/
     newtio.c_oflag = 0;
-
-/*
- ICANON  : 致能标准输入, 使所有回应机能停用, 并不送出信号以叫用程式
-*/
     newtio.c_lflag = 0;//ICANON; /*HH 0*/
-
-
-
-
-/*
- 初始化所有的控制特性
- 预设值可以在 /usr/include/termios.h 找到, 在注解中也有,
- 但我们在这不需要看它们
-*/
     newtio.c_cc[VINTR]    = 0;     /* Ctrl-c */
     newtio.c_cc[VQUIT]    = 0;     /* Ctrl-\ */
     newtio.c_cc[VERASE]   = 0;     /* del */
@@ -65,17 +34,97 @@ ICRNL   : 比 CR 对应成 NL (否则当输入讯号有 CR 时不会终止输入)
     newtio.c_cc[VWERASE]  = 0;     /* Ctrl-w */
     newtio.c_cc[VLNEXT]   = 0;     /* Ctrl-v */
     newtio.c_cc[VEOL2]    = 0;     /* '\0' */
-
-
-/*echoic("RUn is ");
-  现在清除数据机线并启动序列埠的设定
-*/
     tcflush(g_hCOM[nCOM-1], TCIFLUSH);	
     tcsetattr(g_hCOM[nCOM-1],TCSANOW,&newtio);	
-	
     return 0;
 }
-
+int serial_initbit7_JI(int nCOM, int nBaud)
+{
+ 
+	char szCOM[20];
+	memset(szCOM,0x00,20);
+	sprintf(szCOM,"/dev/COM%d",nCOM);	
+	g_hCOM[nCOM-1] = open(szCOM,O_RDWR | O_NOCTTY | O_NONBLOCK);
+	if(g_hCOM[nCOM-1] < 0)
+	{	
+		printf("Open Error!");
+		return -1;
+	}
+	return set_Parity(g_hCOM[nCOM-1],7,1,'O');
+}
+int set_Parity(int fd,int databits,int stopbits,int parity)
+{ 
+	printf("set_Parity In");
+	struct termios options; 
+	if  ( tcgetattr( fd,&options)  !=  0) { 
+		perror("SetupSerial 1");     
+		return(FALSE);  
+	}
+	options.c_cflag &= ~CSIZE; 
+	switch (databits) /*设置数据位数*/
+	{   
+	case 7:		
+		options.c_cflag |= CS7; 
+		break;
+	case 8:     
+		options.c_cflag |= CS8;
+		break;   
+	default:    
+		fprintf(stderr,"Unsupported data size\n"); return (FALSE);  
+	}
+	switch (parity) 
+	{   
+	case 'n':
+	case 'N':    
+		options.c_cflag &= ~PARENB;   /* Clear parity enable */
+		options.c_iflag &= ~INPCK;     /* Enable parity checking */ 
+		break;  
+	case 'o':   
+	case 'O':     
+		options.c_cflag |= (PARODD | PARENB); /* 设置为奇效验*/  
+		options.c_iflag |= INPCK;             /* Disnable parity checking */ 
+		break;  
+	case 'e':  
+	case 'E':   
+		options.c_cflag |= PARENB;     /* Enable parity */    
+		options.c_cflag &= ~PARODD;   /* 转换为偶效验*/     
+		options.c_iflag |= INPCK;       /* Disnable parity checking */
+		break;
+	case 'S': 
+	case 's':  /*as no parity*/   
+		options.c_cflag &= ~PARENB;
+		options.c_cflag &= ~CSTOPB;break;  
+	default:   
+		fprintf(stderr,"Unsupported parity\n");    
+		return (FALSE);  
+	}  
+	/* 设置停止位*/  
+	switch (stopbits)
+	{   
+	case 1:    
+		options.c_cflag &= ~CSTOPB;  
+		break;  
+	case 2:    
+		options.c_cflag |= CSTOPB;  
+		break;
+	default:    
+		fprintf(stderr,"Unsupported stop bits\n");  
+		return (FALSE); 
+	} 
+	/* Set input parity option */ 
+	if (parity != 'n')   
+		options.c_iflag |= INPCK; 
+	tcflush(fd,TCIFLUSH);
+	//options.c_cc[VTIME] = 150; /* 设置超时15 seconds*/   
+	//options.c_cc[VMIN] = 0; /* Update the options and do it NOW */
+	if (tcsetattr(fd,TCSANOW,&options) != 0)   
+	{ 
+		perror("SetupSerial 3");   
+		return (FALSE);  
+	} 
+	printf("set_Parity Out");
+	return (TRUE);  
+}
 int serial_close(int nCOM)
 {	
     close(g_hCOM[nCOM-1]);	
@@ -93,6 +142,5 @@ int serial_write(int nCOM,unsigned char *byWriteBuf,int nWriteLen)
 {	
     int nLen;//,i;
     nLen = write(g_hCOM[nCOM-1], (void *)byWriteBuf, nWriteLen);	
-
     return nLen;
 }

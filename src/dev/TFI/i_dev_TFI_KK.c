@@ -36,17 +36,16 @@ static byte * show ( byte* command , int lane , int sd , int sj , int mode , cha
 	command [ 4 ] = sj ;
 	command [ 5 ] = getValue ( mode , 1 , 6 ) ;
 	p = &command [ 6 ] ;
-	strncpy ( p , str , len ) ;
+	strncpy ( (  char * )p , str , len ) ;
 	p = p + len ;
 	*p = 0xBB ;
 	serial_write(LED_COM,command  ,TFI_KK_GetCommandLen( command ) ) ;
 
 	return command;
 }
-void   TFI_KK_clean ( )
+void   TFI_KK_clean ( void)
 {
 	byte command[95];	
-	int ret = 0;
 	memset ( command , 0x00 , 95 ) ;
 	command [ 0 ] = 0xAA ;
 	command [ 1 ] = 0x07 ;
@@ -55,7 +54,7 @@ void   TFI_KK_clean ( )
 	command [ 4 ] = 0x00 ;
 	command [ 5 ] = 0x00 ;
 	command [ 6 ] = 0xBB ;
-	ret = serial_write(LED_COM,command  ,7) ;
+	serial_write(LED_COM,command  ,7) ;
 	
 }
 
@@ -73,7 +72,6 @@ void TFI_KK_SoundOuther ( int Type )
 {
 	byte command[95];	
 	int i ;
-	int ret = 0;
 	memset ( command , 0x00 , 95 ) ;
 	command [ 0 ] = 0xAA ;
 	command [ 1 ] = 0x0A ;
@@ -86,7 +84,7 @@ void TFI_KK_SoundOuther ( int Type )
 	command [ 8 ] = 0x30 ;
 	command [ 9 ] = 0xBB ;
 	
-	ret = serial_write(LED_COM,command , TFI_KK_GetCommandLen( command )) ;
+	serial_write(LED_COM,command , TFI_KK_GetCommandLen( command )) ;
 	for(i = 0;i<TFI_KK_GetCommandLen( command );i++ )
 	{
 		echoic("TFI=<%x>",command[i]);
@@ -96,16 +94,15 @@ void TFI_KK_Sound ( byte* command , int CarType , int charge , int volume )
 {
 	byte str [ 5 ] ;
 	int i;
-	int ret = 0;
-	sprintf ( str , "%d%04d" , getValue ( CarType , 0 , 9 ) , charge ) ;
+	sprintf ( (  char * )str , "%d%04d" , getValue ( CarType , 0 , 9 ) , charge ) ;
 	command [ 0 ] = 0xAA ;
 	command [ 1 ] = 0x0A ;
 	command [ 2 ] = 0x4A ;
-	strncpy (&command [ 3 ] , str , 5 ) ;
+	strncpy ((  char * )&command [ 3 ] , (  char * )str , 5 ) ;
 	command [ 8 ] = getSoundVolume ( volume ) ;
 	command [ 9 ] = 0xBB ;
 	
-	ret = serial_write(LED_COM,command , TFI_KK_GetCommandLen( command )) ;
+	serial_write(LED_COM,command , TFI_KK_GetCommandLen( command )) ;
 
 	for(i = 0;i<TFI_KK_GetCommandLen( command );i++ )
 	{
@@ -115,7 +112,7 @@ void TFI_KK_Sound ( byte* command , int CarType , int charge , int volume )
 void  TFI_KK_LedShow (   int CarType , int charge )
 {	
 	byte command[95];
-	byte str1 [ 90 ] , str2 [ 90 ] ;
+	char  str1 [ 90 ] , str2 [ 90 ] ;
 	memset ( command , 0x00 , 95 ) ;
 	TFI_KK_Sound ( command , CarType , charge , 3 ) ;
 	sprintf ( str1 , " 车型:%4d 型车" , CarType ) ;

@@ -30,7 +30,7 @@ Wds_CarWeightInfo * GetFirstCarWeightInfo(Wds_CarWeightInfo * cwi) {
 			LogCDev(LOG_INFOR,"取车计费 %d轴;轴型:%d;轴重:%d;",i,cwi->AxleArry[i].AxleType,cwi->AxleArry[i].AxleWeight);
 		}
 	}	
-	echoic("cwi->TotalWeight<%d>,cwi->AxleNumber<%d>,cwi->Speed<%d>",cwi->TotalWeight,cwi->AxleNumber,cwi->Speed);
+	echoic("总重量<%d>,车轴数<%d>,速度<%d>",cwi->TotalWeight,cwi->AxleNumber,cwi->Speed);
 	wds_Post_SEM();
 	LogCDev(LOG_INFOR,"取车计费 结束");
 	return cwi;
@@ -113,7 +113,7 @@ void ModifyAxlesNo(int inputAxesNo) {
 			Car_SetCarAcceleration(1, Car_GetCarAcceleration(0));
 			for (i = inputAxesNo; i < c; i++) {
 				Car_SetCarAxlesWeight(1, j, Car_GetCarAxlesWeight(0,
-						inputAxesNo));
+					inputAxesNo));
 				Car_SetCarAxlesType(1, j, Car_GetCarAxlesType(0, inputAxesNo));
 				Car_SetCarAxlesSpace(1, j, Car_GetCarAxlesSpace(0, inputAxesNo));
 				Axle_Delete(0, inputAxesNo);
@@ -150,7 +150,7 @@ void ModfiyCarAxlesByWeight(int cn, int InputWeight) {
 		}
 		if (tempWeight >= InputWeight && carnum == cn) {
 			Car_SetCarAxlesWeight(cn, i, Car_GetCarAxlesWeight(cn, i)
-					- (tempWeight - InputWeight));
+				- (tempWeight - InputWeight));
 			carnum = cn + 1;
 			Car_Insert(carnum);
 			Car_SetCarOverload(carnum, Car_GetCarOverload(cn));
@@ -216,7 +216,8 @@ void RemoveAxleByIndex(int index) {
 	CarList_Change();
 	wds_Post_SEM();
 }
-void AddCarWeightInfo(Wds_CarWeightInfo *CarWeightInfo) {
+void AddCarWeightInfo(Wds_CarWeightInfo *CarWeightInfo) 
+{
 	echo_debug_WDS_Dll("wds_Wait_SEM  Call!!!-----------");
 	wds_Wait_SEM();
 	Car_Insert(0);
@@ -239,23 +240,23 @@ void AddTempCarInfo(int inputAxesNo)
 	LogCDev(LOG_INFOR,"添加车辆信息 轴数:%d",inputAxesNo);
 	wds_Wait_SEM();
 	Car_StackPush();
-	
+
 	Car_SetCarSpeed(0, 0);
-	
+
 	Car_SetCarAcceleration(0, 0);
-	
+
 	int i =0;
 	for(i=0;i<inputAxesNo;i++)
 	{
-	
+
 		Car_SetCarAxlesWeight(0, i, 0);
-	
+
 		Car_SetCarAxlesType(0, i, 1);
-	
+
 		Car_SetCarAxlesSpace(0, i, 0);
-	
+
 	}
-	
+
 	CarList_Change();
 	wds_Post_SEM();
 }

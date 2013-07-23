@@ -1,7 +1,7 @@
 #include "LocalIncludeFile.h"
 
 
-static int BPS(int bps)
+  int BPS(int bps)
 {
 	int ret = B9600;
 	switch( bps )
@@ -26,6 +26,36 @@ static int BPS(int bps)
 			break;
 		case 115200:
 			ret = B115200;
+			break;
+	}
+	return ret;
+}
+
+  int Back_BPS(int bps)
+{
+	int ret = 9600;
+	switch( bps )
+	{
+		case B1200:
+			ret = 1200;
+			break;
+		case B2400:
+			ret = 2400;
+			break;
+		case B4800:
+			ret = 4800;		
+			break;
+		case B9600:
+			ret = 9600;
+			break;
+		case B19200:
+			ret = 19200;
+			break;
+		case B38400:
+			ret = 38400;
+			break;
+		case B115200:
+			ret = 115200;
 			break;
 	}
 	return ret;
@@ -75,6 +105,29 @@ int Get_ICCOMSpeed()
 {
 	return BPS(ICCOMSpeed);
 }
+
+int VDMCOM =0;
+int Get_VDMCOM(void)
+{
+	return VDMCOM;
+}
+int VDMCOMSpeed =0;
+int Get_VDMCOMSpeed(void)
+{
+	return BPS(VDMCOMSpeed);
+}
+
+int IOBoardCOM =0;
+int Get_IOBoardCOM(void)
+{
+	return IOBoardCOM;
+}
+int IOBoardCOMSpeed =0;
+int Get_IOBoardCOMSpeed(void)
+{
+	return BPS(IOBoardCOMSpeed);
+}
+
 void LoadTTyConfig()
 {   
 	memset(ComName,0x00,50);
@@ -89,5 +142,10 @@ void LoadTTyConfig()
 	WeightCOMSpeed  =atoi(readItemInIniFile("WeightCOMSpeed"));	
 	ICCOM       =atoi(readItemInIniFile("ICCOM"));
 	ICCOMSpeed  =atoi(readItemInIniFile("ICCOMSpeed"));	
+	VDMCOM       =atoi(readItemInIniFile("VDMCOM"));
+	VDMCOMSpeed  =atoi(readItemInIniFile("VDMCOMSpeed"));
+	IOBoardCOM       =atoi(readItemInIniFile("IOBoardCOM"));
+	IOBoardCOMSpeed  =atoi(readItemInIniFile("IOBoardCOMSpeed"));
+
 }
 

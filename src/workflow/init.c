@@ -116,14 +116,13 @@ void init(void)
 
 void system_close(void)
 {	
-   I_DEV_LED_Close();
-    I_DEV_Printer_Close();
-    sem_destroy(&Device_semt);
+	I_DEV_Printer_Close();
+	sem_destroy(&Device_semt);
 	CarListDestroy();
 	UI_Destroy_SEM();
 	wds_Destroy_SEM();
-		CPSB_UnLoad();
-    return;
+	CPSB_UnLoad();
+	return;
 }
 
 void readItemInsysConfigFile(char *SystemFile,char *ItemName ,char *ItemValue)

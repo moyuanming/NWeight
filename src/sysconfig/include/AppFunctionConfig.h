@@ -25,6 +25,8 @@ BOOL EnabledVideo(void);// 是否启用新视频
 char *GetTFIDLL(void);
 int GetDisPlay_Resolution(void);
 char *GetPrintDLL(void);
-
+char * GetICReader(void);
+char * GetVDMDLL(void);
+char * GetIOBoardDLL(void);
 #endif	
 

@@ -51,6 +51,9 @@
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(ProjectDir)\src\dev\IO\include;$(ProjectDir)\src\icardcontext\include;D:\Works\Linux\toolchain_R2_EABI\opt\ext-toolchain\lib\gcc\arm-none-linux-gnueabi\4.6.1\include-fixed;D:\Works\Linux\toolchain_R2_EABI\opt\ext-toolchain\lib\gcc\arm-none-linux-gnueabi\4.6.1\include;D:\Works\Linux\toolchain_R2_EABI\usr\arm-unknown-linux-gnueabi\sysroot\usr\include;$(ProjectDir)\src\ui\include;$(ProjectDir)\src\ui\800_600\include;$(ProjectDir)\src\ui\640_480\include;$(ProjectDir)\src\dev\ICR\inlcude;$(ProjectDir)\src\dev\TFI\include;$(ProjectDir)\src\dev\Print\include;$(ProjectDir)\src\messageBody\include;$(ProjectDir)\src\workflow\workflow_CloseToll\include;$(ProjectDir)\src\workflow\workflow_Close_main\include;$(ProjectDir)\src\workflow\include;$(ProjectDir)\src\systemcontext\include;$(ProjectDir)\src\sysconfig\include;$(ProjectDir)\src\SQLite\include;$(ProjectDir)\src\SetConifgFile\include;$(ProjectDir)\src\RemoteControl\include;$(ProjectDir)\src\param\include;$(ProjectDir)\src\msgQueueToFile\include;$(ProjectDir)\src\logc\include;$(ProjectDir)\src\global\include;$(ProjectDir)\src\communication\include;$(ProjectDir)\src\dev\Weight\include;$(ProjectDir)\src\dev\include;$(ProjectDir)\src\communication\include\Zmq;$(ProjectDir)\src\dev\VDM\include</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
@@ -100,6 +103,8 @@
     <ClCompile Include="src\csc_rhy_dll\csc_rhy_dll\MIF_Interface.c" />
     <ClCompile Include="src\dev\Com\Com.c" />
     <ClCompile Include="src\dev\CPSB.c" />
+    <ClCompile Include="src\dev\ICR\i_dev_ICR_JY2.c" />
+    <ClCompile Include="src\dev\IO\i_dev_IO_SAT.c" />
     <ClCompile Include="src\dev\IO_BaseIO_State.c" />
     <ClCompile Include="src\dev\i_dev_KK_print.c" />
     <ClCompile Include="src\dev\Print\i_dev_KK_printer.c" />
@@ -109,9 +114,15 @@
     <ClCompile Include="src\dev\s303_printer.c" />
     <ClCompile Include="src\dev\TFI\i_dev_led.c" />
     <ClCompile Include="src\dev\TFI\i_dev_TFI_303.c" />
+    <ClCompile Include="src\dev\TFI\i_dev_TFI_CJ.c" />
     <ClCompile Include="src\dev\TFI\i_dev_TFI_HFW.c" />
     <ClCompile Include="src\dev\TFI\i_dev_TFI_HN.c" />
     <ClCompile Include="src\dev\TFI\i_dev_TFI_KK.c" />
+    <ClCompile Include="src\dev\TFI\i_dev_TFI_KY.c" />
+    <ClCompile Include="src\dev\TFI\i_dev_TFI_MNS.c" />
+    <ClCompile Include="src\dev\TFI\i_dev_TFI_RHY.c" />
+    <ClCompile Include="src\dev\TFI\i_dev_TFI_SG.c" />
+    <ClCompile Include="src\dev\VDM\i_dev_VDM_SAT.c" />
     <ClCompile Include="src\dev\VideoCaptureImage.c" />
     <ClCompile Include="src\dev\Weight\wds_protocol.c" />
     <ClCompile Include="src\dev\Weight\wds_thread.c" />
@@ -160,6 +171,7 @@
     <ClCompile Include="src\systemcontext\Image.c" />
     <ClCompile Include="src\global\imf.c" />
     <ClCompile Include="src\systemcontext\MethodPayContext.c" />
+    <ClCompile Include="src\systemcontext\SwitchContext.c" />
     <ClCompile Include="src\systemcontext\WeightContext.c" />
     <ClCompile Include="src\Test\AutoRunWorkFlow.c" />
     <ClCompile Include="src\ui\640_480\From_640_480.c" />
@@ -209,7 +221,6 @@
     <ClCompile Include="src\dev\sound.c" />
     <ClCompile Include="src\workflow\st_main.c" />
     <ClCompile Include="src\parameter\SVRCardList.c" />
-    <ClCompile Include="src\systemcontext\SwitchContext.c" />
     <ClCompile Include="src\SubProgarm\Sync.c" />
     <ClCompile Include="src\systemcontext\systemContext.c" />
     <ClCompile Include="src\communication\Udp.c" />
@@ -244,17 +255,30 @@
     <ClInclude Include="src\csc_rhy_dll\csc_rhy_dll\LocalIncludeFile.h" />
     <ClInclude Include="src\csc_rhy_dll\csc_rhy_dll\mac.h" />
     <ClInclude Include="src\csc_rhy_dll\csc_rhy_dll\MIF_Interface.h" />
+    <ClInclude Include="src\dev\ICR\inlcude\IccReader.h" />
+    <ClInclude Include="src\dev\ICR\inlcude\i_dev_ICR_JY2.h" />
+    <ClInclude Include="src\dev\ICR\inlcude\MIF_Interface.h" />
     <ClInclude Include="src\dev\include\CPSB.h" />
-    <ClInclude Include="src\dev\include\i_dev_TFI_303.h" />
-    <ClInclude Include="src\dev\include\i_dev_TFI_HFW.h" />
-    <ClInclude Include="src\dev\include\i_dev_TFI_HN.h" />
-    <ClInclude Include="src\dev\include\i_dev_TFI_KK.h" />
+    <ClInclude Include="src\dev\include\IO_Board.h" />
+    <ClInclude Include="src\dev\include\i_dev_vdm.h" />
+    <ClInclude Include="src\dev\include\tfi_lib.h" />
     <ClInclude Include="src\dev\include\VideoCaptureImage.h" />
     <ClInclude Include="src\dev\include\wds_protocol.h" />
     <ClInclude Include="src\dev\include\wds_thread.h" />
+    <ClInclude Include="src\dev\IO\include\i_dev_IO_SAT.h" />
     <ClInclude Include="src\dev\Print\include\i_dev_KK_printer.h" />
     <ClInclude Include="src\dev\Print\include\i_dev_S303_printer.h" />
     <ClInclude Include="src\dev\Print\include\i_dev_TWD_printer.h" />
+    <ClInclude Include="src\dev\TFI\include\i_dev_TFI_303.h" />
+    <ClInclude Include="src\dev\TFI\include\i_dev_TFI_CJ.h" />
+    <ClInclude Include="src\dev\TFI\include\i_dev_TFI_HFW.h" />
+    <ClInclude Include="src\dev\TFI\include\i_dev_TFI_HN.h" />
+    <ClInclude Include="src\dev\TFI\include\i_dev_TFI_KK.h" />
+    <ClInclude Include="src\dev\TFI\include\i_dev_TFI_KY.h" />
+    <ClInclude Include="src\dev\TFI\include\i_dev_TFI_MNS.h" />
+    <ClInclude Include="src\dev\TFI\include\i_dev_TFI_RHY.h" />
+    <ClInclude Include="src\dev\TFI\include\i_dev_TFI_SG.h" />
+    <ClInclude Include="src\dev\VDM\include\i_dev_VDM_SAT.h" />
     <ClInclude Include="src\dev\Weight\include\Weight_InterFace.h" />
     <ClInclude Include="src\global\include\3des.h" />
     <ClInclude Include="src\global\include\carlist.h" />

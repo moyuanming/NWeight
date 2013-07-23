@@ -69,7 +69,7 @@ static int ScanDir( const char *InputPath,const char *InputFileType,const int Da
 		if ( NULL != strstr(CurrentDataName,InputFileType) )
 		{
 			DateStart = strstr(CurrentDataName,"20");//从年开始获取年的字符串
-			echoic("DateStart:[%s],GetTimeAddTime:[%s]",DateStart,GetTimeAddTime(DATETIME_FORMAT_YYYY_MM_DD,0-Days,ADDTIME_TYPE_DAY),10);
+			echoic("DateStart:[%s],GetTimeAddTime:[%s]",DateStart,GetTimeAddTime(DATETIME_FORMAT_YYYY_MM_DD,0-Days,ADDTIME_TYPE_DAY));
 
 			if ( NULL != DateStart &&
 				 strncmp(DateStart,GetTimeAddTime(DATETIME_FORMAT_YYYY_MM_DD,0-Days,ADDTIME_TYPE_DAY),10) <0)

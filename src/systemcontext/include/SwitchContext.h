@@ -25,5 +25,5 @@ void Setg_bReLogin(BOOL   value);
 int Getg_bReLogin(void);
 void Setg_bWeiZhang(BOOL  value);
 int Getg_bWeiZhang(void);
-BOOL Getg_bYuPeng(void);
+BOOL  Getg_bYuPeng(void);
 #endif

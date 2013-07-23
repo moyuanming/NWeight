@@ -22,10 +22,10 @@ void I_DEV_S303_Printer_PrintBill(struct BILLPARAM *var_billparam)
 	memset(printContent,'\0',80);	
 	sprintf(printContent,"%s%c",GetBillTitle(),10);	
 	echoic("printContent %s",printContent);
-	serial_write(PRINTER_COM,printContent,strlen(printContent));	
+	serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));	
 	memset(printContent,'\0',40);	
 	sprintf(printContent,"             Test通行费收据%c",10);	
-	serial_write(PRINTER_COM,printContent,strlen(printContent));	
+	serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));	
 	serial_write(PRINTER_COM,S303_printfCommand_Rstart,2);	
 	serial_write(PRINTER_COM,S303_printfCommand_B,3);	
 
@@ -34,7 +34,7 @@ void I_DEV_S303_Printer_PrintBill(struct BILLPARAM *var_billparam)
 	memset(printContent,'\0',40);	
 
 	sprintf(printContent,"   站名         金额（元）       车型%c",10);	
-	serial_write(PRINTER_COM,printContent,strlen(printContent));	
+	serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));	
 
 
 	memset(printContent,'\0',40);	
@@ -48,22 +48,22 @@ void I_DEV_S303_Printer_PrintBill(struct BILLPARAM *var_billparam)
 		sprintf(printContent,"  %s        %s              %s%c",GetLanConfigPlazaDesc(),var_billparam->Charge,var_billparam->carType,10);	
 	}
 
-	serial_write(PRINTER_COM,printContent,strlen(printContent));	
+	serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));	
 
 
 	memset(printContent,'\0',40);	
 	sprintf(printContent," 收费员            时间          收据号%c",10);	
-	serial_write(PRINTER_COM,printContent,strlen(printContent));	
+	serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));	
 
 
 	memset(printContent,'\0',40);	
 	sprintf(printContent,"  %s     %02d-%02d-%02d %02d:%02d     %s%c",GetG_Number(),rtc_time->tm_year-100, rtc_time->tm_mon+1, rtc_time->tm_mday,rtc_time->tm_hour, rtc_time->tm_min,var_billparam->billNumber,10);	
-	serial_write(PRINTER_COM,printContent,strlen(printContent));	
+	serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));	
 
 
-	serial_write(PRINTER_COM,(char *)&S303_printfCommand_LF,1);	
-	serial_write(PRINTER_COM,(char *)&S303_printfCommand_LF,1);	
-	serial_write(PRINTER_COM,(char *)&S303_printfCommand_LF,1);	
+	serial_write(PRINTER_COM,(unsigned char * )&S303_printfCommand_LF,1);	
+	serial_write(PRINTER_COM,(unsigned char * )&S303_printfCommand_LF,1);	
+	serial_write(PRINTER_COM,(unsigned char * )&S303_printfCommand_LF,1);	
 	serial_write(PRINTER_COM,S303_printfCommand_Rstart,2);	
 	serial_write(PRINTER_COM,S303_printfCommand_cut,3);	
 }
@@ -78,11 +78,11 @@ BOOL I_DEV_S303_Printer_TestStatus(void)
 {
 	BOOL printState ;
 	int count;
-	char getPrintState[3];
+	unsigned getPrintState[3];
 	unsigned char S303_printfCommand_GetPrinterState[3]={0x10,0x04,0x01};
 	serial_write(PRINTER_COM,S303_printfCommand_GetPrinterState,3);
 	memset(getPrintState,0x00,3);
-	count = serial_read(PRINTER_COM,getPrintState,3);	
+	count = serial_read(PRINTER_COM,(unsigned char * )getPrintState,3);	
 	if ( -1==count || 22!=getPrintState[0])
 	{
 		printState = F;
@@ -123,28 +123,29 @@ void I_DEV_S303_Printer_PrintTestBill(void)
 	memset(printContent,'\0',40);	
 	sprintf(printContent,"        新疆维吾尔自治区公路车辆%c",10);	
 	//sprintf(printContent,"               通行费收据%c",10);	
-	serial_write(PRINTER_COM,printContent,strlen(printContent));	
+	serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));	
 	memset(printContent,'\0',40);	
 	sprintf(printContent,"               通行费收据%c",10);	
-	serial_write(PRINTER_COM,printContent,strlen(printContent));	
+	serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));	
 	//serial_write(PRINTER_COM,(char *)&S303_printfCommand_LF,1);	
 	serial_write(PRINTER_COM,S303_printfCommand_Rstart,2);	
 	serial_write(PRINTER_COM,S303_printfCommand_B,3);	
 	serial_write(PRINTER_COM,S303_printfCommand_LineSp,3);	
 	memset(printContent,'\0',40);	
-	sprintf(printContent,"   站名         金额（元）       吨位%c",10);	 serial_write(PRINTER_COM,printContent,strlen(printContent));	
+	sprintf(printContent,"   站名         金额（元）       吨位%c",10);
+	serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));	
 	memset(printContent,'\0',40);	
 	sprintf(printContent,"   %s         %s            %s%c",GetLanConfigPlazaDesc(),printNode->Charge,printNode->carType,10);	
-	serial_write(PRINTER_COM,printContent,strlen(printContent));	
+	serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));	
 	memset(printContent,'\0',40);	
 	sprintf(printContent,"  收费员          时间          收据号%c",10);	
-	serial_write(PRINTER_COM,printContent,strlen(printContent));	
+	serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));	
 	memset(printContent,'\0',40);	
 	sprintf(printContent,"  %s  %02d-%02d-%02d %02d:%02d %s%c",GetG_Number(),rtc_time->tm_year-100, rtc_time->tm_mon+1, rtc_time->tm_mday,rtc_time->tm_hour, rtc_time->tm_min,printNode->billNumber,10);	
-	serial_write(PRINTER_COM,printContent,strlen(printContent));	
-	serial_write(PRINTER_COM,(char *)&S303_printfCommand_LF,1);	
-	serial_write(PRINTER_COM,(char *)&S303_printfCommand_LF,1);	
-	serial_write(PRINTER_COM,(char *)&S303_printfCommand_LF,1);	
+	serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));	
+	serial_write(PRINTER_COM,(unsigned char * )&S303_printfCommand_LF,1);	
+	serial_write(PRINTER_COM,(unsigned char * )&S303_printfCommand_LF,1);	
+	serial_write(PRINTER_COM,(unsigned char * )&S303_printfCommand_LF,1);	
 	serial_write(PRINTER_COM,S303_printfCommand_Rstart,2);	
 	serial_write(PRINTER_COM,S303_printfCommand_cut,3);	
 }

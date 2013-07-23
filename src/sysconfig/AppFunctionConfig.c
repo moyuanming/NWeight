@@ -106,6 +106,24 @@ int GetDisPlay_Resolution()
 {
 	return _Display;
 }
+char var_ICReader[100];
+ 
+char * GetICReader(void)
+{   
+	return var_ICReader;
+}
+char var_VDMDLL[100];
+
+char * GetVDMDLL(void)
+{   
+	return var_VDMDLL;
+}
+char var_IOBoardDLL[100];
+
+char * GetIOBoardDLL(void)
+{   
+	return var_IOBoardDLL;
+}
 /******************************************************************************************************
 *装载程序功能配置
 ******************************************************************************************************/
@@ -121,12 +139,18 @@ void LoadAppFunction(void)
 	FunVDM = atoi(readItemInIniFile("FunVDM")); 
 	FunIC = atoi(readItemInIniFile("FunIC"));   
 	FunCallTCS = atoi(readItemInIniFile("FunCallTCS")); 
-	FunVideo = atoi(readItemInIniFile("FunVideo"));
-	FunCPSB =1;// atoi(readItemInIniFile("FunCPSB"));    
+	FunVideo = atoi(readItemInIniFile("FunVideo")); 
+	FunCPSB = atoi(readItemInIniFile("FunCPSB"));    
 	memset(TFIDLL,0x00,20);
 	strcpy(TFIDLL,readItemInIniFile("TFIDLL"));
 	memset(PrintDLL,0x00,20);
 	strcpy(PrintDLL,readItemInIniFile("PrintDLL"));
+	memset(var_ICReader,0x00,100);
+	strcpy(var_ICReader,readItemInIniFile("ICReaderDLL"));
+	memset(var_VDMDLL,0x00,100);
+	strcpy(var_VDMDLL,readItemInIniFile("VDMDLL"));
+	memset(var_IOBoardDLL,0x00,100);
+	strcpy(var_IOBoardDLL,readItemInIniFile("IOBoardDLL"));
 
 }
 

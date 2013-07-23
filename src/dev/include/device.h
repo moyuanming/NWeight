@@ -11,7 +11,8 @@ int serial_read(int nCOM,unsigned char *byReadBuf,int nReadLen);
 int serial_write(int nCOM,unsigned char *byWriteBuf,int nWriteLen);
 
 int serial_init(int nCOM, int nBaud);
- 
+ int serial_initbit7_JI(int nCOM, int nBaud);
+ int set_Parity(int fd,int databits,int stopbits,int parity);
 #define IMG_FIRST  '1' //第一张图片
 #define IMG_SECOND  '2' //第二张图片
 
@@ -71,20 +72,8 @@ char  *GetLanGanState_Str(void);
 void setLed(void);
 
 #define FIFO_NAME "/dev/shm/VideoFifo"
-void I_DEV_VDM_SyncTime(void);
-int  DevSetInit(void);
-void I_DEV_VDM_TextOut(char *text,unsigned char x,unsigned char y,unsigned char  len);
-void I_DEV_VDM_Reset(void);
-void I_DEV_VDM_Cash(int value);
-void I_DEV_VDM_CarKind(int CarKind);
-void I_DEV_VDM_CarType(char *CarType);
-void I_DEV_VDM_CollectNo(char *CollectNo);
-void I_DEV_VDM_LaneNO(char *LaneNo);
-void I_DEV_VDM_ShowPlaza(char *PlazaNo);
-int  I_DEV_IOBoard_Init(void);
-void I_DEV_IOBoard_Exit(void);
-void I_DEV_IOBoard_Callback(unsigned char Input);
-  void ReadDeviceStatus_Loop(int i, char bt, char oldbt);
+
+
 
 //读卡器串口
 #define SERIAL_CSC_ID    GetCSCCOM( )
@@ -295,10 +284,6 @@ SendMsgEvent(EVENT_TYPE_ALARM,ID_DEV_DVP,,"");
 #define BPLA_IMAGETYPEERROR 1008     //图象文件格式不正确 
 #define BPLA_NOPAPER		1009	 //打印机没有纸
 #define BPLA_NOCHECK        1009     //未检测！
-
-void DevComStateSendNORMAL(char *InptNormal);
-void DevComStateSendALARM(char *InptALARM);
-void DevComStateSendARESUME(char *InptALARM);
  
 void SetDevCStatePlazaServerState(int InputDevCStatePlazaServerState);
 void ShowDevCStatePlazaServerState(void);

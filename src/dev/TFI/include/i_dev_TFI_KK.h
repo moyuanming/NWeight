@@ -5,9 +5,9 @@
 #define  TFI_KK_SOUND_THANKS_BEY 1
 #define  TFI_KK_SOUND_HELLO_MONTH 2
 #define  TFI_KK_SOUND_HELLO_MFC 3
-void TFI_KK_clean (void );
-void TFI_KK_SoundOuther (int Type );
-void  TFI_KK_LedShow (int CarType , int charge );
+//void TFI_KK_clean (void );
+//void TFI_KK_SoundOuther (int Type );
+//void  TFI_KK_LedShow (int CarType , int charge );
 /*
  * 0 谢谢
  * 1 谢谢合作，请走好

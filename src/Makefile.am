@@ -1,4 +1,4 @@
-noinst_PROGRAMS=emrc_main  Sync Uploader ClearAndArchiveData
+noinst_PROGRAMS=emrc_main  Sync Uploader ClearAndArchiveData 
 #lib_LTLIBRARIES=libRHY_UI_800_600.so libRHY_640_480 
 #lib_LTLIBRARIES=libemrc_logc.la libemrc_billstyle.la libemrc_s303billstyle.la libemrc_communication.la
 #libemrc_billstyle_la_LIBADD=-lemrc_logc
@@ -15,6 +15,10 @@ INCLUDES = \
 -I$(top_srcdir)/src/ui/include \
 -I$(top_srcdir)/src/dev/include \
 -I$(top_srcdir)/src/dev/Weight/include \
+-I$(top_srcdir)/src/dev/Print/include \
+-I$(top_srcdir)/src/dev/TFI/include \
+-I$(top_srcdir)/src/dev/VDM/include \
+-I$(top_srcdir)/src/dev/IO/include \
 -I$(top_srcdir)/src/global/include  \
 -I$(top_srcdir)/src/systemcontext/include \
 -I$(top_srcdir)/src/workflow/include \
@@ -51,7 +55,7 @@ systemcontext/UserContext.c  \
 systemcontext/DeviceContext.c  \
 systemcontext/FileContext.c  \
 systemcontext/CarInfoContext.c  \
-systemcontext/MethodPayContext.c \
+systemcontext/MethodPayContext.c  \
 systemcontext/FareCalculation.c \
 systemcontext/Image.c \
 systemcontext/CardContext.c \
@@ -111,8 +115,15 @@ dev/i_dev_ioboard.c \
 dev/TFI/i_dev_led.c  \
 dev/TFI/i_dev_TFI_KK.c \
 dev/TFI/i_dev_TFI_303.c \
-dev/TFI/i_dev_TFI_HN.c \
+dev/TFI/i_dev_TFI_KY.c  \
+dev/TFI/i_dev_TFI_CJ.c \
 dev/TFI/i_dev_TFI_HFW.c \
+dev/TFI/i_dev_TFI_HN.c \
+dev/TFI/i_dev_TFI_MNS.c \
+dev/TFI/i_dev_TFI_RHY.c \
+dev/TFI/i_dev_TFI_SG.c \
+dev/VDM/i_dev_VDM_SAT.c \
+dev/IO/i_dev_IO_SAT.c \
 dev/Print/i_dev_printer.c \
 dev/Print/i_dev_KK_printer.c \
 dev/Print/i_dev_TWD_printer.c \
@@ -131,7 +142,7 @@ parameter/FreeCarList.c \
 parameter/SVRCardList.c \
 parameter/ConstantTable.c \
 messageBody/MsgRevsion.c  \
-messageBody/SendMsg.c 
+messageBody/SendMsg.c  
 
 
 libemrc_logc_la_SOURCE=		global/common_main.c logc/LogC.c

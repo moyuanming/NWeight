@@ -40,19 +40,22 @@ void Analyse_Gpio_in(unsigned int stat)
 	{
 		case GuangShanUp:
 			fprintf(stderr,"%s光栅到达%s\n",GCor,PCor);
-			break;
+			break;
+
 		case GuangShanDown:
 			fprintf(stderr,"%s光栅离开%s\n",GCor,PCor);
 			break;
 		case LineZhaPaiUp:
 
-			break;			fprintf(stderr,"%s抓拍线圈到达%s\n",GCor,PCor);
+			break;			fprintf(stderr,"%s抓拍线圈到达%s\n",GCor,PCor);
+
 		case LineZhaPaiDown:
 			fprintf(stderr,"%s抓拍线圈离开%s\n",GCor,PCor);
 			break;
 		case LinePassUp:
 			fprintf(stderr,"%s通过线圈到达%s\n",GCor,PCor);
-			break;
+			break;
+
 		case LinePassDown:
 			fprintf(stderr,"%s通过线圈离开%s\n",GCor,PCor);
 			break;

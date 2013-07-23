@@ -40,17 +40,30 @@ unsigned long  (*libcapcaptureone)(char*);
 unsigned long  (*libcapcaptureonecommit)(char*,char*); 
 unsigned long  (*libcapvideosource)(int); 
 unsigned long  (*libcideoclose)(void); 
-void Create_camera ( )
+void Create_camera (void )
 {
-#ifdef PCMACHINE	
+	if (EnabledVideo() == 1 ||  EnabledVideo() == 2)
+	{
+		echoic("Video_Init_RHY");
+		Video_Init_RHY(OFFSIZE_X,OFFSIZE_Y,352,288);
+	} else  if (EnabledVideo() == 3)
+	{
+		echoic("Create_camera_libcapvide");
+		Create_camera_libcapvide();
+	}
+	else 
+	{
+		echo_ct("Video Mode Error Or not use! 1 or 2 will use Video_Init_RHY ,3 will use lib for video   %d",EnabledVideo() );
+	}
+}
+
+void Create_camera_libcapvide(void )
+{
 	int ret=0;
 	char * error;
-
-	echo_ci("ccd");
 	//使用动态库方式加载视频  modify by DZ @20101110
 	if ( ( dllhandle_cap = dlopen( "liblane.cap.v4l.so", RTLD_LAZY ) ) != 0 ) 
 	{ 
-		echo_ci("ccd");
 		/*echoic("dlopen ok.\n");*/
 		libcapvideoopen= dlsym( dllhandle_cap, "capvideoopen" ); 
 		if ((error = dlerror()) != NULL)  {
@@ -62,37 +75,29 @@ void Create_camera ( )
 			echoic("dlerror=%s\n", error);
 			ret = -1;
 		}
-		libcapvideosource= dlsym( dllhandle_cap, "capvideosource" ); 
+		libcapvideosource=dlsym( dllhandle_cap, "capvideosource" ); 
 		if ((error = dlerror()) != NULL)  {
 			//echoic("dlerror=%s\n", error);
 			ret = -1;
 		}
-		echo_ci("ccd");
 		ret = (*libcapvideoopen)(); 
+		echoic("%d",ret);
 	}
 	else
 	{
-		echo_ci("ccd");
-		//echoic("dlopen error:%s\n",dlerror());
+		 echoic("dlopen error:%s\n",dlerror());
 	}
-#else
-echoic("Video_Init_RHY");
-echo_ci("Video_Init_RHY");
-	Video_Init_RHY(OFFSIZE_X,OFFSIZE_Y,352,288);
-#endif
-	return;
 }
 void SaveJpg ( char * file_name , int width , int height , int bpp )
 {
-#ifdef PCMACHINE
-echo_ci("SaveJpg_PCMACHINE");
-		//echoic("ImageName:<%s>",file_name);
-	// (*libcapcaptureone)(file_name);
-#else
-echoic("SaveJpg");
-echo_ci("SaveJpg_VideoSaveToJPG_RHY");
+	echoic("SaveJpg");
 	VideoSaveToJPG_RHY(file_name,quality);
-#endif
+}
+
+void SaveJpg_libcapcaptureone( char * file_name , int width , int height , int bpp )
+{
+	echoic("ImageName:<%s>",file_name);
+	(*libcapcaptureone)(file_name);
 }
 
 

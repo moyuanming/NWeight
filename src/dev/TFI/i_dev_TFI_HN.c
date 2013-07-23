@@ -25,11 +25,11 @@ void ISD1700_SendCommand(char *cmd)
 {
 	byte temp[20];
 	memset ( temp , 0x00 , 20 ) ;
-	sprintf(temp,"ISD:%sE",cmd);
-	echoic("COMMAND=%s LEN=%d",temp,strlen(temp));
-	serial_write(LED_COM,temp,strlen(temp));
+	sprintf((  char * )temp,"ISD:%sE",cmd);
+	echoic("COMMAND=%s LEN=%d",temp,strlen((  char * )temp));
+	serial_write(LED_COM,temp,strlen((  char * )temp));
 }
-void ISD1700_Clear()
+void ISD1700_Clear(void )
 {
 	//ISD1700_SendCommand(ISD1700_QP);
 	//ISD1700_SendCommand(ISD1700_XIEXIE);
@@ -184,7 +184,7 @@ static byte * show ( byte* command , int lane , int ld ,  char * str )
 	command [ 4 ] = getValue(ld,0,0xff) ;
 	command [ 5 ] = getValue(lane,0,6) ;
 	p = &command [ 6 ] ;
-	strncpy ( p , str , len<=maxlen?len:maxlen ) ;
+	strncpy ((char*) p , str , len<=maxlen?len:maxlen ) ;
 	HN_BBC(command) ;
 	echoic("LED_COM = %d",LED_COM);
 	usleep(1000*100);
@@ -197,9 +197,9 @@ void   TFI_HN_clean ( )
 	byte str1 [ HNMaxCommandLen ] ;
 	memset ( command , 0x00 , HNMaxCommandLen ) ;
 
-	sprintf ( str1 , "                  新疆高速              欢迎您！  计重收费              试运行！") ;
+	sprintf ( (char*)str1 , "                  新疆高速              欢迎您！  计重收费              试运行！") ;
 	//sprintf ( str1 , "                  新疆高速              欢迎您！ 2012年5月28日零点正式开通计重收费 ！") ;
-	show ( command , 0 , 255, str1 ) ;
+	show ( command , 0 , 255, (char*)str1 ) ;
 	usleep(1000*100);
 	ISD1700_Clear();
 }
@@ -212,7 +212,7 @@ void  TFI_HN_LedShow (   int CarType , int charge )
 	memset ( command , 0x00 , HNMaxCommandLen ) ;
 	if(FullWeight == GetWeightFunctions())
 	{
-		sprintf ( str1 , "车    型:%4s%1d型金    额:%5d元承载标准:%5.0f吨车货总重:%5.1f吨超标准比:%5.0f％",
+		sprintf ( (char *)str1 , "车    型:%4s%1d型金    额:%5d元承载标准:%5.0f吨车货总重:%5.1f吨超标准比:%5.0f％",
 			GetWeightCarClass()==WeightCarClassBUS?"客":"货",
 			CarType,
 			charge,
@@ -222,7 +222,7 @@ void  TFI_HN_LedShow (   int CarType , int charge )
 	}
 	else
 	{
-		sprintf ( str1 , "车    型:%4s%1d型金    额:%5d元计重金额:%5d元承载标准:%5.0f吨车货总重:%5.1f吨超标准比:%5.0f％",
+		sprintf ((  char * ) str1 , "车    型:%4s%1d型金    额:%5d元计重金额:%5d元承载标准:%5.0f吨车货总重:%5.1f吨超标准比:%5.0f％",
 			GetWeightCarClass()==WeightCarClassBUS?"客":"货",
 			CarType,
 			charge,
@@ -231,7 +231,7 @@ void  TFI_HN_LedShow (   int CarType , int charge )
 			GetFareContext_CarWeight(),
 			GetWeightContext_OverLoadWeightRate());
 	}
-	show ( command , 0 , 255, str1 ) ;
+	show ( command , 0 , 255,(char *) str1 ) ;
 	ISD1700_BJ(CarType,charge);
 }
 

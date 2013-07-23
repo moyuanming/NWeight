@@ -37,19 +37,27 @@ int getmin(int a,int b)
 
 }
 
+ 
+
   
 /****************************************************************************************
 * 获取 格式化 指定时间的日期
 *****************************************************************************************/
-char DataTimeStr[20];
+char DataTimeStr[25];
 char *GetFormatTime(char *Format,time_t FormatTime)
 {	
     struct tm *rtc_time;
+	memset(DataTimeStr,0x00,sizeof(DataTimeStr));
     rtc_time = localtime(&FormatTime);	
     if(!strncmp(Format,DATETIME_FORMAT_MMDD,strlen(DATETIME_FORMAT_MMDD)))
     {	
         sprintf(DataTimeStr, "%02d%02d%c",rtc_time->tm_mon+1, rtc_time->tm_mday,'\0');	
     }
+	
+	else if(!strncmp(Format,DATETIME_FORMAT_YYYYMMDDWHHMMSS,strlen(DATETIME_FORMAT_YYYYMMDDWHHMMSS)))
+	{	
+		sprintf(DataTimeStr, "%04d%02d%02d%d%02d%02d%02d%c",rtc_time->tm_year+1900, rtc_time->tm_mon+1, rtc_time->tm_mday,rtc_time->tm_wday+1, rtc_time->tm_hour, rtc_time->tm_min, rtc_time->tm_sec,'\0');	
+	}
     else if(!strncmp(Format,DATETIME_FORMAT_YYYYMMDDHHMMSS,strlen(DATETIME_FORMAT_YYYYMMDDHHMMSS)))
     {	
         sprintf(DataTimeStr, "%04d%02d%02d%02d%02d%02d%c",rtc_time->tm_year+1900, rtc_time->tm_mon+1, rtc_time->tm_mday,rtc_time->tm_hour, rtc_time->tm_min, rtc_time->tm_sec,'\0');	
@@ -74,6 +82,14 @@ char *GetFormatTime(char *Format,time_t FormatTime)
     else if(!strncmp(Format,DATETIME_FORMAT_YYYY_MM_DD_HH_MM_SS,strlen(DATETIME_FORMAT_YYYY_MM_DD_HH_MM_SS)))
     {	
         sprintf(DataTimeStr, "%04d-%02d-%02d %02d:%02d:%02d%c",rtc_time->tm_year+1900, rtc_time->tm_mon+1, rtc_time->tm_mday,rtc_time->tm_hour, rtc_time->tm_min, rtc_time->tm_sec,'\0');	
+    }
+	 else if(!strncmp(Format,DATETIME_FORMAT_HH_MM_SS_5,strlen(DATETIME_FORMAT_HH_MM_SS_5)))
+    {	
+        sprintf(DataTimeStr, "%02d:%02d:%02d%c", rtc_time->tm_hour, rtc_time->tm_min, rtc_time->tm_sec,'\0');	
+    }
+	 else if(!strncmp(Format,DATETIME_FORMAT_YYYY_MM_DD_5,strlen(DATETIME_FORMAT_YYYY_MM_DD_5)))
+    {	
+        sprintf(DataTimeStr, "%04d-%02d-%02d%c",rtc_time->tm_year+1900, rtc_time->tm_mon+1, rtc_time->tm_mday,'\0');	
     }
     else if(!strncmp(Format,DATETIME_FORMAT_YYYYMMDD,strlen(DATETIME_FORMAT_YYYYMMDD)))
     {	
@@ -172,6 +188,13 @@ char  *readItemInIniFile(char *ItemName)
     int len;
      memset(ItemValue,0x00,sizeof(ItemValue));
     ini_addr_ptr = strstr(read_ini_String,ItemName);	
+	if(ini_addr_ptr == NULL)
+	{
+		ItemValue[0] = '0';
+		ItemValue[1] = 0x00;
+		fprintf(stderr,"Load Config Item Error ItemName =<%s>",ItemName);
+		return ItemValue;
+	}
     ini_addr_ptr = strchr(ini_addr_ptr,'<')+1;
     len=strchr(ini_addr_ptr,'>')-ini_addr_ptr;
     strncpy(ItemValue,ini_addr_ptr,len);	
@@ -442,6 +465,35 @@ int charstoint(char * chars,int charslenght)
 	//echoic(":::%s ===%s >>> %d ",chars,charsx,atoi(charsx));
 	return atoi(charsx);
 }
+char _inttochars[20];
+char* Int2String(int value)
+{
+	memset(_inttochars, 0x00, 20);
+	sprintf(_inttochars, "%d", value);
+	return _inttochars;
+}
+char __Int2String_Ex[20];
+char* Int2String_Ex(int value,char* format)
+{
+	memset(__Int2String_Ex, 0x00, 20);
+	sprintf(__Int2String_Ex,format, value);
+	return __Int2String_Ex;
+}
+char _floattochars[100];
+char* floatString(float value)
+{
+	memset(_floattochars, 0x00, 20);
+	sprintf(_floattochars, "%f", value);
+	return _floattochars;
+}
+char __floatString_Ex[255];
+char* float2String_Ex(int value,char* format)
+{
+	memset(__floatString_Ex, 0x00, 255);
+	sprintf(__floatString_Ex,format, value);
+	return __floatString_Ex;
+}
+ 
 /***********************************************************************
 * 描述		:   trim函数
 * 函数名	:   alltrim()
@@ -584,15 +636,18 @@ void CopyFile(char *sFile ,char * dFile)
 	return;   
 
 }
-
-//去除空格
 char * trim(char * src)
+{
+return trim_ex(src ,' ');
+}
+//去除空格
+char * trim_ex(char * src,char c)
 {	
 	int i = 0;
 	char *begin = src;
 	while(src[i] != '\0')
 	{	
-		if(src[i] != ' ')
+		if(src[i] !=c)
 		{	
 			break;
 		}
@@ -604,7 +659,7 @@ char * trim(char * src)
 	}
 	for(i=strlen(src)-1;i>=0;i--)
 	{	
-		if(src[i] != ' ')
+		if(src[i] != c)
 		{	
 			break;
 		}
@@ -616,4 +671,37 @@ char * trim(char * src)
 	return begin;
 }
 
+
+
+
+char* InitAndCPYStrBase(char *A, int lengthA, char *B, int lengthB, char def, int b0)
+{
+	char temp[50];
+	char temp2[50];
+	char format[50];
+	int i =0;
+	memset(temp, 0x00, sizeof(temp));
+	memset(temp2, 0x00, sizeof(temp2));
+	memcpy(temp2,B,lengthB);
+	sprintf(format, b0 == 0 ? "%%0%ds" : "%%s", lengthA);
+	sprintf(temp, format, temp2);
+	if (b0==0)
+	{
+		for (i=0;i<strlen(temp);i++)
+		{
+			if (temp[i]==' ')
+			{
+				temp[i] = '0';
+			}
+		}
+	}
+	//  echo_ct("format=%s temp=%s ",format,temp);
+	memset(A, def, lengthA);
+	memcpy(A,temp,lengthA>strlen(temp)?strlen(temp):lengthA);
+	return A;
+}
+char* InitAndCPYStr(char *A, int lengthA, char *B, int lengthB, int b0)
+{
+	return InitAndCPYStrBase(A, lengthA, B, lengthB, (char)0x00, b0);
+}
 

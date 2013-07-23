@@ -35,16 +35,16 @@ void I_DEV_TWD_Printer_PrintBill_OLDPrintStyle(struct BILLPARAM *var_billparam)
     memset(printContent,'\0',80);	
     sprintf(printContent,"%s%c",GetBillTitle(),10);	
 	echoic("printContent %s",printContent);
-    serial_write(PRINTER_COM,printContent,strlen(printContent));	
+    serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));	
     memset(printContent,'\0',40);	
     sprintf(printContent,"               通行费收据%c",10);	
-    serial_write(PRINTER_COM,printContent,strlen(printContent));	
+    serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));	
     serial_write(PRINTER_COM,TWD_printfCommand_Rstart,2);	
     serial_write(PRINTER_COM,TWD_printfCommand_B,3);	
     serial_write(PRINTER_COM,TWD_printfCommand_LineSp,3);	
     memset(printContent,'\0',40);	
     sprintf(printContent,"   站名         金额（元）       车型%c",10);	
-	serial_write(PRINTER_COM,printContent,strlen(printContent));
+	serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));
     memset(printContent,'\0',40);	
 	//fprintf(stderr,"strlen(printNode->Charge) = %c %c %c \n",printNode->Charge[2],printNode->Charge[3],printNode->Charge[1]);	
 	if(var_billparam->Charge[3]=='/')
@@ -55,16 +55,16 @@ void I_DEV_TWD_Printer_PrintBill_OLDPrintStyle(struct BILLPARAM *var_billparam)
 	{
 		sprintf(printContent,"  %s        %s              %s%c",GetLanConfigPlazaDesc(),var_billparam->Charge,var_billparam->carType,10);	
 	}
-    serial_write(PRINTER_COM,printContent,strlen(printContent));	
+    serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));	
     memset(printContent,'\0',40);	
     sprintf(printContent," 收费员            时间          收据号%c",10);	
-    serial_write(PRINTER_COM,printContent,strlen(printContent));	
+    serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));	
     memset(printContent,'\0',40);	
     sprintf(printContent,"  %s     %02d-%02d-%02d %02d:%02d     %s%c",GetG_Number(),rtc_time->tm_year-100, rtc_time->tm_mon+1, rtc_time->tm_mday,rtc_time->tm_hour, rtc_time->tm_min,var_billparam->billNumber,10);	
-    serial_write(PRINTER_COM,printContent,strlen(printContent));
-    serial_write(PRINTER_COM,(char *)&TWD_printfCommand_LF,1);	
-    serial_write(PRINTER_COM,(char *)&TWD_printfCommand_LF,1);	
-    serial_write(PRINTER_COM,(char *)&TWD_printfCommand_LF,1);	
+    serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));
+    serial_write(PRINTER_COM,(unsigned char * )&TWD_printfCommand_LF,1);	
+    serial_write(PRINTER_COM,(unsigned char * )&TWD_printfCommand_LF,1);	
+    serial_write(PRINTER_COM,(unsigned char * )&TWD_printfCommand_LF,1);	
     serial_write(PRINTER_COM,TWD_printfCommand_Rstart,2);	
     serial_write(PRINTER_COM,TWD_printfCommand_cut,3);	
 }
@@ -75,10 +75,10 @@ static void BillHead(char  *SubTitle)
 	memset(printContent,'\0',80);	
 	sprintf(printContent,"        新疆维吾尔自治区政府还贷公路%c",10);
 	echoic("printContent %s",printContent);
-	serial_write(PRINTER_COM,printContent,strlen(printContent));
+	serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));
 	sprintf(printContent,"            车辆通行费专用票据%c",10);
 	echoic("printContent %s",printContent);
-	serial_write(PRINTER_COM,printContent,strlen(printContent));
+	serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));
 
 	memset(printContent,'\0',80);	
 	sprintf(printContent,SubTitle,10);	
@@ -87,7 +87,7 @@ static void BillHead(char  *SubTitle)
 	memset(printContent,'\0',80);	
 	sprintf(printContent,"   收费站名称:"TWD_UNDELINEHEAD"%-24s"TWD_UNDELINEEND"%c",GetLanConfigPlazaDesc(),10);		
 	echoic("printContent %s",printContent);
-	serial_write(PRINTER_COM,printContent,strlen(printContent));	
+	serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));	
 
 }
 
@@ -101,15 +101,15 @@ static void BillEnd(struct BILLPARAM *var_billparam)
 	memset(printContent,'\0',80);	
 	sprintf(printContent,"   收费员号:"TWD_UNDELINEHEAD"  %-6s  "TWD_UNDELINEEND" 时间:"TWD_UNDELINEHEAD"%02d-%02d-%02d %02d:%02d"TWD_UNDELINEEND"%c",GetG_Number(),rtc_time->tm_year-100, rtc_time->tm_mon+1, rtc_time->tm_mday,rtc_time->tm_hour, rtc_time->tm_min,10);	
 	echoic("printContent %s",printContent);
-	serial_write(PRINTER_COM,printContent,strlen(printContent));
+	serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));
 	memset(printContent,'\0',80);	
 	sprintf(printContent,"   NO:"TWD_UNDELINEHEAD"   %-14s"TWD_UNDELINEEND"%c",var_billparam->billNumber,10);	
 	echoic("printContent %s",printContent);
 
-	serial_write(PRINTER_COM,printContent,strlen(printContent));
-	serial_write(PRINTER_COM,(char *)&TWD_printfCommand_LF,1);	
-	serial_write(PRINTER_COM,(char *)&TWD_printfCommand_LF,1);	
-	serial_write(PRINTER_COM,(char *)&TWD_printfCommand_LF,1);	
+	serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));
+	serial_write(PRINTER_COM,(unsigned char * )&TWD_printfCommand_LF,1);	
+	serial_write(PRINTER_COM,(unsigned char * )&TWD_printfCommand_LF,1);	
+	serial_write(PRINTER_COM,(unsigned char * )&TWD_printfCommand_LF,1);	
 	serial_write(PRINTER_COM,TWD_printfCommand_Rstart,2);	
 	serial_write(PRINTER_COM,TWD_printfCommand_cut,3);	
 }
@@ -123,7 +123,7 @@ void I_DEV_TWD_Printer_PrintBill_Weight_CarType_BUS_rintStyle(struct BILLPARAM *
 	memset(printContent,'\0',200);	
 	sprintf(printContent,"   收费金额:"TWD_UNDELINEHEAD"  %-6d"TWD_UNDELINEEND"元 车型:"TWD_UNDELINEHEAD" %d"TWD_UNDELINEEND""TWD_UNDELINEHEAD"至"TWD_UNDELINEEND""TWD_UNDELINEHEAD"%d  "TWD_UNDELINEEND"座位%c",atoi(var_billparam->Charge),(atoi(var_billparam->carType)-1)*10+1,atoi(var_billparam->carType)*10,10);	
 	echoic("printContent %s",printContent);
-	serial_write(PRINTER_COM,printContent,strlen(printContent));	
+	serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));	
 	BillEnd(var_billparam);
 	
 }
@@ -136,7 +136,7 @@ void I_DEV_TWD_Printer_PrintBill_Weight_CarType_rintStyle(struct BILLPARAM *var_
 	memset(printContent,'\0',80);	
 	sprintf(printContent,"   收费金额:"TWD_UNDELINEHEAD"  %-6d"TWD_UNDELINEEND"元 车型:"TWD_UNDELINEHEAD" %5d   "TWD_UNDELINEEND"型%c",atoi(var_billparam->Charge),atoi(var_billparam->carType),10);	
 	echoic("printContent %s",printContent);
-	serial_write(PRINTER_COM,printContent,strlen(printContent));	
+	serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));	
 	BillEnd(var_billparam);
 	
 }
@@ -149,17 +149,17 @@ void I_DEV_TWD_Printer_PrintBill_NewPrintStyle(struct BILLPARAM *var_billparam)
     memset(printContent,'\0',80);	
     sprintf(printContent,"   车型:"TWD_UNDELINEHEAD"      %s     "TWD_UNDELINEEND"型 承载标准:"TWD_UNDELINEHEAD"%5.0f"TWD_UNDELINEEND"吨%c",var_billparam->carType,GetWeightContext_WeightLimit_ByTon(),10);	
 	echoic("printContent %s",printContent);
-	serial_write(PRINTER_COM,printContent,strlen(printContent));	
+	serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));	
 
     memset(printContent,'\0',80);	
     sprintf(printContent,"   收费金额:"TWD_UNDELINEHEAD"  %-6d"TWD_UNDELINEEND"元 超载:"TWD_UNDELINEHEAD" %5.0f   "TWD_UNDELINEEND"吨%c",atoi(var_billparam->Charge),(float)GetWeightContext_OverLoadWeight(),10);	
 	echoic("printContent %s",printContent);
-	serial_write(PRINTER_COM,printContent,strlen(printContent));	
+	serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));	
 
 	memset(printContent,'\0',80);	
 	sprintf(printContent,"   超载比率:"TWD_UNDELINEHEAD"%5.0f   "TWD_UNDELINEEND"％%c",GetWeightContext_OverLoadWeightRate(),10);	
 	echoic("printContent %s",printContent);
-	serial_write(PRINTER_COM,printContent,strlen(printContent));
+	serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));
 	BillEnd(var_billparam);
    
 }
@@ -171,17 +171,17 @@ void I_DEV_TWD_Printer_PrintBill_PromptPrintStyle(struct BILLPARAM *var_billpara
 	memset(printContent,'\0',80);	
 	sprintf(printContent,"   车型:"TWD_UNDELINEHEAD"      %s     "TWD_UNDELINEEND"型 承载标准:"TWD_UNDELINEHEAD"%5.0f"TWD_UNDELINEEND"吨%c",var_billparam->carType,GetWeightContext_WeightLimit_ByTon(),10);	
 	echoic("printContent %s",printContent);
-	serial_write(PRINTER_COM,printContent,strlen(printContent));
+	serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));
 
 	memset(printContent,'\0',80);	
-	sprintf(printContent,"   收费金额:"TWD_UNDELINEHEAD"  %-6d"TWD_UNDELINEEND"元 超载:"TWD_UNDELINEHEAD" %5.0f   "TWD_UNDELINEEND"吨%c",atoi(var_billparam->Charge),GetWeightContext_OverLoadWeight(),10);	
+	sprintf(printContent,"   收费金额:"TWD_UNDELINEHEAD"  %-6d"TWD_UNDELINEEND"元 超载:"TWD_UNDELINEHEAD" %5.0f   "TWD_UNDELINEEND"吨%c",atoi(var_billparam->Charge),(double)GetWeightContext_OverLoadWeight(),10);	
 	echoic("printContent %s",printContent);
-	serial_write(PRINTER_COM,printContent,strlen(printContent));	
+	serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));	
 
 	memset(printContent,'\0',80);	
 	sprintf(printContent,"   超载比率:"TWD_UNDELINEHEAD"%5.0f   "TWD_UNDELINEEND"％%c",GetWeightContext_OverLoadWeightRate(),10);	
 	echoic("printContent %s",printContent);
-	serial_write(PRINTER_COM,printContent,strlen(printContent));
+	serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));
 	BillEnd(var_billparam);
 }
 void I_DEV_TWD_Printer_PrintBill_BothNewandPromptPrintStyl(struct BILLPARAM *var_billparam)
@@ -231,7 +231,7 @@ BOOL I_DEV_TWD_Printer_TestStatus(void)
 {
 	BOOL printState ;
 	int count;
-	char getPrintState[3];
+	unsigned char getPrintState[3];
 	unsigned char TWD_printfCommand_GetPrinterState[3]={0x10,0x04,0x01};
 	serial_write(PRINTER_COM,TWD_printfCommand_GetPrinterState,3);
 	usleep(100);
@@ -277,28 +277,29 @@ void I_DEV_TWD_Printer_PrintTestBill(void)
     memset(printContent,'\0',40);	
     sprintf(printContent,"        新疆维吾尔自治区公路车辆%c",10);	
     //sprintf(printContent,"               通行费收据%c",10);	
-    serial_write(PRINTER_COM,printContent,strlen(printContent));	
+    serial_write(PRINTER_COM,(unsigned char*)printContent,strlen(printContent));	
     memset(printContent,'\0',40);	
     sprintf(printContent,"               通行费收据%c",10);	
-    serial_write(PRINTER_COM,printContent,strlen(printContent));	
+    serial_write(PRINTER_COM,(unsigned char*)printContent,strlen(printContent));	
     //serial_write(PRINTER_COM,(char *)&TWD_printfCommand_LF,1);	
     serial_write(PRINTER_COM,TWD_printfCommand_Rstart,2);	
     serial_write(PRINTER_COM,TWD_printfCommand_B,3);	
     serial_write(PRINTER_COM,TWD_printfCommand_LineSp,3);	
     memset(printContent,'\0',40);	
-    sprintf(printContent,"   站名         金额（元）       吨位%c",10);	 serial_write(PRINTER_COM,printContent,strlen(printContent));	
+    sprintf(printContent,"   站名         金额（元）       吨位%c",10);	
+	serial_write(PRINTER_COM,(unsigned char * )printContent,strlen(printContent));	
     memset(printContent,'\0',40);	
     sprintf(printContent,"   %s         %s            %s%c",GetLanConfigPlazaDesc(),printNode->Charge,printNode->carType,10);	
-    serial_write(PRINTER_COM,printContent,strlen(printContent));	
+    serial_write(PRINTER_COM,(unsigned char*)printContent,strlen(printContent));	
     memset(printContent,'\0',40);	
     sprintf(printContent,"  收费员          时间          收据号%c",10);	
-    serial_write(PRINTER_COM,printContent,strlen(printContent));	
+    serial_write(PRINTER_COM,(unsigned char*)printContent,strlen(printContent));	
     memset(printContent,'\0',40);	
     sprintf(printContent,"  %s  %02d-%02d-%02d %02d:%02d %s%c",GetG_Number(),rtc_time->tm_year-100, rtc_time->tm_mon+1, rtc_time->tm_mday,rtc_time->tm_hour, rtc_time->tm_min,printNode->billNumber,10);	
-    serial_write(PRINTER_COM,printContent,strlen(printContent));	
-    serial_write(PRINTER_COM,(char *)&TWD_printfCommand_LF,1);	
-    serial_write(PRINTER_COM,(char *)&TWD_printfCommand_LF,1);	
-    serial_write(PRINTER_COM,(char *)&TWD_printfCommand_LF,1);	
+    serial_write(PRINTER_COM,(unsigned char*)printContent,strlen(printContent));	
+    serial_write(PRINTER_COM,(unsigned char*)&TWD_printfCommand_LF,1);	
+    serial_write(PRINTER_COM,(unsigned char*)&TWD_printfCommand_LF,1);	
+    serial_write(PRINTER_COM,(unsigned char*)&TWD_printfCommand_LF,1);	
     serial_write(PRINTER_COM,TWD_printfCommand_Rstart,2);	
     serial_write(PRINTER_COM,TWD_printfCommand_cut,3);	
 }

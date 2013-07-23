@@ -1,6 +1,6 @@
 #ifndef __LOCALINCLUDE_H__
 #define __LOCALINCLUDE_H__
-
+ 
 #define MAXSYSINI 4096
 #include "linux_include.h"
 #include "global.h"
@@ -16,7 +16,7 @@
 #include "i_dev_ic.h"
 #include "init.h"
 #include "setWorkState.h"
-#include "i_dev_keyboard.h"
+#include "i_dev_keyboard.h" 
 #include "workState.h"
 #include "wf_printer.h"
 #include "MessageBuild.h"
@@ -25,6 +25,7 @@
 #include "MessageBuild.h"
 #include "SendMsg.h"
 #include "RecvMessageDataHandl.h"
+#include "SwitchContext.h"
 #include "ExitBS.h"
 #include "ExitEI.h"
 #include "ExitES.h"
@@ -59,6 +60,7 @@
 #include "parameterCarKind.h"
 #include "MessageBuild.h"
 #include "i_dev_ioboard.h"
+#include "i_dev_IO_SAT.h"
 #include "MIF_Interface.h"
 #include "device.h"
 #include "SVRCardList.h"
@@ -72,7 +74,8 @@
 #include "i_dev_TFI_KK.h"
 #include "i_dev_TFI_303.h"
 #include "i_dev_TFI_HN.h"
-#include "i_dev_TFI_HFW.h"
+#include "i_dev_VDM_SAT.h"
+#include "i_dev_vdm.h"
 #include "EmrcDBOperator.h"
 #include "UI_InterFace.h"
 #include "UI_Macro.h"
@@ -96,12 +99,14 @@
 #include "wds_protocol.h"
 #include "TrafficStat.h"
 #include "CPSB.h"
+
 #define FTPSYNCCOMMAND(_sysCommand_,  _l_file_, _r_file_  ) sprintf(_sysCommand_,"ftpget  %s  %s %s\\\\%s  %c",GetFtpServerIP(),_l_file_ ,FILEPATH_FTP_PARAMETER,_r_file_,0x00 )
 #define echo_ci(fmt, args...)    fprintf(stderr,"×¥ÅÄ[%s:%d]: " fmt "\n", __FILE__, __LINE__ , ## args)
 #define echo1(fmt, args...)	  //printf("ECHO:::: [%s:%d]: " fmt "\n", __FILE__, __LINE__ , ## args)
 #define echo_cj(fmt, args...)    fprintf(stderr,"³µ¼ì¡¢À¸¸Ë[%s:%d]: " fmt "\n", __FILE__, __LINE__ , ## args)
 #define echo(fmt, args...)	  //printf("ECHO:::: [%s:%d]: " fmt "\n", __FILE__, __LINE__ , ## args)
 #define echoic(fmt, args...)     fprintf(stderr,"echoic:::: [%s:%d]: " fmt "\n", __FILE__, __LINE__ , ## args)
+#define echo_ct(fmt, args...)     fprintf(stderr,"echo_ct:::: [%s:%d]: " fmt "\n", __FILE__, __LINE__ , ## args)
 #define echocad(fmt, args...)	   //printf("ECHO:::: [%s:%d]: " fmt "\n", __FILE__, __LINE__ , ## args)
 #define echo_everyline(fmt, args...)	//   printf("ECHO:::: [%s:%d]: " fmt "\n", __FILE__, __LINE__ , ## args)
 #define echocad(fmt, args...)	    //printf("ECHO:::: [%s:%d]: " fmt "\n", __FILE__, __LINE__ , ## args)

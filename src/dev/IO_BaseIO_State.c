@@ -49,6 +49,7 @@ void Setg_bZhuaPaiXianQuan(BOOL  value)
 {	
 	g_bZhuaPaiXianQuan=value;
 	UI_Set_Device_State(4,g_bZhuaPaiXianQuan);
+	SendLaneInfo_default();
 }
 int Getg_bZhuaPaiXianQuan(void)
 {	
@@ -62,6 +63,7 @@ void Setg_bTongGuoXianQuan(BOOL  value)
 {	
 	g_bTongGuoXianQuan=value;
 	UI_Set_Device_State(5,g_bTongGuoXianQuan);
+	SendLaneInfo_default();
 }
 int Getg_bTongGuoXianQuan(void)
 {	
@@ -75,6 +77,7 @@ void Setg_bPrint( BOOL  value)
 {	
 	_PrintState=value;
 	UI_Set_Device_State(6,_PrintState);
+	SendLaneInfo_default();
 }
 int Getg_bPrint(void)
 {	

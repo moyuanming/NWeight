@@ -124,7 +124,6 @@ void TFI_303_SoundOuther (int Type )
 void  TFI_303_LedShow (int CarType , int charge )
 {
 	unsigned char strCharge[5];
-	int ret ;
 	TFI_303_Init();
 	G_Led_protocol.ShowChargeNotSound[0] = 0x0a;
 	G_Led_protocol.ShowChargeNotSound[1] = 0x46;
@@ -135,7 +134,7 @@ void  TFI_303_LedShow (int CarType , int charge )
 		return ;//0元不需要报价
 	}
 	memset(strCharge,0x00,5);	
-	sprintf(strCharge,"%04d",charge);	
+	sprintf((  char * )strCharge,"%04d",charge);	
 	if(1==atoi(sys_ini.LedSoundEnabled))
 	{	
 		G_Led_protocol.ShowChargeAndSound[2] = 0x0B;
@@ -145,7 +144,7 @@ void  TFI_303_LedShow (int CarType , int charge )
 		G_Led_protocol.ShowChargeAndSound[6] = strCharge[2];
 		G_Led_protocol.ShowChargeAndSound[7] = strCharge[3];
 		G_Led_protocol.ShowChargeAndSound[8] = 0x00;
-		ret= serial_write(LED_COM,G_Led_protocol.ShowChargeAndSound,9);	
+		serial_write(LED_COM,G_Led_protocol.ShowChargeAndSound,9);	
 	}
 	else
 	{	
@@ -156,7 +155,7 @@ void  TFI_303_LedShow (int CarType , int charge )
 		G_Led_protocol.ShowChargeNotSound[6] = strCharge[2];
 		G_Led_protocol.ShowChargeNotSound[7] = strCharge[3];
 		G_Led_protocol.ShowChargeNotSound[8] = 0x00;
-		ret=serial_write(LED_COM,G_Led_protocol.ShowChargeNotSound,9);	
+		serial_write(LED_COM,G_Led_protocol.ShowChargeNotSound,9);	
 	}
 	/*serial_write(LED_COM,"seeeee",6);	
 	serial_write(LED_COM,"s0001e",6);	*/

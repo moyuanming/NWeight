@@ -1,4 +1,5 @@
 #include "LocalIncludeFile.h"
+#include "i_dev_TFI_HFW.h"
 #define HFW_FULL_MaxCommandLen 68
 #define HFW_DATALen 64
 
@@ -41,13 +42,10 @@ void TFI_HFW_clean(BOOL IsSound)
 {
 	sem_wait(&HFW_Semt);
 	{
-		unsigned char strCharge[5];
-		int ret;
-
 		byte command[HFW_FULL_MaxCommandLen];
 		byte str1[255];
 		memset(str1, ' ', 255);
-		sprintf(str1, "%64s", GetTFIText(0));
+		sprintf((  char * )str1, "%64s", GetTFIText(0));
 		memset(command, 0x00, HFW_FULL_MaxCommandLen);
 		command[0] = 'D'; //0x44(D)
 		command[1] = '2'; //红灯状态 0 不处理，
@@ -69,8 +67,6 @@ void HFW_SZ(float   value, int soundtype)
 {
 	char tempnum[255];
 	char tmp1[255];
-	char str1[255];
-	char str2[255];
 	int i;
 	int s = 0;
 	int  dot;
@@ -94,7 +90,7 @@ void HFW_SZ(float   value, int soundtype)
 	}
 	len = 5;
 	cmdL = 0;
-	if (soundtype = 2)
+	if (soundtype == 2)
 	{
 		sprintf(tmpcmd, "%s", "156");
 		cmdL += 1;
@@ -174,13 +170,12 @@ int __charge;
 static pthread_t HFW_T;
 void  TFI_HFW_BaoJia(int CarType, int charge)
 {
-	int ret;
 	__CarType = CarType;
 	__charge = charge;
 	pthread_attr_t new_attr;
 	pthread_attr_init(&new_attr);
 	pthread_attr_setdetachstate(&new_attr, PTHREAD_CREATE_DETACHED);
-	ret = pthread_create(&HFW_T, &new_attr, (void *)TFI_HFW_BaoJia_ForThread, NULL);
+	 pthread_create(&HFW_T, &new_attr, (void *)TFI_HFW_BaoJia_ForThread, NULL);
 	pthread_attr_destroy(&new_attr);
 
 }
@@ -193,7 +188,7 @@ void TFI_HFW_BaoJia_ForThread(void)
 	TFI_HFW_SoundOuther("141");
 	if (CarType > 0 && CarType < 6)
 	{
-		byte str1[255];
+		char str1[255];
 		memset(str1, 0x00, 255);
 		sprintf(str1, "%d", 40 + CarType - 1);
 		TFI_HFW_SoundOuther(str1);
@@ -225,7 +220,7 @@ void  TFI_HFW_LedShow(int CarType, int charge)
 		command[2] = '0'; //红灯状态 0 不处理，
 		if (NotUseWeight != GetWeightFunctions())
 		{
-			sprintf(str1, "车    型:%4s%1d型金    额:%5d元承载标准:%5.0f吨车货总重:%5.0f吨",
+			sprintf((  char * )str1, "车    型:%4s%1d型金    额:%5d元承载标准:%5.0f吨车货总重:%5.0f吨",
 					GetWeightCarClass() == WeightCarClassBUS ? "客" : "货",
 					CarType,
 					charge,
@@ -234,7 +229,7 @@ void  TFI_HFW_LedShow(int CarType, int charge)
 		}
 		else
 		{
-			sprintf(str1, "车    型:    %1d型金    额:%5d元",
+			sprintf((  char * )str1, "车    型:    %1d型金    额:%5d元",
 					CarType,
 					charge);
 		}

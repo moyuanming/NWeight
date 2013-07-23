@@ -231,9 +231,6 @@
     <ClCompile Include="src\parameter\SVRCardList.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\systemcontext\SwitchContext.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="src\SubProgarm\Sync.c">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -283,9 +280,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\dev\TFI\i_dev_TFI_303.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="src\dev\TFI\i_dev_TFI_KK.c">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\dev\Weight\wds_protocol.c">
@@ -433,6 +427,42 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\dev\TFI\i_dev_TFI_HN.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\TFI\i_dev_TFI_HFW.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\CPSB.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\TFI\i_dev_TFI_CJ.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\TFI\i_dev_TFI_KY.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\TFI\i_dev_TFI_MNS.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\TFI\i_dev_TFI_RHY.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\TFI\i_dev_TFI_SG.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\IO\i_dev_IO_SAT.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\ICR\i_dev_ICR_JY2.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\VDM\i_dev_VDM_SAT.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dev\TFI\i_dev_TFI_KK.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\systemcontext\SwitchContext.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -731,12 +761,6 @@
     <ClInclude Include="src\csc_rhy_dll\csc_rhy_dll\MIF_Interface.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\dev\include\i_dev_TFI_303.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="src\dev\include\i_dev_TFI_KK.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="src\dev\include\VideoCaptureImage.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -782,9 +806,6 @@
     <ClInclude Include="src\parameter\include\ConstantTable.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\dev\include\i_dev_TFI_HN.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="src\systemcontext\include\FareCalculation.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -800,5 +821,76 @@
     <ClInclude Include="src\systemcontext\include\FareContext.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="src\messageBody\include\TrafficStat.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\include\CPSB.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\include\IO_Board.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\include\tfi_lib.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\TFI\include\i_dev_TFI_303.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\TFI\include\i_dev_TFI_CJ.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\TFI\include\i_dev_TFI_HFW.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\TFI\include\i_dev_TFI_HN.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\TFI\include\i_dev_TFI_KK.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\TFI\include\i_dev_TFI_KY.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\TFI\include\i_dev_TFI_MNS.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\TFI\include\i_dev_TFI_RHY.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\TFI\include\i_dev_TFI_SG.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\IO\include\i_dev_IO_SAT.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\include\i_dev_vdm.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\ICR\inlcude\i_dev_ICR_JY2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\ICR\inlcude\IccReader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\ICR\inlcude\MIF_Interface.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\VDM\include\i_dev_VDM_SAT.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\Makefile.am" />
+    <None Include="configure" />
+    <None Include="Makefile.am" />
+    <None Include="autogen.sh" />
+    <None Include="install-sh" />
+    <None Include="config.sub" />
+    <None Include="config.guess" />
+    <None Include="Makefile.in" />
+    <None Include="configure.in" />
+    <None Include="AUTHORS" />
+    <None Include="NEWS" />
+    <None Include="README" />
   </ItemGroup>
 </Project>
