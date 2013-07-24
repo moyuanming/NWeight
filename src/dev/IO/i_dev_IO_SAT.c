@@ -36,27 +36,31 @@ int CreateIO_STAThreadWrite(void) {
 	return ret;
 }
 int IO_STA_isRunning=1;
+BOOL CanRead=T;
 void IO_STA_ReceiveThread(void) 
 {
 	unsigned char starecv[15];
 	int x;
 	while (IO_STA_isRunning) 
 	{
-		sem_wait(&IO_SAT_Semt);
+		if (CanRead==T)
 		{
-			memset(starecv,0x00,sizeof(starecv));
-			usleep(100);
-			x=serial_read(Get_IOBoardCOM(), starecv,sizeof(starecv));
-			if (starecv[0]==0x0a)
+			sem_wait(&IO_SAT_Semt);
 			{
-				x=serial_read(Get_IOBoardCOM(), &starecv[1],sizeof(starecv)-1);
-				if (starecv[1]=='E')
+				memset(starecv,0x00,sizeof(starecv));
+				x=serial_read(Get_IOBoardCOM(), starecv,sizeof(starecv));
+				if (starecv[0]==0x0a)
 				{
-				I_DEV_IO_SAT_Callback(starecv); 
+					x=serial_read(Get_IOBoardCOM(), &starecv[1],sizeof(starecv)-1);
+					if (starecv[1]=='E')
+					{
+						I_DEV_IO_SAT_Callback(starecv); 
+					}
 				}
 			}
+			sem_post(&IO_SAT_Semt);
 		}
-		sem_post(&IO_SAT_Semt);
+		usleep(1000);
 	}
 	sem_destroy(&IO_SAT_Semt); 
 }
@@ -129,6 +133,7 @@ void I_DEV_IO_SAT_Callback(unsigned char *Inputstrs)
 int  I_DEV_IO_SAT_Out(unsigned int TurnOn,unsigned int TurnOff)
 {
 	int result;
+	CanRead=F;
 	sem_wait(&IO_SAT_Semt);
 	{
 		SETSTA(JiaoTong_R,C_LAMP_R);
@@ -138,8 +143,9 @@ int  I_DEV_IO_SAT_Out(unsigned int TurnOn,unsigned int TurnOff)
 		SETSTA(ShenGuang,ALARM_LAMP);
 		SETSTA(LANGAN,C_BAR);
 		result=serial_write(Get_IOBoardCOM(), sta,sizeof(sta));
-		usleep(1000);
+		//usleep(1000);
 	}
 	sem_post(&IO_SAT_Semt);
+	CanRead=T;
 	return result;
 }

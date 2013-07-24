@@ -141,7 +141,6 @@ void HFW_SZ(float   value, int soundtype)
 		if (cmdL + 1 >= 8)
 		{
 			TFI_HFW_SoundOuther(tmpcmd);
-			//sleep(1);
 			memset(tmpcmd, 0x00, 255);
 			cmdL = 0;
 		}
@@ -153,7 +152,6 @@ void HFW_SZ(float   value, int soundtype)
 		if (cmdL + 1 >= 8)
 		{
 			TFI_HFW_SoundOuther(tmpcmd);
-			//sleep(1);
 			memset(tmpcmd, 0x00, 255);
 			cmdL = 0;
 		}

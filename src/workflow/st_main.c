@@ -14,7 +14,7 @@ int CDCWinProc (HWND hWnd, int message, WPARAM wParam, LPARAM lParam)
 		case MSG_CREATE:
 			UI_Set_From_Handl( hWnd);
 			UI_LoadRes();
-			SetTimer(hWnd, 50, 50);
+			
 
 			break;
 		case MSG_PAINT:
@@ -26,6 +26,7 @@ int CDCWinProc (HWND hWnd, int message, WPARAM wParam, LPARAM lParam)
 				sem_post(&Device_semt);
 				SendLaneInfo("µÈ´ýÉÏ°à");
 				is_init_all = F;
+				SetTimer(hWnd, 10, 10);
 			}
 			break;
 		case MSG_TIMER:
@@ -203,11 +204,9 @@ int MiniGUIMain (int args, const char* arg[])
 	SetCursorPos (805, 605) ;
 	while ( GetMessage (&Msg, hMainWnd) )
 	{
-		usleep(1);
 		TranslateMessage (&Msg);
 		DispatchMessage (&Msg);
 	}
-	sleep(6);
 	I_DEV_IOBoard_Exit();
 	MainWindowThreadCleanup (hMainWnd);
 	system_close();
