@@ -208,31 +208,59 @@ void  TFI_YM_LedShow(int CarType, int charge)
 {
 	sem_wait(&YM_Semt);
 	{
-		byte command[YM_FULL_MaxCommandLen];
+		byte command[19];
 		byte str1[255];
 		memset(str1, ' ', 255);
-		memset(command, 0x00, YM_FULL_MaxCommandLen);
+		memset(command, 0x00, 19);
 		command[0] = 'D'; //0x44(D)
-		command[1] = 255; //红灯状态 0 不处理，
-		command[2] = 0; //红灯状态 0 不处理，
-		if (NotUseWeight != GetWeightFunctions())
-		{
-			sprintf((  char * )str1, "车    型:%4s%1d型金    额:%5d元承载标准:%5.0f吨车货总重:%5.0f吨",
-					GetWeightCarClass() == WeightCarClassBUS ? "客" : "货",
-					CarType,
-					charge,
-					GetWeightContext_WeightLimit_ByTon(),
-					GetFareContext_CarWeight());
-		}
-		else
-		{
-			sprintf((  char * )str1, "车    型:    %1d型金    额:%5d元",
-					CarType,
-					charge);
-		}
-		memcpy((char *)&command[3], str1, YM_DATALen);
-		command[YM_FULL_MaxCommandLen - 1] = 0x0d;
-		serial_write(LED_COM, command, YM_FULL_MaxCommandLen);
+		command[1] = 255; // 
+		command[2] = 0; // 
+		/*sprintf((  char * )str1, "车  型： %1d",				getweightcarclass() == weightcarclassbus ? "客" : "货",
+		cartype,
+		charge,
+		getweightcontext_weightlimit_byton(),
+		getfarecontext_carweight());*/
+		sprintf((  char * )str1, "车  型：     %1d",		CarType);
+		memcpy((char *)&command[3], str1, 19);
+		command[19] = 0x0d;
+		serial_write(LED_COM, command, 19);
+		usleep(1000*60);
+
+
+		memset(str1, ' ', 255);
+		memset(command, 0x00, 19);
+		command[0] = 'D'; //0x44(D)
+		command[1] = 255; // 
+		command[2] = 0; // 
+		sprintf((  char * )str1, "总重量： %5.0f吨",		GetFareContext_CarWeight());
+		memcpy((char *)&command[3], str1, 19);
+		command[19] = 0x0d;
+		serial_write(LED_COM, command, 19);
+		usleep(1000*60);
+
+		memset(str1, ' ', 255);
+		memset(command, 0x00, 19);
+		command[0] = 'D'; //0x44(D)
+		command[1] = 255; // 
+		command[2] = 0; // 
+		sprintf((  char * )str1, "超载率： %5.0f%",		GetWeightContext_WeightLimit_ByTon());
+		memcpy((char *)&command[3], str1, 19);
+		command[19] = 0x0d;
+		serial_write(LED_COM, command, 19);
+		usleep(1000*60);
+
+
+		memset(str1, ' ', 255);
+		memset(command, 0x00, 19);
+		command[0] = 'D'; //0x44(D)
+		command[1] = 255; // 
+		command[2] = 0; // 
+		sprintf((  char * )str1, "金  额： %d元",		charge);
+		memcpy((char *)&command[3], str1, 19);
+		command[19] = 0x0d;
+		serial_write(LED_COM, command, 19);
+		usleep(1000*60);
+
 		echoic("费显内容:%s", str1);
 
 	}
