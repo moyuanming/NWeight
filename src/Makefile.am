@@ -122,6 +122,7 @@ dev/TFI/i_dev_TFI_HN.c \
 dev/TFI/i_dev_TFI_MNS.c \
 dev/TFI/i_dev_TFI_RHY.c \
 dev/TFI/i_dev_TFI_SG.c \
+dev/TFI/i_dev_TFI_YM.c \
 dev/VDM/i_dev_VDM_SAT.c \
 dev/IO/i_dev_IO_SAT.c \
 dev/Print/i_dev_printer.c \

@@ -6,6 +6,7 @@
 #include "i_dev_TFI_HFW.h"
 #include "i_dev_TFI_KY.h"
 #include "i_dev_TFI_MNS.h"
+#include "i_dev_TFI_YM.h"
 void I_DEV_LED_Init(void)
 {
 	//双涝坝等老费县为 9600 吐乌的费显为 1200
@@ -18,6 +19,10 @@ void I_DEV_LED_Init(void)
 	else if (0 == strcmp("HFW", GetTFIDLL()))
 	{
 		TFI_HFW_Init();
+	}
+	else if (0 == strcmp("YM", GetTFIDLL()))
+	{
+		TFI_YM_Init();
 	}
 	else if (0 == strcmp("MNSNEW", GetTFIDLL()))
 	{
@@ -130,6 +135,10 @@ void LedClare(BOOL IsSound)
 	{
 		TFI_HFW_clean(T);
 	}
+	else if (0 == strcmp("YM", GetTFIDLL()))
+	{
+		TFI_YM_clean(T);
+	}
 }
 void LedVolume(int VolumeValue)
 {
@@ -229,6 +238,10 @@ void LedShowCharge(char CarType, int charge)
 	{
 		TFI_HFW_LedShow((int)CarType - 0x30, charge);
 	}
+	else if (0 == strcmp("YM", GetTFIDLL()))
+	{
+		TFI_YM_LedShow((int)CarType - 0x30, charge);
+	}
 }
 
 void TWD_ShowCarType(char ct)
@@ -286,6 +299,10 @@ void  LedClear()
 	{
 		TFI_HFW_clean(F);
 	}
+	else if (0 == strcmp("YM", GetTFIDLL()))
+	{
+		TFI_YM_clean(F);
+	}
 
 
 }
@@ -295,6 +312,10 @@ BOOL  IsRichTFI(void)
 {
 	BOOL result = F;
 	if (0 == strcmp("HFW", GetTFIDLL()))
+	{
+		result = T;
+	}
+	else if (0 == strcmp("YM", GetTFIDLL()))
 	{
 		result = T;
 	}
@@ -308,6 +329,10 @@ void TFI_SetTongXingDeng(BOOL bFlag)
 	{
 		TFI_HFW_SetTongXingDeng(bFlag);
 	}
+	else if (0 == strcmp("YM", GetTFIDLL()))
+	{
+		TFI_YM_SetTongXingDeng(bFlag);
+	}
 }
 
 void TFI_SetHuangShan(BOOL bFlag)
@@ -315,5 +340,9 @@ void TFI_SetHuangShan(BOOL bFlag)
 	if (0 == strcmp("HFW", GetTFIDLL()))
 	{
 		TFI_HFW_SetHuangShan(bFlag);
+	}
+	else if (0 == strcmp("YM", GetTFIDLL()))
+	{
+		TFI_YM_SetHuangShan(bFlag);
 	}
 }
