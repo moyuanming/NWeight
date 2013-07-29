@@ -15,7 +15,7 @@
 #define RGB332(r,g,b)	\
 	(((r) & 0xe0) | (((g) & 0xe0) >> 3) | (((b) & 0xc0) >> 6))
 
-#define RGB(r,g,b)	RGB888(r,g,b)
+#define RGB(r,g,b)	RGB565(r,g,b)
 
 //∂®“ÂRGB—’…´
 

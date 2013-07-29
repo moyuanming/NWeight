@@ -128,7 +128,7 @@ static void InitCreateInfo (PMAINWINCREATE pCreateInfo)
 	pCreateInfo->dwExStyle = WS_EX_NONE | WS_EX_USEPRIVATECDC;
 	pCreateInfo->spCaption = "³µµÀ¿ØÖÆÆ÷";
 	pCreateInfo->hMenu = 0;
-	pCreateInfo->hCursor = GetSystemCursor (IDC_ARROW);
+	//pCreateInfo->hCursor = GetSystemCursor (IDC_ARROW);
 	pCreateInfo->hIcon = 0;
 	pCreateInfo->MainWindowProc = CDCWinProc;
 	pCreateInfo->lx = 0;

@@ -54,7 +54,7 @@ if test "x$lite_version" = "xyes"; then
     LIBS="$LIBS -lminigui -lsqlite3  -ldl  -ljpeg"
 else
     CFLAGS="$CFLAGS -D_REENTRANT"
-    LIBS="$LIBS -lpthread -lminigui -lsqlite3 -ldl -ljpeg -lrt -L../DevicesLIB -lrhy -ltfi -lVideoCap -lIccReader"
+    LIBS="$LIBS -lpthread -lminigui -lsqlite3 -ldl -ljpeg -lrt  -lttf -L../DevicesLIB -lrhy -ltfi -lVideoCap -lIccReader"
 fi
 
 AM_CONDITIONAL(LITE_VERSION, test "x$lite_version" = "xyes")

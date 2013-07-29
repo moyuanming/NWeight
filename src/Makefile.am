@@ -173,5 +173,5 @@ Uploader_SOURCES  = $(libemrc_logc_la_SOURCE) SubProgarm/Uploader.c \
 ClearAndArchiveData_SOURCES = $(libemrc_logc_la_SOURCE) SubProgarm/ClearAndArchiveData.c \
 			     sysconfig/ParameterFileList.c 
 
-AutoTest_SOURCES = $(libemrc_logc_la_SOURCE) communication/Emrc_Udp.c  \
-			     Test/AutoRunWorkFlow.c 
+#AutoTest_SOURCES = $(libemrc_logc_la_SOURCE) communication/Emrc_Udp.c  \
+#			     Test/AutoRunWorkFlow.c 
