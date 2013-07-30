@@ -1,7 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lane", "Lane.vcxproj", "{07DFCF86-1BB3-4515-AA24-70DB9F4DD709}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LaneX86", "LaneX86.vcxproj", "{5D280638-336E-47C3-BBB3-A57279D6B3B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +15,10 @@ Global
 		{07DFCF86-1BB3-4515-AA24-70DB9F4DD709}.Debug|Win32.Build.0 = Debug|Win32
 		{07DFCF86-1BB3-4515-AA24-70DB9F4DD709}.Release|Win32.ActiveCfg = Release|Win32
 		{07DFCF86-1BB3-4515-AA24-70DB9F4DD709}.Release|Win32.Build.0 = Release|Win32
+		{5D280638-336E-47C3-BBB3-A57279D6B3B0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5D280638-336E-47C3-BBB3-A57279D6B3B0}.Debug|Win32.Build.0 = Debug|Win32
+		{5D280638-336E-47C3-BBB3-A57279D6B3B0}.Release|Win32.ActiveCfg = Release|Win32
+		{5D280638-336E-47C3-BBB3-A57279D6B3B0}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

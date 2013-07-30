@@ -9,7 +9,7 @@ void I_DEV_VDM_Init(void)
 		echo_ct("VDM <%s> Init",GetVDMDLL());
 		if (strncmp(GetVDMDLL(),"RHY",3)==0)
 		{
-			Vdm_init();
+		//	Vdm_init();
 			I_DEVVDM_IsSupportChinese=F ;
 			VDM_IsInit=T;//瑞华赢字符叠加板和IO板一起被初始化了
 		}
