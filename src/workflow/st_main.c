@@ -26,7 +26,7 @@ int CDCWinProc (HWND hWnd, int message, WPARAM wParam, LPARAM lParam)
 				sem_post(&Device_semt);
 				SendLaneInfo("µÈ´ýÉÏ°à");
 				is_init_all = F;
-				SetTimer(hWnd, 10, 10);
+				SetTimer(hWnd, 100, 100);
 			}
 			break;
 		case MSG_TIMER:
