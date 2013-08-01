@@ -89,7 +89,7 @@ void I_DEV_IOBoard_CommandSender(int bFlag ,int command1,int command2)
 
 		if (strncmp(GetIOBoardDLL(),"RHY",3)==0)
 		{
-			IO_Board_Out(temp1,temp2);
+			IO_Board_Out(temp1,temp2);  
 		}
 		else if (strncmp(GetIOBoardDLL(),"SAT",3)==0)
 		{
