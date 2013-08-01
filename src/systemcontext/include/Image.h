@@ -72,7 +72,6 @@ void SetImageMsgTollFare(char* InputTollFare);
 void SetImageMsgPictureNum(int InputPictureNum);
 void SetImageMsgMARK(char InputMARK); 
 void BuildImageFiles(char * msghead,     struct MSG_EXITTR*exittr);
-char * BuildTCOImage(char msgtype ,char *msg);
 int CaptureImg(char imageid);
 char *CreateCapImgName(void);
 struct MSG_IMAGE *GetSyncImageHeader(void);

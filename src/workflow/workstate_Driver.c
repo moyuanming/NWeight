@@ -41,7 +41,6 @@ void WorkStation(int nKey)
 	}
 	if (nKey==VK_BREAKAUTOMAN)
 	{
-
 		SetUseAutoMan(0);//abs(GetUseAutoMan()-1));
 	}
 	echo("״̬ %d",GetWorkState());

@@ -205,43 +205,7 @@ void BuildImageFiles(char * msghead,     struct MSG_EXITTR*exittr)
 	StructAndFile(MsgImage, FILENAME_SAVE_ImageTEMP"1TEMP.JPG",GetFileSize(FILENAME_SAVE_ImageTEMP"1TEMP.JPG"), desImage1);
 	StructAndFile(MsgImage, FILENAME_SAVE_ImageTEMP"2TEMP.JPG",GetFileSize( FILENAME_SAVE_ImageTEMP"2TEMP.JPG"), desImage2);
 }
-char TCOImage[50];
-char * BuildTCOImage(char msgtype ,char *msg)
-{
-	struct MSG_HEAD  * mh;
-	char   msgx[300];
-	char desImage3[100];
-	char  cnum[12];
-	char tran[10];
-	memset(msgx,0x00,sizeof(msgx));
-	memset(cnum,0x00,sizeof(cnum));
-	memset(tran,0x00,sizeof(tran));
-	memset(desImage3,' ',sizeof(desImage3));
-	mh=GetMsgHead();
-	InitMsgMSG_TCOIMAGE();
-	SetMSG_TCOIMAGEMsgCollector(SUBSTRING(mh->Collector));
-	SetMSG_TCOIMAGEMsgDateTime(SUBSTRING(mh->YYYYMMDDHHMMSS));
-	SetMSG_TCOIMAGEMsgKind(' ' );
-	SetMSG_TCOIMAGEMsgLaneName(SUBSTRING(mh->LaneNo));
-	SetMSG_TCOIMAGEMsgLaneType(mh->LaneType);
-	SetMSG_TCOIMAGEMsgStatus(' ');
-	sprintf(msgx,"%-250s",msg);
-	strncpy(GetMsgMSG_TCOIMAGE()->MsgInfo,msgx,sizeof(GetMsgMSG_TCOIMAGE()->MsgInfo));
-	SetMSG_TCOIMAGEMsgMsgType(msgtype);
-	SetMSG_TCOIMAGEMsgNetWork(SUBSTRING(mh->NetNo));
-	SetMSG_TCOIMAGEMsgPlaza(SUBSTRING(mh->PlazaNo));
-	SetMSG_TCOIMAGEMsgStatus('0');
-	sprintf(cnum,"%10s",GetCardContext_CardNumber());
-	SetMSG_TCOIMAGEMsgSVRCard(cnum);
-	sprintf(tran,"%4d",g_TranNo);
-	strncpy(GetMsgMSG_TCOIMAGE()->Trans,tran,sizeof(GetMsgMSG_TCOIMAGE()->Trans));
-	CaptureImg('3');
-	CreateCapImgName();
-	sprintf(desImage3,"%s_3.IMGTCO",CapImgNameFullPath);
-	strcpy(TCOImage,(char *)&desImage3[strlen(FILENAME_SAVE_ImageUPLOAD)]);
-	StructAndFileTCOIMG(GetMsgMSG_TCOIMAGE(), FILENAME_SAVE_ImageTEMP"3TEMP.JPG",GetFileSize(FILENAME_SAVE_ImageTEMP"3TEMP.JPG"), desImage3);
-	return TCOImage;
-}
+ 
 int GetFileSize(char *FileName)
 {
 	struct stat buf;

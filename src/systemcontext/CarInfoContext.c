@@ -171,16 +171,16 @@ void SendTcoWaingMsg(char *Msg)
 	{
 		return;
 	}
-	InitMsgTCO();   
-	GetMsgTCO()->MsgType =MSGTCO_CMD_TCOWAING ;
-	sprintf(title,"%s%-60s","提示",SUBSTRING(GetMsgHead()->LaneNo));
-	strncpy(GetMsgTCO()->MsgTitle,title,sizeof(GetMsgTCO()->MsgTitle));
-	sprintf(context,"%-60s",Msg);
-	strncpy(GetMsgTCO()->MsgContext,context,sizeof(GetMsgTCO()->MsgContext));
-	sprintf(path,"%-60s",BuildTCOImage(MSGTCO_CMD_TCOWAING,Msg));
-	strncpy(GetMsgTCO()->MsgImagePath,path,sizeof(GetMsgTCO()->MsgImagePath));
-	SendMessageToQueue(ID_TCOMSG ); 
-	echoic("消息%s \n图片地址%s",Msg,SUBSTRING(GetMsgTCO()->MsgImagePath));
+	//InitMsgTCO();   
+	//GetMsgTCO()->MsgType =MSGTCO_CMD_TCOWAING ;
+	//sprintf(title,"%s%-60s","提示",SUBSTRING(GetMsgHead()->LaneNo));
+	//strncpy(GetMsgTCO()->MsgTitle,title,sizeof(GetMsgTCO()->MsgTitle));
+	//sprintf(context,"%-60s",Msg);
+	//strncpy(GetMsgTCO()->MsgContext,context,sizeof(GetMsgTCO()->MsgContext));
+	//sprintf(path,"%-60s",BuildTCOImage(MSGTCO_CMD_TCOWAING,Msg));
+	//strncpy(GetMsgTCO()->MsgImagePath,path,sizeof(GetMsgTCO()->MsgImagePath));
+	//SendMessageToQueue(ID_TCOMSG ); 
+	//echoic("消息%s \n图片地址%s",Msg,SUBSTRING(GetMsgTCO()->MsgImagePath));
 }
 char _YCQK[100];
 void InitYCQK(void)

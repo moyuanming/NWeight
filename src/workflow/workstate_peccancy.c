@@ -107,7 +107,7 @@ void WorkFlow_WeiZhang(int nKey)
 			WorkStation_41_WzOK(nKey);
 		}
 }
-void WorkStation_40_InPutWzCarType(nKey)
+void WorkStation_40_InPutWzCarType( int  nKey)
 {
 	switch (nKey)
 	{
@@ -248,8 +248,8 @@ void WorkStation_59_WeiZhangHandl(int nKey)
 char tempExit[2];
 void SendMessageWzCar(int wzCarType)
 {	
-	char tempTran[4];
-	memset(tempTran,0x00,4);	
+	char tempTran[10];
+	memset(tempTran,0x00,sizeof(tempTran));	
 	SetG_weiZhangType(1);	
 	SetExitVIMsgExitType(wzCarType);	
 	sprintf(tempExit,"%d",wzCarType);	
