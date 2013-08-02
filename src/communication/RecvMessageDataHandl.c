@@ -22,7 +22,7 @@ void InitMsgTcoCommand(void)
 /**
 * 执行来自服务器的指令
 */
-void ExecTCOCommand(const   char * InputRevbData)
+void ExecTCOCommand(   char * InputRevbData)
 {
 	echoic("主程序收到：%s CMD:%s",InputRevbData,SUBSTRING(GetMsgTcoCommand()->CMD));
 	if (0==strncmp((char*)&GetMsgTcoCommand()->CMD,TCOCMD_RETURNDATETIME,strlen(TCOCMD_RETURNDATETIME)))

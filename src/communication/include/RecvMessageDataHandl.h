@@ -23,7 +23,7 @@ struct MSG_TCOCMD
  
 struct MSG_TCOCMD *GetMsgTcoCommand(void);
 void RecvMsgDataHandl(unsigned char * InputRevbData);
-void ExecTCOCommand(  const char *  InputRevbData);
+void ExecTCOCommand( char *  InputRevbData);
 void CheckBilNumber(void );
 void InitMsgTcoCommand(void);
 int GetParamIsOK(void);
