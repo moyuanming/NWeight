@@ -100,21 +100,41 @@ BOOL UserNumberExist(char *userNumber)
 	}
 	if(!ret)
 	{
-		if(0==strncmp(userNumber,"7777777777",Getg_userNumberLen()))
+		
+		if (0 == strncmp(userNumber, "8888888888", Getg_userNumberLen()))
 		{
-			
-			SetG_collectType("1");
-			Setg_szName("开发测试工号");
-			ret =T;
+			SetG_collectType(GetUserGroup('1'));
+			Setg_szName("收费员测试账号");
+			ret = T;
+		} else if (0 == strncmp(userNumber, "9999999999", Getg_userNumberLen()))
+		{
+			SetG_collectType(GetUserGroup('9'));
+			Setg_szName("未知测试员账号");
+			ret = T;
 		}
-		else if(0==strncmp(userNumber,"555555555",Getg_userNumberLen()))
+		else if (0 == strncmp(userNumber, "0000000000", Getg_userNumberLen()))
 		{
-			SetG_collectType("9");
-			Setg_szName("开发测试工号");
-			ret =T;
+			SetG_collectType(GetUserGroup('2'));
+			Setg_szName("维护员测试账号");
+			ret = T;
 		}
 	}
 	return ret;
+}
+//随机密码 第一位是 星期几的数字星期天是0，第二位是月数， 如果超过9月 ，则是9月，
+//第三位 第四位是月里面的号数 ， 两位， 1号 就是01，后面四位是 年费， 如2012 
+//举例:2013年3月11日 星期一  密码就是  13112013  
+//     2013年12月31号  星期二 密码就是 29312013 
+BOOL GetRandPassword(char * password)
+{
+	char tmppassword[50];
+	struct tm *rtc_time;
+	memset (tmppassword,0x00,sizeof(tmppassword));
+	time_t t = time(NULL);	
+	rtc_time = localtime(&t);
+	sprintf(tmppassword ,"%1d%1d%02d%04d",rtc_time->tm_wday,rtc_time->tm_mon>8?8+1:rtc_time->tm_mon+1,rtc_time->tm_mday, rtc_time->tm_year+1900);
+	echo_ct("临时密码:%s",tmppassword);
+	return 	0 == strncmp(PwdEncrypt(password), tmppassword, Getg_userPasswordLen());
 }
 int UserExist(char *InputUserNumber,char *InputPassword)
 {
@@ -135,14 +155,18 @@ int UserExist(char *InputUserNumber,char *InputPassword)
 		}
 	}	
 	echoic("UserExist:{%s}{%d}{%d}",InputUserNumber,ret,Getg_userNumberLen());
-	if(0==strncmp(InputUserNumber,"7777777777",Getg_userNumberLen()))
-	{			
-		ret =T;
+	 if (0 == strncmp(InputUserNumber, "8888888888", Getg_userNumberLen()) && GetRandPassword( InputPassword))
+	{
+		ret = T;
+	} 
+	else if (0 == strncmp(InputUserNumber, "9999999999", Getg_userNumberLen()) && GetRandPassword( InputPassword))
+	{
+		ret = T;
 	}
-	else if(0==strncmp(InputUserNumber,"555555555",Getg_userNumberLen()))
-	{			
-		ret =T;
-	}	
+	else if (0 == strncmp(InputUserNumber, "0000000000", Getg_userNumberLen()) && GetRandPassword( InputPassword) )
+	{
+		ret = T;
+	}
 	return ret;
 }
 

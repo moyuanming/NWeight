@@ -13,18 +13,18 @@
 struct MSG_TCOCMD  MsgTCOCommand;
 struct MSG_TCOCMD *GetMsgTcoCommand(void)
 {	
-    return &MsgTCOCommand;
+	return &MsgTCOCommand;
 }
 void InitMsgTcoCommand(void)
 {	
-    memset((char*)&MsgTCOCommand,' ',sizeof(struct MSG_TCOCMD));	
+	memset((char*)&MsgTCOCommand,' ',sizeof(struct MSG_TCOCMD));	
 }
 /**
- * 执行来自服务器的指令
- */
+* 执行来自服务器的指令
+*/
 void ExecTCOCommand(const   char * InputRevbData)
 {
-	 echoic("主程序收到：%s CMD:%s",InputRevbData,SUBSTRING(GetMsgTcoCommand()->CMD));
+	echoic("主程序收到：%s CMD:%s",InputRevbData,SUBSTRING(GetMsgTcoCommand()->CMD));
 	if (0==strncmp((char*)&GetMsgTcoCommand()->CMD,TCOCMD_RETURNDATETIME,strlen(TCOCMD_RETURNDATETIME)))
 	{
 		echoic("返回时间");
@@ -33,7 +33,7 @@ void ExecTCOCommand(const   char * InputRevbData)
 	else if (0==strncmp((char*)&GetMsgTcoCommand()->CMD,TCOCMD_NOWSYNTIME,strlen(TCOCMD_NOWSYNTIME)))
 	{
 		echoic("同步时间%s",InputRevbData);
-	
+
 		SendMsgToSync(InputRevbData);
 	}
 	else if (0==strncmp((char*)&GetMsgTcoCommand()->CMD,TCOCMD_RETURNPARAMVER,strlen(TCOCMD_RETURNPARAMVER)))
@@ -49,21 +49,18 @@ void ExecTCOCommand(const   char * InputRevbData)
 	}
 	else if (0==strncmp((char*)&GetMsgTcoCommand()->CMD,TCOCMD_TCOSTARTED ,strlen(TCOCMD_TCOSTARTED)))
 	{
-	 	SendLaneInfo_default();  
+		SendLaneInfo_default();  
 		SendMsgInfo("联机消息","","已联机"); 
-	//echox("联机消息");
-			echoic("联机");
- 
+		echoic("联机");
+
 	}
 	else if (0==strncmp((char*)&GetMsgTcoCommand()->CMD,"TCOCOMMADN",strlen("TCOCOMMADN")))
 	{
 		SendMsgToSync(InputRevbData);
-
 	}
 	else if (0==strncmp((char*)&GetMsgTcoCommand()->CMD,"MD5SUMFILE",strlen("MD5SUMFILE")))
 	{
 		SendTCOMsg(MSGTCO_CMD_MD5SUMFILE,(char*)&GetMsgTcoCommand()->Param);
-
 	}
 	else if (0==strncmp((char*)&GetMsgTcoCommand()->CMD,"TIMESYNCED",strlen("SYNCRETURN")))
 	{
@@ -88,7 +85,7 @@ void ExecTCOCommand(const   char * InputRevbData)
 		memset(temp,0x0,11);
 		strncpy(temp,GetMsgTcoCommand()->Param,10);
 		message = atoi(temp);
-		
+
 		memset(temp,0x0,11);
 		strncpy(temp,GetMsgTcoCommand()->Param+10,10);
 		wParam = atoi(temp);
@@ -98,9 +95,6 @@ void ExecTCOCommand(const   char * InputRevbData)
 		lParam = atoi(temp);
 		echoic("message %d wparam %d lparam %d",message,wParam,lParam);
 		PostMessage(UI_Get_From_Handl(),message,wParam,lParam);
-		//strncpy(temp,GetMsgTcoCommand()->Param,3);
-		//temp[3] = 0x00;
-		//WorkStation(atoi(temp));
 	}
 	else if (0==strncmp((char*)&GetMsgTcoCommand()->CMD,"SYNCRETURN",strlen("SYNCRETURN")))
 	{
@@ -135,26 +129,26 @@ void ExecTCOCommand(const   char * InputRevbData)
 		{
 			int xxx=0;
 
-			xxx=LoadParameter_CARDInfo(ISLOADFIRST);
+			/*xxx=LoadParameter_CARDInfo(ISLOADFIRST);
 			LoadLanKey();
 			if (xxx==1)
 			{
-				SendTCOMsg(MSGTCO_CMD_PARAMUPDATE,"远程IC卡信息更新成功!");
-					SendMsgInfo("参数表消息","","IC卡信息已经升级!");
+			SendTCOMsg(MSGTCO_CMD_PARAMUPDATE,"远程IC卡信息更新成功!");
+			SendMsgInfo("参数表消息","","IC卡信息已经升级!");
 			}
 			else
 			{
-				SendTCOMsg(MSGTCO_CMD_PARAMUPDATE,"远程IC卡信息更新成功,但为正确加载!");
-				SendMsgInfo("参数表消息","","远程参数表未能加载!");
+			SendTCOMsg(MSGTCO_CMD_PARAMUPDATE,"远程IC卡信息更新成功,但为正确加载!");
+			SendMsgInfo("参数表消息","","远程参数表未能加载!");
 
-			}
+			}*/
 			//
 		}
 		else if (0==strncmp((char*)&GetMsgTcoCommand()->Param,"REMOTEPMNO",strlen("REMOTEPMNO")))
 		{
-			SendTCOMsg(MSGTCO_CMD_PARAMUPDATE,"远程IC卡信息更新失败!车道暂不能刷卡");
-			SendMsgInfo("参数表消息","","远程参数表错误,IC卡将不可用!");
-			
+			///*SendTCOMsg(MSGTCO_CMD_PARAMUPDATE,"远程IC卡信息更新失败!车道暂不能刷卡");
+			//SendMsg*/Info("参数表消息","","远程参数表错误,IC卡将不可用!");
+
 		}
 		else
 		{
@@ -180,7 +174,7 @@ void RecvMsgDataHandl(unsigned char * InputRevbData)
 		WorkStation(atoi(GetMsgTcoCommand()->CMD));
 	}
 }
- 
+
 void DeleteImages(void)
 {
 	struct MSG_TCOCMD  tmpx111;
@@ -189,8 +183,6 @@ void DeleteImages(void)
 	SendMsgToSync((char*)&tmpx111);
 	echoic("DeleteImages:%s",(char*)&tmpx111);
 }
-
-
 
 /*SyncToDo("SYNCREMOTE");*/
 void SyncToDo(char *command)
@@ -202,5 +194,5 @@ void SyncToDo(char *command)
 	echoic("SyncToDo:%s",(char*)&tmpx111);
 }
 
- 
+
 

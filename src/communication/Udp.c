@@ -14,9 +14,7 @@ static void RecvUDPMessage(void)
 	while(1)
 	{
 		memset(RecvBuf,0x00,200);
-		echoic("00");
 		RecvCount =UDP_Recv(SocketUDP,RecvBuf,their_Recv_addr,SocketRecvLen);
-		
 		RecvBuf[RecvCount] = 0x00;
 		RecvMsgDataHandl( RecvBuf);
 		echoic("%s",RecvBuf);

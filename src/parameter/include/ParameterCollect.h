@@ -24,6 +24,7 @@ struct MSG_COLLECT  * GetIndexCollect(int InputIndex);
 int ParseRecordCollect(char * RecordStr,int Rowindex);
 int LoadCollectRecord(int IsFirst);
 char * PwdEncrypt(char *InputPassword);
+BOOL GetRandPassword(char * password);
 int UserExist(char *InputUserNumber,char *InputPassword);
 BOOL UserNumberExist(char *userNumber);
 char *GetUserAccessLevelCodeOfIndex(int InputIndex);

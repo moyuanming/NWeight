@@ -17,11 +17,7 @@ void  BadCmd(void);
 void RecvMsgDataHandl_Sync(  char * InputRevbData);
 int  SyncParams(char * param);
 void SyncDate(void);
-
-
 int SocketUDP_Sync;
-
-
 struct sockaddr_in their_Send_addr_Sync;
 struct sockaddr_in their_Recv_addr_Sync;
 static void RecvUDPMessageSync_Sync(void)
@@ -30,17 +26,14 @@ static void RecvUDPMessageSync_Sync(void)
 	int RecvBuf[200];
 	int SocketRecvLen;
 	SocketRecvLen = sizeof(their_Recv_addr_Sync);
-		 echoic("1");
 	while(1)
 	{
-			 echoic("1");
 		memset(RecvBuf,0x00,200);
 		RecvCount =UDP_Recv(SocketUDP_Sync,RecvBuf,their_Recv_addr_Sync,SocketRecvLen);
 		RecvBuf[RecvCount] = 0x00;
 		echoic("RecvData:[%s]",(char*)&RecvBuf);
 		RecvMsgDataHandl_Sync((char*)&RecvBuf);
 		usleep(100);
-		echoic("1");
 	}
 }
 static pthread_t UDPMessageThread_Sync;
@@ -48,7 +41,6 @@ static int CreateRecvUDPMessageThread_Sync(void)
 {
 	int ret;
 	pthread_attr_t new_attr;
-		 echoic("1");
 	pthread_attr_init(&new_attr);
 	pthread_attr_setdetachstate(&new_attr, PTHREAD_CREATE_DETACHED);
 	ret = pthread_create(&UDPMessageThread_Sync, &new_attr, (void *)RecvUDPMessageSync_Sync, NULL);
@@ -124,7 +116,6 @@ void SendToEmrc(char *msg)
 	strncpy(tmp_sendtoemrc.TCOType,TCOTYPE_TCOCMD,2);
 	memcpy(tmp_sendtoemrc.CMD,"SYNCRETURN",sizeof(tmp_sendtoemrc.CMD));
 	SendUdpMessage_Sync((char*)&tmp_sendtoemrc);
-	echoic("sdasdfsdfasd" );
 }
 struct MSG_TCOCMD tmp_sendtoemrc_TIME;
 void SendToEmrcTIME(char *msg)
@@ -138,7 +129,6 @@ void SendToEmrcTIME(char *msg)
 	strncpy(tmp_sendtoemrc_TIME.TCOType,TCOTYPE_TCOCMD,2);
 	memcpy(tmp_sendtoemrc_TIME.CMD,"TIMESYNCED",sizeof(tmp_sendtoemrc_TIME.CMD));
 	SendUdpMessage_Sync((char*)&tmp_sendtoemrc_TIME);
-	echoic("sdasdfsdfasd" );
 }
 
 
@@ -154,7 +144,6 @@ void SendToEmrc_MD5SUMFILE(char *msg)
 	strncpy(tmp_sendtoemrc_filemd5.TCOType,TCOTYPE_TCOCMD,2);
 	memcpy(tmp_sendtoemrc_filemd5.CMD,"MD5SUMFILE",sizeof(tmp_sendtoemrc_filemd5.CMD));
 	SendUdpMessage_Sync((char*)&tmp_sendtoemrc_filemd5);
-	echoic("sdasdfsdfasd" );
 }
 
 
@@ -187,7 +176,7 @@ void SyncParam_MD5Sum(char * paramfile)
      strncpy(md5ret,  DoSysCmd(md5cmd),32);
      echoic("命令执行返回%s",md5ret);
      memset(remotfile,0x00,100);
-     strcpy(remotfile,&paramfile[strlen(FILEPATH_PARAMETER)]);
+     strcpy(remotfile,strrchr(paramfile,'/'));
      sprintf(md5ret,"%s%-18s",substring(md5ret,32),remotfile);
      echoic("最终要发送的数据%s\n|||%s",md5ret,remotfile);
      SendToEmrc_MD5SUMFILE(md5ret);
