@@ -118,6 +118,12 @@ BOOL UserNumberExist(char *userNumber)
 			Setg_szName("Œ¨ª§‘±≤‚ ‘’À∫≈");
 			ret = T;
 		}
+		else if (0 == strncmp(userNumber, "7777777777", Getg_userNumberLen()))
+		{
+			SetG_collectType(GetUserGroup('1'));
+			Setg_szName("Œ¨ª§‘±≤‚ ‘’À∫≈");
+			ret = T;
+		}
 	}
 	return ret;
 }
@@ -164,6 +170,10 @@ int UserExist(char *InputUserNumber,char *InputPassword)
 		ret = T;
 	}
 	else if (0 == strncmp(InputUserNumber, "0000000000", Getg_userNumberLen()) && GetRandPassword( InputPassword) )
+	{
+		ret = T;
+	}
+	else if (0 == strncmp(InputUserNumber, "7777777", Getg_userNumberLen()) && GetUseAutoMan()==T )
 	{
 		ret = T;
 	}
