@@ -408,56 +408,15 @@ void RecvMsgDataHandl_Sync(  char * InputRevbData)
 		sprintf(param1,"%-50s",tmt1);
 		echoic("%s\n%s",param1,tmt1);
 		SendToEmrc(param1);
-		//SendUdpMessage_Sync(DoSysCmd ((char*)&GetMsgTcoCommand()->Param));
 	}
 	else if (0==strncmp(tcocmd.CMD,"DELETEIMGS",strlen("DELETEIMGS")))
 	{
 		DoSysCmd("rm "FILENAME_SAVE_ImageUPLOAD"* -f");
 		echoic("rm "FILENAME_SAVE_ImageUPLOAD"* -f");
 	}
-	else if (0==strncmp(tcocmd.CMD,"SYNCREMOTE",strlen("SYNCREMOTE")))
+	else 
 	{
-		char tempcmd[1024];
-		char * result;
-		BOOL bad=F;
-		memset(tempcmd,0x00,1024);
-		sprintf(tempcmd,"wget  -q -O  %s  %s",PARASVRCARDLIST_FILE,GetSVRCARDLIST());
-		echoic("远程参数同步命令:%s",tempcmd);
-		result=  DoSysCmd(tempcmd);
-		echoic("远程参数同步结果:%s",result);
-		if (result==NULL  || strlen(result)==0)
-		{
-			memset(tempcmd,0x00,1024);
-			sprintf(tempcmd,"wget  -q -O  %s  %s",PARAJOUCODE_FILE,GetJOUCODE());
-			echoic("远程参数同步命令:%s",tempcmd);
-			result=  DoSysCmd(tempcmd);
-			echoic("远程参数同步结果:%s",result);
-			if (result==NULL  || strlen(result)==0)
-			{
-
-				memset(tempcmd,0x00,1024);
-				sprintf(tempcmd,"wget  -q -O  %s  %s",ICKEY_FILE,GetKEYFILE());
-				echoic("远程参数同步命令:%s",tempcmd);
-				result=  DoSysCmd(tempcmd);
-				echoic("远程参数同步结果:%s",result);
-
-				if (result==NULL  || strlen(result)==0)
-				{
-					bad=T;
-				}
-			}
-
-		}
-	/*	if (bad==T)
-		{
-			SendToEmrc("REMOTEPMOK");
-		}
-		else
-		{
-			SendToEmrc("REMOTEPMNO");
-		}*/
-
-
+		echoic("Sync Unknow command%s",SUBSTRING(tcocmd.CMD));
 	}
 
 }

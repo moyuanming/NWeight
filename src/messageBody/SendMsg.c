@@ -288,7 +288,7 @@ void SendMsgInfo(char* InputMsgType,char* InputException,char* InputPromptMsg)
 			strcpy(InputPayType,"欠款");
 			break;
 		case '1':
-			strcpy(InputPayType,"人民币");
+			strcpy(InputPayType,"现金");
 			break;
 		case '2':
 			strcpy(InputPayType,"储值卡");

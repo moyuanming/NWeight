@@ -26,15 +26,18 @@ int CDCWinProc (HWND hWnd, int message, WPARAM wParam, LPARAM lParam)
 				sem_post(&Device_semt);
 				SendLaneInfo("µÈ´ýÉÏ°à");
 				is_init_all = F;
-				SetTimer(hWnd, 100, 100);
+				if (GetUseAutoMan()==T)
+				{
+					SetTimer(hWnd, 10, 10);
+				}
+				else 
+				{
+					SetTimer(hWnd, 100, 100);
+				}
 			}
 			break;
 		case MSG_TIMER:
-			if(IC_UpdateTime++ > 600)
-			{
-				SyncToDo("SYNCREMOTE");
-				IC_UpdateTime = 0;
-			}
+			 
 			if(GetMoneyTimer()<=3)
 			{
 				CloseMoneyBox();

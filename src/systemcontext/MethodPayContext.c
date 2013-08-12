@@ -18,7 +18,7 @@ char * GetMethodPayText(char Index)
 	switch (Index)
 	{
 		case  CARKIND_SHOUFEI		:
-			ret = "人民币";
+			ret = "现金";
 			break;
 		case  CARKIND_WEIZHANG	:
 			ret = "未付款";

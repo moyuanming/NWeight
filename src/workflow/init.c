@@ -34,12 +34,6 @@ static void Init_DevInit(void)
 		I_DEV_Weight_Init();
 		echoic("启用了记重设备，初始化完成");
 	}
-	if (TRUE == GetEnableIC())
-	{
-		echoic("启用了IC卡,开始初始化...");
-		SyncToDo("SYNCREMOTE");
-		WF_IC_Init(UI_Get_From_Handl());
-	}
 	if (TRUE==EnabledCPSB())
 	{
 		 CPSB_Load();

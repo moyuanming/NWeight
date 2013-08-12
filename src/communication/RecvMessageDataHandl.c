@@ -44,7 +44,6 @@ void ExecTCOCommand(   char * InputRevbData)
 	else if (0==strncmp((char*)&GetMsgTcoCommand()->CMD,TCOCMD_NOWUPDATEPARAM,strlen(TCOCMD_NOWUPDATEPARAM)))
 	{
 		echoic("同步参数表");
-		SyncToDo("SYNCREMOTE");
 		SendMsgToSync(InputRevbData);
 	}
 	else if (0==strncmp((char*)&GetMsgTcoCommand()->CMD,TCOCMD_TCOSTARTED ,strlen(TCOCMD_TCOSTARTED)))
@@ -184,7 +183,6 @@ void DeleteImages(void)
 	echoic("DeleteImages:%s",(char*)&tmpx111);
 }
 
-/*SyncToDo("SYNCREMOTE");*/
 void SyncToDo(char *command)
 {
 	struct MSG_TCOCMD  tmpx111;
