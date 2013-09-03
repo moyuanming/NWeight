@@ -70,17 +70,18 @@
 	#define VK_JUNCHE 313
 	#define VK_GONGWU 314
 	#define VK_Dot 315 
-	#define VK_0 316 
+
 	#define VK_00 317 
-	#define VK_1 318 
-	#define VK_2 319 
-	#define VK_3 320 
-	#define VK_4 321 
-	#define VK_5 322 
-	#define VK_6 323
-	#define VK_7 324 
-	#define VK_8 325 
-	#define VK_9 326 
+	#define VK_0				11	//'0'
+	#define VK_1				2	//'1'
+	#define VK_2				3	//'2'
+	#define VK_3				4	//'3'
+	#define VK_4				5	//'4'
+	#define VK_5				6	//'5'
+	#define VK_6				7	//'6'
+	#define VK_7				8	//'7'
+	#define VK_8				9	//'8'
+	#define VK_9				10	//'9'
 	#define VK_YOUHUICARD 327 
 	#define VK_MOUNTHCARD 328 
 	#define VK_LVSETONGDAO 329 
