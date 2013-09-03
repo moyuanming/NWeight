@@ -241,7 +241,7 @@ void WorkStation_04_General_Validate_Car_Type_And_First_OK(int nKey)
 			if(Get_Weight_Is_JianMian())
 			{
 				Setg_AbateType(0); 
-				Set_WorkStation_23_Abate("请输入卡号");
+				Set_WorkStation_23_Abate("请输入优惠车卡号");
 			}
 			else
 			{
@@ -252,7 +252,7 @@ void WorkStation_04_General_Validate_Car_Type_And_First_OK(int nKey)
 			if(Get_Weight_Is_JianMian())
 			{
 				Setg_AbateType(1); 
-				Set_WorkStation_23_Abate("请输入卡号");
+				Set_WorkStation_23_Abate("请输月入月票车卡号");
 			}
 			else
 			{

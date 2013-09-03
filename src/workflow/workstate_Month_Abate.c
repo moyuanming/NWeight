@@ -60,7 +60,14 @@ void WorkStation_23_Abate(int nKey)
 		AddCancelCount();
 		if (GetCancelCount() ==1)
 		{
-			Set_WorkStation_23_Abate("«Î ‰»Îø®∫≈");
+			if(0==Getg_AbateType())
+			{
+				Set_WorkStation_23_Abate("«Î ‰»Î”≈ª›≥µø®∫≈");
+			}
+			else				
+			{
+				Set_WorkStation_23_Abate("«Î ‰»Î‘¬∆±≥µø®∫≈");
+			}
 		}
 		else
 		{
@@ -287,7 +294,14 @@ void WorkStation_52_Abate_OK(int nKey)
 		AddCancelCount();
 		if (GetCancelCount() ==1)
 		{
-			Set_WorkStation_23_Abate("«Î ‰»Îø®∫≈");
+			if(0==Getg_AbateType())
+			{
+				Set_WorkStation_23_Abate("«Î ‰»Î”≈ª›≥µø®∫≈");
+			}
+			else				
+			{
+				Set_WorkStation_23_Abate("«Î ‰»Î‘¬∆±≥µø®∫≈");
+			}
 		}
 		else
 		{
