@@ -33,6 +33,7 @@ struct MSG_NewTifficStat *GetMsgNewExitHT(void);
 void SetExitHtMsgTotal_Traffic(void);
 void AddMsgTotal_Violation(void);
 void AddMsgtotal_emergency(void);
+void AddMsgtotal_official(void);
 void SetExitHtMsgtotal_emergency(void);
 void AddMsgtotal_official(void);
  

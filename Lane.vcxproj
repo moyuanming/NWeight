@@ -394,6 +394,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Toll\Trunk\src\FunctionAssembly\Lane\EMRCV4\CONFIG\KEYMAP_CT.INI" />
     <None Include="AUTHORS" />
     <None Include="autogen.sh" />
     <None Include="config.guess" />

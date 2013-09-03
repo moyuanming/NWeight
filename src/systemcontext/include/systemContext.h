@@ -40,6 +40,8 @@
 #define		WORKMODEMONI		'3'
 #define		WORKMODETEST		'4'
 
+#define TRA_OVER  1 //交易结束
+#define TRA_CENTER  0 //交易中
 void SetWorkState(int value);
 void SetLastWorkState(int value);
 int GetWorkState(void);

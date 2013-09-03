@@ -58,6 +58,13 @@ void AddMsgtotal_emergency(void)
 	AddField(MsgExitHt->Total_Traffic,sizeof(MsgExitHt->Total_Traffic));	
 	Sync_ExitHT();	
 }
+//节假日
+void AddMsgtotal_official(void)
+{	
+    AddField(MsgExitHt->total_official,sizeof(MsgExitHt->total_official));	
+	AddField(MsgExitHt->Total_Traffic,sizeof(MsgExitHt->Total_Traffic));	
+	Sync_ExitHT();	
+}
   
 /*************************************************************************************
 * 车道开放时间

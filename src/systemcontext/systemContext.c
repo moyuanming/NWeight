@@ -265,9 +265,9 @@ void AfterOfTransDo(int value,BOOL urgen)
 	char tempTranNo[5];
 	memset(tempTranNo,0x00,sizeof(tempTranNo));	
 	SetExitTRMsgEntryLane(GetCarNember());
-	if(urgen)
+	if(urgen!=F)
 	{	
-		Validate_Car_Kind(VK_URGENT);
+		Validate_Car_Kind(urgen);
 	}	
 	Set_AllKindData();	
     if(WORKSTAUS_NORMAL==Getg_workStatus())

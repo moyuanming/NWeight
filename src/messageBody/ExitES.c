@@ -125,6 +125,15 @@ void AddExitESMsgTotal_Emergency(void)
 	Sync_ExitES();
 }
 /*************************************************************************************
+* 节假日车总数
+**************************************************************************************/
+void AddExitESMsgTotal_HappyDay(void)
+{   
+	AddField(MsgExitES->Total_Traffic,sizeof(MsgExitES->Total_Traffic));
+	AddField(MsgExitES->Counter19,sizeof(MsgExitES->Counter19));
+	Sync_ExitES();
+}
+/*************************************************************************************
 * 车队过车总数
 **************************************************************************************/
 void AddExitESMsgTotal_MotorCade()

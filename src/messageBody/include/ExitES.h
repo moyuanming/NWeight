@@ -88,6 +88,7 @@ void SetExitESMsgBS_TicketNo(char* InputBS_TicketNo);
 void SetExitESMsgTotal_Traffic(void);
 void AddExitESMsgTotal_Violation(void);
 void AddExitESMsgTotal_Emergency(void);
+void AddExitESMsgTotal_HappyDay(void);
 void AddExitESMsgTotal_MotorCade(void);
 void SetExitESMsgTotal_U(int InputTotal_U);
 void Sync_ExitES(void);

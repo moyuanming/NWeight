@@ -898,5 +898,6 @@
     <None Include="AUTHORS" />
     <None Include="NEWS" />
     <None Include="README" />
+    <None Include="..\Toll\Trunk\src\FunctionAssembly\Lane\EMRCV4\CONFIG\KEYMAP_CT.INI" />
   </ItemGroup>
 </Project>
