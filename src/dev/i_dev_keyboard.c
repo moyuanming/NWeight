@@ -178,8 +178,29 @@ void InitKeyBoard_KeyMap(void)
 
 	KeyMapArray[36].DefaultKey=VK_System;
 	strcpy(KeyMapArray[36].KeyName,"VK_System");
+
+
+
+
 	KeyMapArray[37].DefaultKey=VK_00;
 	strcpy(KeyMapArray[37].KeyName,"VK_00");
+	KeyMapArray[38].DefaultKey=VK_CardBox;
+	strcpy(KeyMapArray[38].KeyName,"VK_CardBox");
+	KeyMapArray[39].DefaultKey=VK_HappyDay;
+	strcpy(KeyMapArray[39].KeyName,"VK_HappyDay");
+	KeyMapArray[40].DefaultKey=VK_TranCard;
+	strcpy(KeyMapArray[40].KeyName,"VK_TranCard");
+	KeyMapArray[41].DefaultKey=VK_SVC;
+	strcpy(KeyMapArray[41].KeyName,"VK_SVC");
+	KeyMapArray[42].DefaultKey=VK_JZK;
+	strcpy(KeyMapArray[42].KeyName,"VK_JZK");
+
+
+	KeyMapArray[43].DefaultKey=VK_BEIYONG2;
+	strcpy(KeyMapArray[43].KeyName,"VK_BEIYONG2");
+	KeyMapArray[44].DefaultKey=VK_BEIYONG3;
+	strcpy(KeyMapArray[44].KeyName,"VK_BEIYONG3");
+
 
 	for(i=0;i<100;i++)
 	{
@@ -224,4 +245,5 @@ int  GetKeyMapValue(char *ItemName)
 	 }
 	return keyreturn;
 }
+
 

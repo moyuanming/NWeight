@@ -52,6 +52,7 @@
 	#define VK_LANGAN			-2	//30 ÊÇÀ¸¸Ë
 	#define VK_BREAKAUTOMAN			36	//'j'	//Î¥ÕÂ		'n'
 	#define VK_CHAHAO			21
+	      
 #endif
 #ifdef G30KEYBORD
 	#define VK_System 18 
@@ -102,7 +103,17 @@
 	#define VK_CLOSE 257 
 	#define VK_OPEN 258 
 	#define VK_CHAHAO 259
+
+
+#define  VK_CardBox 45
+#define  VK_HappyDay 20
+#define  VK_TranCard 44
+#define VK_SVC 24
+#define	VK_JZK 25
+#define VK_BEIYONG2 16
+#define 	VK_BEIYONG3 19
 	#define VK_BREAKAUTOMAN			260
+	
 #endif
 int GetKeyMapValue(char *ItemName);
 int LoadKeyBoardFile(void);
