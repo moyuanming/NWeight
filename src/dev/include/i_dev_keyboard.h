@@ -60,7 +60,15 @@
 #define VK_OPEN 349 
 #define VK_CHAHAO 350
 #define VK_BREAKAUTOMAN			260
-#define	VK_HappyDay		210
+
+#define  VK_CardBox 45
+#define  VK_HappyDay 20
+#define  VK_TranCard 44
+#define VK_SVC 24
+#define	VK_JZK 25
+#define VK_BEIYONG2 16
+#define 	VK_BEIYONG3 19
+
 int GetKeyMapValue(char *ItemName);
 int LoadKeyBoardFile(void);
 int  KeyTran(int keyvalue);
