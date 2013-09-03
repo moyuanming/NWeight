@@ -200,8 +200,10 @@ void InitKeyBoard_KeyMap(void)
 	strcpy(KeyMapArray[43].KeyName,"VK_BEIYONG2");
 	KeyMapArray[44].DefaultKey=VK_BEIYONG3;
 	strcpy(KeyMapArray[44].KeyName,"VK_BEIYONG3");
-
-
+	KeyMapArray[45].DefaultKey=VK_Weight;
+	strcpy(KeyMapArray[45].KeyName,"VK_Weight");
+	KeyMapArray[46].DefaultKey=VK_TRUCK;
+	strcpy(KeyMapArray[46].KeyName,"VK_TRUCK");
 	for(i=0;i<100;i++)
 	{
 		//echoic("Keyname<%s><%d>",KeyMapArray[i].KeyName,GetKeyMapValue(KeyMapArray[i].KeyName));
