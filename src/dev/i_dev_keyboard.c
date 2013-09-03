@@ -182,7 +182,7 @@ void InitKeyBoard_KeyMap(void)
 
 
 
-	/*KeyMapArray[37].DefaultKey=VK_00;
+	KeyMapArray[37].DefaultKey=VK_00;
 	strcpy(KeyMapArray[37].KeyName,"VK_00");
 	KeyMapArray[38].DefaultKey=VK_CardBox;
 	strcpy(KeyMapArray[38].KeyName,"VK_CardBox");
@@ -200,7 +200,7 @@ void InitKeyBoard_KeyMap(void)
 	strcpy(KeyMapArray[43].KeyName,"VK_BEIYONG2");
 	KeyMapArray[44].DefaultKey=VK_BEIYONG3;
 	strcpy(KeyMapArray[44].KeyName,"VK_BEIYONG3");
-*/
+
 
 	for(i=0;i<100;i++)
 	{
