@@ -32,7 +32,7 @@ void TFI_SetHuangShan(BOOL bFlag);
 void TFI_SetTongXingDeng(BOOL bFlag);
 int GetMoneyTimer(void);
 void SetYuPeng(BOOL  bFlag);
-void SetRingVoide(BOOL  bFla);
+void SetVideoAlarm(BOOL  bFla);
 void SetJiaoTong(BOOL bFlag);
 void SetLanGan(BOOL bFlag);
 void SetRing(BOOL bFlag);

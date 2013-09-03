@@ -18,7 +18,7 @@ void PassLineUP(void)
 	echo_debug("Run Is!");
     if((0==GetG_IsTuoche()||0==GetG_IsChangche())&&(FALSE==Getg_bJiaoTong()||FALSE==Getg_bLanGan()))
     {
-        SetRingVoide(T);
+        SetVideoAlarm(T);
         Set_WorkStation_49_WeiZhang();
         SetRing(T);
     }
@@ -62,7 +62,7 @@ void PassLineDown(void)
 	if(0!=GetG_IsChangche()&&!(10==GetWorkState()||46==GetWorkState()))
 	{
 		echo_debug("Run Is!");
-		SetRingVoide(T);
+		SetVideoAlarm(T);
 		echo_debug("Run Is!");
         Set_WorkStation_49_WeiZhang();
 		echo_debug("Run Is!");
@@ -183,7 +183,7 @@ void SetLanGan(BOOL bFlag)
     
 }
 BOOL COM_RINGVOIDE = F;
-void SetRingVoide(BOOL  bFla)
+void SetVideoAlarm(BOOL  bFla)
 {
 	echoic("打开视频报警\n");
 	if (COM_RINGVOIDE!=bFla)

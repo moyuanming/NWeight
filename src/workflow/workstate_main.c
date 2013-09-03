@@ -8,7 +8,7 @@ static void KeyPressHandl(int currentworkstate)
 	//G_Calculate_Final_Fare();	
 	if(0!=strcmp(trim(Getg_CurrentCarKindExplain()),"สีทัณต"))
 	{	
-		SetRingVoide(T);	
+		SetVideoAlarm(T);	
 	}
 	else
 	{

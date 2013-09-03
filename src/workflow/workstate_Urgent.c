@@ -37,7 +37,7 @@ void WorkStation_09_Handl_Urgent_Car_Team(int nKey)
 	switch (nKey)
 	{
 	case VK_RETURN:
-		SetRingVoide(T);
+		SetVideoAlarm(T);
 		Set_WorkStation_13_Urgent_Car_Team_Passing();
 		break;
 	case VK_CANCEL:

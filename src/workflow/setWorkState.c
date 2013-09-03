@@ -80,7 +80,7 @@ void Set_WorkStation_03_Main_Work_extracted1(char * left, char * right)
 void Set_WorkStation_03_Main_Work_extracted2(void)
 {
 	Setg_CurrentLaneState(1);   
-	SetRingVoide(F);    
+	SetVideoAlarm(F);    
 	InitCardContext();
 	SendLaneInfo_default();
 	UI_Clear_Login_And_Input();
@@ -270,7 +270,7 @@ void Set_WorkStation_23_Abate(char *Type)
 	UI_Show_Info("提示：\n按【数字】键输入卡号，\n按【取消】键取消。");
 	Set_WorkStation(23);    
 	Setg_CurrentLaneState(9);   
-	SetRingVoide(T);    
+	SetVideoAlarm(T);    
 }
 
 void Set_WorkStation_30_SelectWorkMod()

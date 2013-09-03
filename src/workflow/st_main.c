@@ -51,7 +51,7 @@ int CDCWinProc (HWND hWnd, int message, WPARAM wParam, LPARAM lParam)
 					AddMsgTotal_Violation();
 					SendMessageWzCar(0);
 					SetWorkSationEndWz();
-					SetRingVoide(F);
+					SetVideoAlarm(F);
 					Setg_bWeiZhangCount(0);
 					Setg_bWeiZhang(F);
 				}
