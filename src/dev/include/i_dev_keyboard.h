@@ -61,7 +61,7 @@
 	#define VK_XIABAN 303
 	#define VK_SHANGBAN 304 
 	#define VK_CLOSE_YPD 305 
-	#define VK_OPEN_YPD 305
+	#define VK_OPEN_YPD 3050
 	#define VK_QIANKUAN 307 
 	#define VK_BEIYONG 308
 	#define VK_UP 310 
