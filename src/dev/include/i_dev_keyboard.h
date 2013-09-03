@@ -93,7 +93,7 @@
 	#define VK_WeightDaoche 336 
 	#define VK_WeightShouwei 337 
 	#define VK_MONI 338
-	#define VK_RETURN 339 
+	#define VK_RETURN 28 
 	#define VK_TRUCK 340
 	#define VK_JIAOJIE 341 
 	#define VK_QIANKUANCHE 342 
