@@ -70,7 +70,7 @@ int CDCWinProc (HWND hWnd, int message, WPARAM wParam, LPARAM lParam)
 			if (KeyDown)
 			{
 				WorkStation(KeyTran(wParam));
-				echoic("wParam = <%d>",wParam);
+				echoic("wParam = <%d><%d>",wParam,KeyTran(wParam));
 				KeyDown = F;
 			}
 			break;
