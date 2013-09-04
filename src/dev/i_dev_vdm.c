@@ -130,7 +130,7 @@ void I_DEV_VDM_CarKind(int CarKind)
 	{	
 		sprintf(CarKind_tmp,I_DEVVDM_IsSupportChinese?CN_CARKIND_S:EN_CARKIND_S,"   ");	
 	}
-	I_DEV_VDM_TextOut( CarKind_tmp,1,8,8);	
+	I_DEV_VDM_TextOut( CarKind_tmp,2,8,8);	
 }
 
 //叠加现金
@@ -146,7 +146,7 @@ void I_DEV_VDM_Cash(int value)
 	{	
 		sprintf(Cash_tmp,I_DEVVDM_IsSupportChinese?CN_CASH_S:EN_CASH_S,"   ");	
 	}
-	I_DEV_VDM_TextOut( Cash_tmp,1,15,12);	
+	I_DEV_VDM_TextOut( Cash_tmp,2,15,12);	
 }
 //叠加车型
 void I_DEV_VDM_CarType(char *CarType)
@@ -154,7 +154,7 @@ void I_DEV_VDM_CarType(char *CarType)
 	char CarType_tmp[15] ;
 	memset(CarType_tmp,0x00,15);	
 	sprintf(CarType_tmp,I_DEVVDM_IsSupportChinese?CN_CARTYPE: EN_CARTYPE,CarType);	
-	I_DEV_VDM_TextOut(CarType_tmp,1,0,8);	
+	I_DEV_VDM_TextOut(CarType_tmp,2,0,8);	
 }
 //叠加收费员
 void I_DEV_VDM_CollectNo(char *CollectNo)
@@ -162,7 +162,7 @@ void I_DEV_VDM_CollectNo(char *CollectNo)
     char CollectNo_tmp[15];
     memset(CollectNo_tmp,0x00,15);	
     sprintf(CollectNo_tmp,I_DEVVDM_IsSupportChinese?CN_COLLECT:EN_COLLECT,CollectNo);	
-    I_DEV_VDM_TextOut(CollectNo_tmp,0,15,12);	
+    I_DEV_VDM_TextOut(CollectNo_tmp,1,15,12);	
 }
 //叠加车道编号
 void I_DEV_VDM_LaneNO(char *LaneNo)
@@ -170,7 +170,7 @@ void I_DEV_VDM_LaneNO(char *LaneNo)
       char lane[15];
     memset(lane,0x00,15);	
     sprintf(lane,I_DEVVDM_IsSupportChinese?CN_LANENO:EN_LANENO,LaneNo);	
-    I_DEV_VDM_TextOut(lane,0,8,8);	
+    I_DEV_VDM_TextOut(lane,1,8,8);	
 }
 //叠加收费站
 void I_DEV_VDM_ShowPlaza(char *PlazaNo)
@@ -178,7 +178,7 @@ void I_DEV_VDM_ShowPlaza(char *PlazaNo)
     char plaza[15];
     memset(plaza,0x00,15);	
     sprintf(plaza,I_DEVVDM_IsSupportChinese?CN_PLAZA:EN_PLAZA,PlazaNo);	
-    I_DEV_VDM_TextOut(plaza,0,0,10);	
+    I_DEV_VDM_TextOut(plaza,1,0,10);	
 }
 
 

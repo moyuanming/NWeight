@@ -27,5 +27,5 @@ void I_DEV_VDM_ShowPlaza(char *PlazaNo);
 #define CN_CARTYPE		"车型:%s"
 #define CN_COLLECT		"工号:%s"
 #define CN_LANENO		"车道:%s"
-#define CN_PLAZA		"站名:%s"
+#define CN_PLAZA		"站号:%s"
 #endif 

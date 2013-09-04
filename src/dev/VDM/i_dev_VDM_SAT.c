@@ -54,10 +54,10 @@ static pthread_t __VDM_SAT_SyncTime_T;
 void VDM_SAT_SyncTime_T()
 {
 	sem_wait(&VDM_SAT_Semt);
-	{
-		unsigned char  temp[30]={0x0a,0x00,0x00,0x0B,'D','W','T','0'}; //校准时间
-		unsigned char  setdate[9]={0x0a,0x00,0x00,0x0B,'D','D','D','1',0x0d}; 
-		unsigned char  settime[9]={0x0a,0x00,0x0c,0x0B,'T','T','T','1',0x0d}; 
+	{ ////////////////////////////////////  c列  l行 0xb是12 
+		unsigned char  temp[30]={0x0a,0x00,0x00,0x00,'D','W','T','0'}; //校准时间
+		unsigned char  setdate[9]={0x0a,0x00,0x00,0x00,'D','D','D','1',0x0d}; 
+		unsigned char  settime[9]={0x0a,0x00,0x0c,0x00,'T','T','T','1',0x0d}; 
 		unsigned char  setweek[9]={0x0a,0x00,0x00,0x0C,'W','W','W','0',0x0d}; 
 		memcpy(&temp[8],GetFormatTime(DATETIME_FORMAT_YYYYMMDDWHHMMSS,time(NULL)),15);
 		temp[8+15]=0x0d;
