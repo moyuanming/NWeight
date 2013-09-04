@@ -122,6 +122,7 @@
     <ClCompile Include="src\dev\TFI\i_dev_TFI_MNS.c" />
     <ClCompile Include="src\dev\TFI\i_dev_TFI_RHY.c" />
     <ClCompile Include="src\dev\TFI\i_dev_TFI_SG.c" />
+    <ClCompile Include="src\dev\TFI\i_dev_TFI_STD.c" />
     <ClCompile Include="src\dev\TFI\i_dev_TFI_YM.c" />
     <ClCompile Include="src\dev\VDM\i_dev_VDM_SAT.c" />
     <ClCompile Include="src\dev\VideoCaptureImage.c" />
@@ -279,6 +280,7 @@
     <ClInclude Include="src\dev\TFI\include\i_dev_TFI_MNS.h" />
     <ClInclude Include="src\dev\TFI\include\i_dev_TFI_RHY.h" />
     <ClInclude Include="src\dev\TFI\include\i_dev_TFI_SG.h" />
+    <ClInclude Include="src\dev\TFI\include\i_dev_TFI_STD.h" />
     <ClInclude Include="src\dev\TFI\include\i_dev_TFI_YM.h" />
     <ClInclude Include="src\dev\VDM\include\i_dev_VDM_SAT.h" />
     <ClInclude Include="src\dev\Weight\include\Weight_InterFace.h" />

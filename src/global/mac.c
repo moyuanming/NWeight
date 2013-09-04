@@ -158,7 +158,7 @@ char * Bin2Hex( unsigned char* values,int len,unsigned char* _____Bin2Hex)
 		sprintf((char*)&_____Bin2Hex[i*2],"%02X",((unsigned int)values[i]));
 	}
 	//printf("Bin2HEX=%s\r\n",_____Bin2Hex);
-	return _____Bin2Hex; 
+	return (char *)_____Bin2Hex; 
 }
 ;
 /*将两个数据异或，从data中输出结果*/

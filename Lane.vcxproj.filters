@@ -468,6 +468,9 @@
     <ClCompile Include="src\dev\TFI\i_dev_TFI_YM.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\dev\TFI\i_dev_TFI_STD.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\sysconfig\include\AppFunctionConfig.h">
@@ -882,6 +885,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\dev\TFI\include\i_dev_TFI_YM.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\TFI\include\i_dev_TFI_STD.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

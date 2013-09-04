@@ -705,3 +705,15 @@ char* InitAndCPYStr(char *A, int lengthA, char *B, int lengthB, int b0)
 	return InitAndCPYStrBase(A, lengthA, B, lengthB, (char)0x00, b0);
 }
 
+ int SetBCC(char *MessageBody,int MsgLen)
+ {
+	 int i = 0;
+	 char BCC = MessageBody[0];
+	 for(i = 1;i<MsgLen;i++)
+	 {
+		 BCC ^=MessageBody[i];
+	 }
+	 MessageBody[MsgLen] = BCC;
+	 MessageBody[MsgLen+1] = 0x00;
+	 return MsgLen+1;
+ }

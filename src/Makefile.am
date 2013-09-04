@@ -118,6 +118,7 @@ dev/TFI/i_dev_TFI_303.c \
 dev/TFI/i_dev_TFI_KY.c  \
 dev/TFI/i_dev_TFI_CJ.c \
 dev/TFI/i_dev_TFI_HFW.c \
+dev/TFI/i_dev_TFI_STD.c \
 dev/TFI/i_dev_TFI_HN.c \
 dev/TFI/i_dev_TFI_MNS.c \
 dev/TFI/i_dev_TFI_RHY.c \

@@ -97,6 +97,7 @@ char* InitAndCPYStr(char *A, int lengthA, char *B, int lengthB, int b0);
 #define InitAndCPYStrEx2(A,B) InitAndCPYStr( (char *)&A,sizeof(A),B,strlen(B),0)
 #define AddFieldAtValueEX(_InputField_, _InputAddFieldValue_)  AddFieldAtValue(_InputField_,sizeof(_InputField_),_InputAddFieldValue_)
 #define AddFieldEX(_InputField_)  AddField(_InputField_,sizeof(_InputField_))
+ int SetBCC(char *MessageBody,int MsgLen);
 #endif
 
 

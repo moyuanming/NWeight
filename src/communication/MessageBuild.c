@@ -80,18 +80,7 @@ static char * CreateMessageID(void)
 /*************************************************************************************
 * 将指定消息添加到消息队列
 **************************************************************************************/
- int SetBCC(char *MessageBody,int MsgLen)
- {
-	 int i = 0;
-	 char BCC = MessageBody[0];
-	 for(i = 1;i<MsgLen;i++)
-	 {
-		 BCC ^=MessageBody[i];
-	 }
-	 MessageBody[MsgLen] = BCC;
-	 MessageBody[MsgLen+1] = 0x00;
-	 return MsgLen+1;
- }
+
  
 void SendMessageToQueue(char  InputMsgCode)
 {	
