@@ -152,6 +152,7 @@ void SendStdCMD(char cmd)
 		command[2] = 5; //≤ª¥¶¿Ì£¨
 		command[3] = cmd;
 		SetBCC((char*)command,4);
+		echoic("SendCMD<%0x><%0x><%0x><%0x><%0x>",command[0] ,command[1] ,command[2] ,command[3] ,command[4] );
 		serial_write(LED_COM, command, 5);
 	}
 	sem_post(&STD_Semt);
