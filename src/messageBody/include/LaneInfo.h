@@ -4,7 +4,7 @@
 struct MSG_LANEINFO
 {
       char LaneNo[3];
-      char CollName[16];
+      char CollName[32];
       char CollNo[10];
       char ClientMsg[32];
       char CarType[5];
@@ -18,7 +18,7 @@ struct MSG_LANEINFO
       char Printer;
       char Network;
 };//endstructLaneInfo
-#define  LENGHT_MSG_LANEINFO 145
+#define  LENGHT_MSG_LANEINFO sizeof(struct MSG_LANEINFO)
 void InitMsgLaneInfo(void);
 struct MSG_LANEINFO *GetMsgLaneInfo(void);
 void SetLaneInfoMsgLaneNo(char* InputLaneNo);

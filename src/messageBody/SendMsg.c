@@ -164,7 +164,7 @@ void SendLaneInfo_default(void )
         return;
     }
     sprintf(GetMsgLaneInfo()->LaneNo,"%3.3s",GetLanConfigLaneNo());
-    sprintf(GetMsgLaneInfo()->CollName,"%16.16s",Getg_szName());
+    sprintf(GetMsgLaneInfo()->CollName,"%32.32s",Getg_szName());
     sprintf(GetMsgLaneInfo()->CollNo,"%10.10s",GetG_Number());
     sprintf(GetMsgLaneInfo()->ClientMsg,"%32.32s",tmpClientMsg);
     sprintf(GetMsgLaneInfo()->CarType,"%5.5s",Get_Current_Car_Type());
