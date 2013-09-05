@@ -12,6 +12,7 @@ void TFI_STD_Init(void)
 	{
 		//echoic("初始化恒富威费显红绿灯黄闪一体设备");
 		sem_init(&STD_Semt, 0, 1);
+		serial_init(LED_COM,Get_LEDCOMSpeed());
 		TFI_STD_clean(T);
 		is_Led_STD_init = 1;
 	}

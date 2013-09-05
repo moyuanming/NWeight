@@ -3,8 +3,8 @@ BOOL IO_SAT_IsInit=F;
 #define JiaoTong_R 2+2
 #define JiaoTong_G 3+2
 #define ShenGuang  5+2
-#define YUPENG_R   7+2
-#define YUPENG_G   8+2
+#define YUPENG_R   8+2
+#define YUPENG_G   7+2
 #define LANGAN     14+2
 sem_t IO_SAT_Semt;
 unsigned char sta[20] ={0x0a,'S','0','0','1','0','0','0','0','1','0','0','0','0','0','0','1','0',0x0d,0x00};
