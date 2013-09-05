@@ -403,12 +403,35 @@
     <None Include="config.sub" />
     <None Include="configure" />
     <None Include="configure.in" />
+    <None Include="EMRCV4\CONFIG\AppFunction.ini" />
+    <None Include="EMRCV4\CONFIG\BaseConfig.ini" />
+    <None Include="EMRCV4\CONFIG\CommunctionConfig.ini" />
+    <None Include="EMRCV4\CONFIG\Config.ini" />
+    <None Include="EMRCV4\CONFIG\ParameterFileList.ini" />
+    <None Include="EMRCV4\CONFIG\TTYCONFIG.ini" />
+    <None Include="EMRCV4\PARAMETER\ICKEY" />
+    <None Include="EMRCV4\PARAMETER\KEYMAP_CT.INI" />
+    <None Include="EMRCV4\PARAMETER\KEYMAP_G30.INI" />
+    <None Include="EMRCV4\PARAMETER\KEYMAP_TW.INI" />
+    <None Include="EMRCV4\PARAMETER\KEYMAP_XJRHY2008.INI" />
     <None Include="install-sh" />
     <None Include="Makefile.am" />
     <None Include="Makefile.in" />
     <None Include="NEWS" />
     <None Include="README" />
     <None Include="src\Makefile.am" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="EMRCV4\PARAMETER\CARKINDTABLE.TXT" />
+    <Text Include="EMRCV4\PARAMETER\COLLECT.TXT" />
+    <Text Include="EMRCV4\PARAMETER\CONSTANT.TXT" />
+    <Text Include="EMRCV4\PARAMETER\FARELIST.TXT" />
+    <Text Include="EMRCV4\PARAMETER\JOUCODE.TXT" />
+    <Text Include="EMRCV4\PARAMETER\OfficeInfo.TXT" />
+    <Text Include="EMRCV4\PARAMETER\SVRCARDLIST.TXT" />
+    <Text Include="EMRCV4\PARAMETER\YHKLIST.TXT" />
+    <Text Include="EMRCV4\PARAMETER\YHRATE.TXT" />
+    <Text Include="EMRCV4\PARAMETER\YPKLIST.TXT" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

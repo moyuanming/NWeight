@@ -24,6 +24,11 @@ char *GetFtpServerIP(void)
 {	 
 	return FtpServerIP;
 }
+char ParamFtpServerIP[25];
+char *GetParamFtpServerIP(void)
+{	 
+	return ParamFtpServerIP;
+}
 int FtpServerProt = 0;
 int GetFtpServerProt(void)
 {	 
@@ -91,6 +96,7 @@ void LoadCommunctionConfig(void)
 	strcpy(MagServerIP,readItemInIniFile("MagServerIP"));	
 	MsgServerProt = atoi(readItemInIniFile("MsgServerProt"));	
 	strcpy(FtpServerIP,readItemInIniFile("FtpServerIP"));	
+	strcpy(ParamFtpServerIP,readItemInIniFile("ParamFtpServerIP"));
 	FtpServerProt = atoi(readItemInIniFile("FtpServerProt"));	
 	strcpy(FtpUserName,readItemInIniFile("FtpUserName"));	
 	strcpy(FtpPwd,readItemInIniFile("FtpPwd"));	

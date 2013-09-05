@@ -3,6 +3,7 @@
 
 char *GetMagServerIP(void);
 int GetMsgServerProt(void);
+char *GetParamFtpServerIP(void);
 char *GetFtpServerIP(void);
 int GetFtpServerProt(void);
 char *GetFtpUserName(void);

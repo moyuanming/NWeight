@@ -100,7 +100,7 @@
 #include "TrafficStat.h"
 #include "CPSB.h"
 
-#define FTPSYNCCOMMAND(_sysCommand_,  _l_file_, _r_file_  ) sprintf(_sysCommand_,"ftpget  %s  %s %s\\\\%s  %c",GetFtpServerIP(),_l_file_ ,FILEPATH_FTP_PARAMETER,_r_file_,0x00 )
+#define FTPSYNCCOMMAND(_sysCommand_,  _l_file_, _r_file_  ) sprintf(_sysCommand_,"ftpget  %s  %s %s\\\\%s  %c",GetParamFtpServerIP(),_l_file_ ,FILEPATH_FTP_PARAMETER,_r_file_,0x00 )
 #define echo_ci(fmt, args...)    fprintf(stderr,"×¥ÅÄ[%s:%d]: " fmt "\n", __FILE__, __LINE__ , ## args)
 #define echo1(fmt, args...)	  //printf("ECHO:::: [%s:%d]: " fmt "\n", __FILE__, __LINE__ , ## args)
 #define echo_cj(fmt, args...)    fprintf(stderr,"³µ¼ì¡¢À¸¸Ë[%s:%d]: " fmt "\n", __FILE__, __LINE__ , ## args)
