@@ -72,6 +72,10 @@ void WorkStation_13_Urgent_Car_Team_Passing(int nKey)
 		{
 			Set_WorkStation_16_Handl_Urgent_Car_Team_End();
 		}
+		else
+		{
+			ErrorPressKey();
+		}
 		break;
 	case S_PASSLINEUP:
 		BeforeOfTransDo();
