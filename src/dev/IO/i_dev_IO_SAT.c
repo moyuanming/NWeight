@@ -40,7 +40,6 @@ BOOL CanRead=T;
 void IO_STA_ReceiveThread(void) 
 {
 	unsigned char starecv[15];
-	int x;
 	while (IO_STA_isRunning) 
 	{
 		if (CanRead==T)
@@ -48,10 +47,10 @@ void IO_STA_ReceiveThread(void)
 			sem_wait(&IO_SAT_Semt);
 			{
 				memset(starecv,0x00,sizeof(starecv));
-				x=serial_read(Get_IOBoardCOM(), starecv,sizeof(starecv));
+				serial_read(Get_IOBoardCOM(), starecv,sizeof(starecv));
 				if (starecv[0]==0x0a)
 				{
-					x=serial_read(Get_IOBoardCOM(), &starecv[1],sizeof(starecv)-1);
+					serial_read(Get_IOBoardCOM(), &starecv[1],sizeof(starecv)-1);
 					if (starecv[1]=='E')
 					{
 						I_DEV_IO_SAT_Callback(starecv); 
