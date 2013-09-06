@@ -221,8 +221,8 @@ void  TFI_YM_LedShow(int CarType, int charge)
 		getweightcontext_weightlimit_byton(),
 		getfarecontext_carweight());*/
 		sprintf((  char * )str1, "车  型：     %1d",		CarType);
-		memcpy((char *)&command[3], str1, 19);
-		command[19] = 0x0d;
+		memcpy((char *)&command[3], str1, 15);
+		command[18] = 0x0d;
 		serial_write(LED_COM, command, 19);
 		usleep(1000*60);
 
@@ -233,19 +233,19 @@ void  TFI_YM_LedShow(int CarType, int charge)
 		command[1] = 255; // 
 		command[2] = 0; // 
 		sprintf((  char * )str1, "总重量： %5.0f吨",		GetFareContext_CarWeight());
-		memcpy((char *)&command[3], str1, 19);
-		command[19] = 0x0d;
+		memcpy((char *)&command[3], str1, 15);
+		command[18] = 0x0d;
 		serial_write(LED_COM, command, 19);
 		usleep(1000*60);
 
 		memset(str1, ' ', 255);
-		memset(command, 0x00, 19);
+		memset(command, 0x00, 18);
 		command[0] = 'D'; //0x44(D)
 		command[1] = 255; // 
 		command[2] = 0; // 
-		sprintf((  char * )str1, "超载率： %5.0f%",		GetWeightContext_WeightLimit_ByTon());
-		memcpy((char *)&command[3], str1, 19);
-		command[19] = 0x0d;
+		sprintf((  char * )str1, "超载率： %5.0f%%",		GetWeightContext_WeightLimit_ByTon());
+		memcpy((char *)&command[3], str1, 15);
+		command[18] = 0x0d;
 		serial_write(LED_COM, command, 19);
 		usleep(1000*60);
 
@@ -256,8 +256,8 @@ void  TFI_YM_LedShow(int CarType, int charge)
 		command[1] = 255; // 
 		command[2] = 0; // 
 		sprintf((  char * )str1, "金  额： %d元",		charge);
-		memcpy((char *)&command[3], str1, 19);
-		command[19] = 0x0d;
+		memcpy((char *)&command[3], str1, 15);
+		command[18] = 0x0d;
 		serial_write(LED_COM, command, 19);
 		usleep(1000*60);
 

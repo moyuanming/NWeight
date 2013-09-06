@@ -108,7 +108,7 @@ char *GetCarKindName(int  keyboardvalue)
 	char KeyValue[2];
 	int i;
 	memset(CarKindName,' ',9);	
-	CarKindName[9]='\0';
+	CarKindName[8]='\0';
 	sprintf(KeyValue,"%d",keyboardvalue);	
 	for(i=0;i<atoi(CarKindHead.Recordcount );i++)
 	{	
@@ -151,7 +151,7 @@ int  GetOnceOk(int  keyboardval)
 	int i;
 	char KeyValue[2];
 	memset(OnceOk,' ',2);	
-	OnceOk[2]='\0';
+	memset(OnceOk,'\0',sizeof(OnceOk));
 	sprintf(KeyValue,"%d",keyboardval);	
 	for(i=0;i<atoi(CarKindHead.Recordcount );i++)
 	{	
@@ -174,7 +174,7 @@ int GetImageIndex(int  keyboardvalue)
 	char KeyValue[2];
 	char strindex[2];
 	int i;
-	strindex[2]='\0';
+	memset(strindex,'\0',sizeof(strindex));
 	sprintf(KeyValue,"%d",keyboardvalue);	
 	for(i=0;i<atoi(CarKindHead.Recordcount );i++)
 	{	

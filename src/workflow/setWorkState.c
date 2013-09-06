@@ -81,7 +81,7 @@ void Set_WorkStation_03_Main_Work_extracted2(void)
 {
 	Setg_CurrentLaneState(1);   
 	SetVideoAlarm(F);    
-	InitCardContext();
+	//InitCardContext();
 	SendLaneInfo_default();
 	UI_Clear_Login_And_Input();
 }
@@ -564,7 +564,6 @@ void Set_WorkStation_67_WeightMenu()
 		UI_Show_Help_Info("计重功能没启用！");
 	}
 }
-  
 
 void Set_WorkStation_68_WeightMenuCC()
 {

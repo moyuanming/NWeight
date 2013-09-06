@@ -84,6 +84,7 @@ float GetTollFareDistance(void);
 int GetWeightFunctions(void);   
 int GetCalculateFareMode(void);
 int GetPrinterMode(void);
+int GetJaoKeCalculateFareMode(void);
 int GetAxleContainerTruckWeighLimt(int InputAxleNumber,int Feet);
 char *GetTFIText(int index);
 #endif 

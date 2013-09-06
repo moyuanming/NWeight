@@ -19,6 +19,7 @@ INCLUDES = \
 -I$(top_srcdir)/src/dev/TFI/include \
 -I$(top_srcdir)/src/dev/VDM/include \
 -I$(top_srcdir)/src/dev/IO/include \
+-I$(top_srcdir)/src/dev/VPR/include \
 -I$(top_srcdir)/src/global/include  \
 -I$(top_srcdir)/src/systemcontext/include \
 -I$(top_srcdir)/src/workflow/include \
@@ -41,9 +42,6 @@ sysconfig/ParameterFileList.c \
 global/global.c  \
 global/common_ic_methods.c \
 global/FileOperator.c \
-global/mac.c \
-global/3des.c \
-global/imf.c \
 sysconfig/CommunctionConfig.c \
 sysconfig/LanConfig.c  \
 sysconfig/TTYConfig.c \
@@ -58,10 +56,8 @@ systemcontext/CarInfoContext.c  \
 systemcontext/MethodPayContext.c  \
 systemcontext/FareCalculation.c \
 systemcontext/Image.c \
-systemcontext/CardContext.c \
 systemcontext/WeightContext.c \
 systemcontext/FareContext.c \
-sysconfig/IcKey.c \
 SQLite/EmrcDBOperator.c \
 messageBody/ExitBS.c  \
 messageBody/ExitEI.c  \
@@ -80,11 +76,9 @@ SetConifgFile/SetConfigWorkState.c \
 workflow/init.c \
 workflow/setWorkState.c \
 workflow/workstate_main.c \
-workflow/workstate_ic.c \
 workflow/workstate_test.c \
 workflow/workstate_peccancy.c \
 workflow/wf_printer.c \
-workflow/wf_ic.c \
 workflow/wf_ioboard.c \
 workflow/workstate_Login_Logout.c \
 workflow/workstate_Month_Abate.c \
@@ -110,7 +104,6 @@ dev/device.c \
 dev/MemSyncFile.c \
 dev/VideoCaptureImage.c \
 dev/IO_BaseIO_State.c \
-dev/i_dev_ic.c  \
 dev/i_dev_ioboard.c \
 dev/TFI/i_dev_led.c  \
 dev/TFI/i_dev_TFI_KK.c \
@@ -126,6 +119,7 @@ dev/TFI/i_dev_TFI_SG.c \
 dev/TFI/i_dev_TFI_YM.c \
 dev/VDM/i_dev_VDM_SAT.c \
 dev/IO/i_dev_IO_SAT.c \
+dev/VPR/i_dev_VPR_HK.c \
 dev/Print/i_dev_printer.c \
 dev/Print/i_dev_KK_printer.c \
 dev/Print/i_dev_TWD_printer.c \
@@ -133,7 +127,6 @@ dev/Print/i_dev_S303_printer.c \
 dev/i_dev_vdm.c  \
 dev/i_dev_keyboard.c \
 dev/MIF_Interface.c \
-dev/CPSB.c \
 parameter/ParameterCollect.c \
 parameter/ParameterYPKList.c \
 parameter/ParameterYHRateDescription.c \

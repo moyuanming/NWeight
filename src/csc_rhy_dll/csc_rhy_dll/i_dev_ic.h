@@ -217,7 +217,7 @@ char *G_IC_MakeDateTime(char *strCardDate,int iSize);
 char *G_IC_MakeDate(char *strCardDate);
 char *CSC_DLL_Convert_LaneNo(char *strLaneNo);
 char *CSC_DLL_Convert_WriteLaneNO(char *strLaneNo);
-void G_IC_itoa(unsigned long val,char *buf,unsigned radix);
+
  
 UINT I_DEV_CSC_DLL_IcCheck(void);//¿¨µÄÂÖ¼ì
 char * GetHexCardNumber(void);

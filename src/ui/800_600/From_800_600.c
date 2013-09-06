@@ -738,7 +738,7 @@ void Draw_YHFrom_GUI ( char * Type )
 char JSDATA[500];
 void Set_JZData(int Axles,float TotalWeight,float WeightLimit,int Speed,float OverloadWeight,float FareWeight,float OverLoadRate)
 {
-	sprintf(JSDATA,"车总轴数：%12d轴\n车货总重：%12.2f吨\n修正重量：%12.2f吨\n承载标准：%12.2f吨\n超载重量：%12.2f吨\n超标准比：%13.2f%\n检测速度：%6d公里/小时",
+	sprintf(JSDATA,"车总轴数：%12d轴\n车货总重：%12.2f吨\n修正重量：%12.2f吨\n承载标准：%12.2f吨\n超载重量：%12.2f吨\n超标准比：%13.2f%%\n检测速度：%6d公里/小时",
 		Axles,TotalWeight,FareWeight,WeightLimit,OverloadWeight,OverLoadRate,Speed);
 	gui_JZ_Panel->text.info = JSDATA;
 }
@@ -791,7 +791,7 @@ void Draw_MenuForArray(char *menuName , char ** Menu,int length)
 		Set_MenuCZ_Enable(i,TRUE);
 	}
 }
-void Draw_MenuHide()
+void Draw_MenuHide(void)
 {
 	int i=0;
 	for(i=0;i<MaxMenu;i++)

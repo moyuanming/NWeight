@@ -124,7 +124,7 @@ int Serial_Open(unsigned char *dev,int bps)
 	struct termios newtio;
 	int WDS_fd=-1;
 
-	WDS_fd = open(dev,O_RDWR/* | O_NOCTTY*/);
+	WDS_fd = open((char*)dev,O_RDWR/* | O_NOCTTY*/);
 	if(WDS_fd < 0)
 	{
 		

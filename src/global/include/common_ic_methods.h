@@ -10,6 +10,6 @@ int G_IC_strTim2Hex(char* sTim,int iTimLen,char* sHex,int iHexLen);//14Î»Ê±¼ä×Ö·
 int G_IC_strHex2Tim(char* sHex,int iHexLen,char* sTim,int iTimLen);//16½øÖÆ×Ö·û(4byte)->14Î»Ê±¼ä×Ö·û
 void G_IC_strChr2Hex(char* sChr,int iChrLen,char* sHex,int iHexLen);//Ó¢ÎÄ×Ö·û(°üÀ¨Êý×Ö×Ö·û)(1)->16½øÖÆ×Ö·û(2)
 void G_IC_strHex2Chr(char* sHex,int iHexLen,char* sChr,int iChrLen);//16½øÖÆ×Ö·û(2)->Ó¢ÎÄ×Ö·û(°üÀ¨Êý×Ö×Ö·û)(1)
-																	// 
+					void G_IC_itoa(unsigned long val,char *buf,unsigned radix);												// 
 																	// 
 #endif

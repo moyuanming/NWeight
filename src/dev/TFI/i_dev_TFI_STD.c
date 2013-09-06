@@ -56,8 +56,6 @@ void TFI_STD_BaoJia_ForThread(void)
 		memset(fivecmd,0x00,sizeof(fivecmd));
 		if (charge==0)
 		{
-			char tmpcharge[10];
-
 			fivecmd[0]=0xFF;
 			fivecmd[1]=0xDC;
 			fivecmd[2]=8;
@@ -79,9 +77,9 @@ void TFI_STD_BaoJia_ForThread(void)
 			fivecmd[3]='S';
 			fivecmd[4]=0x32;//Ë«Óï
 			fivecmd[5]=0x37;
-			fivecmd[6]=__CarType+0x30;
+			fivecmd[6]=CarType+0x30;
 			sprintf(tmpw,"%03.2f",weight);//999.99
-			sprintf(tmpcharge,"%04d",tmpcharge);
+			sprintf(tmpcharge,"%04d",charge);
 			strncpy(&fivecmd[7],tmpw ,3);
 			strncpy(&fivecmd[10],&tmpw[4] ,2);
 			strncpy(&fivecmd[12],tmpcharge ,4);
@@ -97,7 +95,7 @@ void TFI_STD_BaoJia_ForThread(void)
 			fivecmd[3]='S';
 			fivecmd[4]=0x32;//Ë«Óï
 			fivecmd[5]=0x37;
-			fivecmd[6]=__CarType+0x30;
+			fivecmd[6]=CarType+0x30;
 			sprintf(tmpcharge,"%04d",charge);
 			strncpy(&fivecmd[7],tmpcharge ,4);
 			SetBCC(fivecmd,11);

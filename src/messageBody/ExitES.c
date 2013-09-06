@@ -392,11 +392,11 @@ void SetEixtHTData()
 	pos=charstoint(CarKindRecord[Getg_CurrentCarKindIndex()].PosCount,sizeof(CarKindRecord[Getg_CurrentCarKindIndex()].PosCount));
 	sumpos=charstoint(CarKindRecord[Getg_CurrentCarKindIndex()].PaidSum,sizeof(CarKindRecord[Getg_CurrentCarKindIndex()].PaidSum));
 	 
-	if (GetIs_CardContext_SVCCard_Paid())
+	/*if (GetIs_CardContext_SVCCard_Paid())
 	{
 		pos=3;
 		sumpos=11;
-	}
+	}*/
 	echoic("pos %d  sumpos %d ",pos,sumpos);
 	if (0!=pos)
 	{
@@ -514,12 +514,12 @@ void SetExitESData()
 
 	
 
-	
+	/*
 	 if (GetIs_CardContext_SVCCard_Paid())
 	{
 		pos=3;
 		sumpos=11;
-	}
+	}*/
 	if (0!=pos)
 	{
 		pos=pos-1;

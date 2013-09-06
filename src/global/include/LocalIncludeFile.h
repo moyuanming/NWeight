@@ -13,7 +13,6 @@
 #include "AppFunctionConfig.h"
 #include "MessageHandl.h"
 #include "EmrcSocket.h"
-#include "i_dev_ic.h"
 #include "init.h"
 #include "setWorkState.h"
 #include "i_dev_keyboard.h" 
@@ -68,7 +67,6 @@
 #include "UdpBase.h"
 #include "Emrc_Udp.h"
 #include "common_main.h"
-#include "IcKey.h"
 #include "VideoCaptureImage.h"
 #include "workstate_Lstdnyc.h"
 #include "i_dev_TFI_KK.h"
@@ -98,8 +96,8 @@
 #include "TTYConfig.h"
 #include "wds_protocol.h"
 #include "TrafficStat.h"
-#include "CPSB.h"
-
+#include "i_dev_VPR_HK.h"
+#include "From_800_600.h"
 #define FTPSYNCCOMMAND(_sysCommand_,  _l_file_, _r_file_  ) sprintf(_sysCommand_,"ftpget  %s  %s %s\\\\%s  %c",GetParamFtpServerIP(),_l_file_ ,FILEPATH_FTP_PARAMETER,_r_file_,0x00 )
 #define echo_ci(fmt, args...)    fprintf(stderr,"в╔ед[%s:%d]: " fmt "\n", __FILE__, __LINE__ , ## args)
 #define echo1(fmt, args...)	  //printf("ECHO:::: [%s:%d]: " fmt "\n", __FILE__, __LINE__ , ## args)

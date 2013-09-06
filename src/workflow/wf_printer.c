@@ -77,9 +77,6 @@ int GetbillCount(void)
 }
 void createBillNumber()
 {
-    struct tm *rtc_time;
-    time_t t = time(NULL);	
-    rtc_time = localtime(&t);	
     SetbillCount(GetbillCount()+1);	
     SetbillCount( GetbillCount()%10000);	
     writeBillNumber();	

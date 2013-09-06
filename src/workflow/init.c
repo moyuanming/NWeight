@@ -72,7 +72,7 @@ static void Init_Parameter(void)
 	InitMsgRevision();
 	LoadCurrentUseParameterVersionNumber();
 	LoadParameter(ISLOADFIRST);	
-	LoadLanKey();
+	//LoadLanKey();
 
 }
 static void Init_MsgThread(void)

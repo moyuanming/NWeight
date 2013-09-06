@@ -44,9 +44,7 @@ static char * CreateMessageID(void)
 {	
 	unsigned int msc ;
 	char Temp[20];
-	struct tm *rtc_time;
 	time_t t = time(NULL);	
-	rtc_time = localtime(&t);
 	strncpy(IDTemp,GetLanConfigStationNo(),4);
 	strncpy(IDTemp+4,GetLanConfigLaneNo(),3);
 	IDIndex = ++IDIndex >=1000 ? 1:IDIndex;
@@ -88,8 +86,6 @@ void SendMessageToQueue(char  InputMsgCode)
     int MsgLen = 0;
     int i;
     int IsLog = 1;
-	char tempBillNumber[9];
-	tempBillNumber[8]=0x00;
     memset(MessageBody,'0',MAXMSGBODYLENGTH);	
     if ( InputMsgCode==ID_MSG2N)
     {	
@@ -124,10 +120,7 @@ void SendMessageToQueue(char  InputMsgCode)
     }
     else if (InputMsgCode==ID_MSGEXITTR )//过车消息
     {	
-		char tempSubTra[2];
 		char tempReprint[2];
-
-		tempSubTra[1]=0x00;
         SetExitTRMsgCanopyStatus(Getg_bYuPeng());	
 		//if(0==Getg_DisputeType())
 		//{	
@@ -273,15 +266,15 @@ void SendMessageToQueue(char  InputMsgCode)
 			MessageBody[MsgLen] = 0x00;
 			if (InputMsgCode==ID_MSGEXITTR)
 			{
-				if (GetIs_CardContext_MonthCard_Paid()  ||  GetIs_CardContext_SVCCard_Paid()  )
-				{
-					struct MSG_HEAD tmph;
-					strncpy( (char*)&tmph,MessageBody,sizeof( struct MSG_HEAD ));
-					tmph.MsgType='K';
-					memcpy(MessageBody,(char*)&tmph,MSG_HEAD_LENGTH);
-					MsgLen = SetBCC(MessageBody,MsgLen);
-					DB_AddMessage(MessageBody);
-				}
+////				if (GetIs_CardContext_MonthCard_Paid()  ||  GetIs_CardContext_SVCCard_Paid()  )
+//				{
+//					struct MSG_HEAD tmph;
+//					strncpy( (char*)&tmph,MessageBody,sizeof( struct MSG_HEAD ));
+//					tmph.MsgType='K';
+//					memcpy(MessageBody,(char*)&tmph,MSG_HEAD_LENGTH);
+//					MsgLen = SetBCC(MessageBody,MsgLen);
+//					DB_AddMessage(MessageBody);
+//				}
 			}
 			else if (InputMsgCode==ID_MSGEXITES)
 			{

@@ -181,7 +181,7 @@ con:
 	}
     else
     {
-        RecvMsgDataHandl(InputRecvData);
+        RecvMsgDataHandl((unsigned char *)InputRecvData);
     }
     //处理接受数据！
 }

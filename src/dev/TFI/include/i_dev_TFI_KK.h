@@ -14,5 +14,6 @@
  * 2 您好，月票
  * 3 您好，免费车
  */
-
+void   TFI_KK_clean ( void);
+void  TFI_KK_LedShow (   int CarType , int charge );
 #endif

@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <dlfcn.h>
-#include "CPSB.h"
+#include "i_dev_VPR_HK.h"
 int (*pDVR_Open)(void);
 void (*pDVR_Close)(void);
 void (*pClearCPHM)(void);
@@ -19,6 +19,7 @@ int CPSB_UnLoad(void)
 		echoic("close libHCDVR.so");
 		dlclose( CPSB_handle );
 	}
+	return CPSB_isInit;
 }
 int CPSB_Load(void)
 {

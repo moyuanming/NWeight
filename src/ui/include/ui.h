@@ -35,7 +35,7 @@ typedef struct ui_text
 		char underline ;
 		char struckout ;
 		int rotation ;
-		PLOGFONT *plogfont ;
+		PLOGFONT plogfont ;
 } UI_Text ;
 typedef enum{Customize,GroupBox,RadioButton}UI_Type;
 typedef struct ui_object

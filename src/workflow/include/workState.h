@@ -57,7 +57,6 @@ void WorkStation_57_CheckCharFoldResult(int nKey);
 void RePrintBill(void);
 void WorkStation_60_ConfirmPayBy_MonthCard_extracted(void);
 void WorkStation_61_ConfirmPayBy_SVCCard_extracted(void);
- void GetUserNumberFromStatffCard(void);
 void SetICExitTRPayMethod(void);
 void WorkStation_64_IC_Moni_Month(int nKey);
 void WorkStation_63_IC_Moni_SVC(int nKey);
@@ -71,9 +70,9 @@ void WorkStation_64_IC_Moni__Official(int nKey);
 void ErrorShow(char *ErrorMessageShow);
 void WorkStation_01_Handl_Input_Number(int nKey);
 void WorkStation_50_DataExporter(int nKey);
-
+void WorkStation_68_WeightMenuCC(int nKey);
 void WorkStation_67_WeightMenu(int nKey);
-void WorkStation_67_WeightMenu(int nKey);
+void WorkStation_67_GotoHistory(void);
 #endif
 
 

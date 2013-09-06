@@ -92,7 +92,7 @@ int GetPrinterMode()
 }
 //#define OLD312JaoKeCalculateFareMode				'0' //老312计费方式
 //#define NewJaoKeCalculateFareMode					'1' //5型车计费
-int GetJaoKeCalculateFareMode()
+int GetJaoKeCalculateFareMode(void)
 {
 	return ConstantRecordTable[GrecordIndex].RecordB.Code[3];
 }
@@ -303,7 +303,7 @@ static int LoadRecordtest(char *FileName,struct PARAM_HEAD *Head,int IsFirst)
 	//lseek(FileFd,SEEK_SET,0);
 	fread(HeadStr,1,PAEAMHEAD_LENGTH,FileFd);
 	//read(FileFd,HeadStr,PAEAMHEAD_LENGTH);
-	HeadStr[39] = 0x00;
+	//HeadStr[39] = 0x00;
 	if( ParseHead(HeadStr,Head,CONSTANTTABLE) || IsFirst)
 	{
 		

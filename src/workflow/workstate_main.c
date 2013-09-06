@@ -416,43 +416,6 @@ void WorkStation_07_General_Second_OK(int nKey)
 			ShiSou = atoi(GetG_ZhaoLing());
 			UI_Show_ZhaoLing(ShiSou);
 			break;
-		case   CSC_CARDENTER:
-			{
-				int ret;
-				ret=UseCardToPay();
-				switch (ret )
-				{
-					case PAYRET_OK://  0  //返回正常
-						//说明一切正常
-						break;
-					case  PAYRET_READCARDERROR://  1//读卡失败
-						UI_Show_Help_Info("抱歉！读卡失败，请重试!");
-						break;
-					case  PAYRET_READCARDKEYOLD://  1//读卡失败
-						UI_Show_Help_Info("抱歉！卡密钥已过期!");
-						break;
-					case  PAYRET_READCARDKEYNOTFOND://  1//读卡失败
-						UI_Show_Help_Info("抱歉！未找到卡信息!");
-						break;
-					case  PAYRET_CARDTYPEINVALID:// 2//卡类型无效。
-						UI_Show_Help_Info("抱歉！此卡不是有效的可支付卡!");
-						break;
-					case PAYRET_CARTYPEERROR:
-						UI_Show_Help_Info("抱歉，车型不符!");
-						break;
-					case PAYRET_PRINTERERROR:
-						UI_Show_Help_Info("打印机故障，请修复打印机后再刷卡!");
-						break;
-					default:
-						UI_Show_Help_Info("抱歉！无效卡");//未处理的返回值
-						break;
-				}
-				echoic("这里刷卡%s",       GetCardNOByString());
-			}
-			break;
-		case  CSC_CARDEXIT:
-			echoic("卡已经被拿走了  卡号是 %s",     GetCardNOByString());
-			break;
 		case VK_RETURN:
 			if (0==GetG_IsTuoche())
 			{				

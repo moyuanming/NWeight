@@ -93,6 +93,7 @@ void  DataExporter(void)
     }
     UI_Show_Info("存在可移动存储设备，正在尝试挂载...... ");	
     result_umount=   DoSysCmd("umount "FILENAME_USBDIR );	
+	echo_ct("%s",result_umount);
     result_mount=DoSysCmd("mount  -t vfat  /dev/scsi/host0/bus0/target0/lun0/part1 "FILENAME_USBDIR);	
     if( NULL!=strstr(result_mount ,"failed:"))
     {	

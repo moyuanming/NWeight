@@ -9,7 +9,7 @@ static void RecvUDPMessage(void)
 {
 	int RecvCount=0;
 	unsigned char  RecvBuf[200];
-	int SocketRecvLen;
+	unsigned int SocketRecvLen;
 	SocketRecvLen = sizeof(their_Recv_addr);
 	while(1)
 	{

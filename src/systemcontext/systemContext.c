@@ -292,7 +292,7 @@ void AfterOfTransDo(int value,BOOL urgen)
     {			
 		SetExitESData();	
     }
- 	SetICExitTRPayMethod();
+// 	SetICExitTRPayMethod();
 	SendMessageToQueue(ID_MSGEXITTR);	
 	
 }
@@ -331,7 +331,7 @@ void TransDoTuoche(void)
 		
 		SetExitESData();	
     }
-	SetICExitTRPayMethod();
+//	SetICExitTRPayMethod();
 	SetExitTRMsgEntryLane(GetCarNember());
 	SendMessageToQueue(ID_MSGEXITTR);	 
 	Setg_DisputeType(0);	

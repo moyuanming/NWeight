@@ -1,11 +1,7 @@
-
-
 #include "linux_include.h"
 #include "UI_Macro.h"
-#include "640_480.h";
+#include "640_480.h"
 #include "From_640_480.h"
-
-
 static HWND From_Handl=HWND_INVALID;
 HWND  UI_Out_640_480_Get_From_Handl(void)
 {	

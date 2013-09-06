@@ -60,7 +60,7 @@ int CDCWinProc (HWND hWnd, int message, WPARAM wParam, LPARAM lParam)
 			{
 				TestPrintState();
 			}
-			WF_TestICReader();
+//			WF_TestICReader();
 			updateTime( );
 			CheckHourSend();
 			SendTCOMsg(MSGTCO_NETWORK,"OK");

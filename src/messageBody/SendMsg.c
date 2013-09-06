@@ -292,18 +292,18 @@ void SendMsgInfo(char* InputMsgType,char* InputException,char* InputPromptMsg)
 			break;
 		case '2':
 			strcpy(InputPayType,"储值卡");
-			sprintf(devstate , "%s",GetCardContext_CardNumber());
+			//sprintf(devstate , "%s",GetCardContext_CardNumber());
 			break;
 		case '3':
 			strcpy(InputPayType,"公务卡");
 			break;
 		case '4':
 			strcpy(InputPayType,"月票卡");
-			sprintf(devstate  ,"%s",GetCardContext_CardNumber());
+//			sprintf(devstate  ,"%s",GetCardContext_CardNumber());
 			break;
 		case '5':
 			strcpy(InputPayType,"记账卡");
-			sprintf(devstate , "%s",GetCardContext_CardNumber());
+//			sprintf(devstate , "%s",GetCardContext_CardNumber());
 			break;
 	}
     sprintf(GetMsgMsgInfo()->PayType ,"%16.16s",InputPayType);

@@ -92,7 +92,6 @@ void ExecTCOCommand(   char * InputRevbData)
 		memset(temp,0x0,11);
 		strncpy(temp,GetMsgTcoCommand()->Param+20,10);
 		lParam = atoi(temp);
-		echoic("message %d wparam %d lparam %d",message,wParam,lParam);
 		PostMessage(UI_Get_From_Handl(),message,wParam,lParam);
 	}
 	else if (0==strncmp((char*)&GetMsgTcoCommand()->CMD,"SYNCRETURN",strlen("SYNCRETURN")))
@@ -126,7 +125,7 @@ void ExecTCOCommand(   char * InputRevbData)
 		}
 		else if (0==strncmp((char*)&GetMsgTcoCommand()->Param,"REMOTEPMOK",strlen("REMOTEPMOK")))
 		{
-			int xxx=0;
+		//int xxx=0;
 
 			/*xxx=LoadParameter_CARDInfo(ISLOADFIRST);
 			LoadLanKey();
@@ -165,7 +164,7 @@ void RecvMsgDataHandl(unsigned char * InputRevbData)
 	memcpy(GetMsgTcoCommand(),InputRevbData,sizeof(struct MSG_TCOCMD)); 
 	if (0==strncmp(GetMsgTcoCommand()->TCOType,TCOTYPE_TCOCMD,2))
 	{
-		ExecTCOCommand(InputRevbData);
+		ExecTCOCommand((char*)InputRevbData);
 	}
 	else if (0==strncmp(GetMsgTcoCommand()->TCOType,TCOTYPE_TCORET,2))
 	{

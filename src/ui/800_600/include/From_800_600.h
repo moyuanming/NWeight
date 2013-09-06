@@ -104,6 +104,7 @@ void Draw_InputDataArea_GUI ( void );
 
 
 void Draw_MenuFrom_GUI ( char *menuName , UI_Object ** Menu,int length);
+void Draw_MenuHide(void);
 void Draw_MenuMoni_GUI(void);
 void Set_MenuMoni_Enable(int index,int flag);
 void Set_MenuMoni_Check(int index,int flag);

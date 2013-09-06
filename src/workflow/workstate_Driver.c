@@ -170,19 +170,19 @@ void WorkStation(int nKey)
 		WorkStation_57_CheckCharFoldResult( nKey);
 		break;
 	case 60:
-		WorkStation_60_ConfirmPayBy_MonthCard(nKey);
+//		WorkStation_60_ConfirmPayBy_MonthCard(nKey);
 		break;
 	case 61:
-		WorkStation_61_ConfirmPayBy_SVCCard(nKey);
+//		WorkStation_61_ConfirmPayBy_SVCCard(nKey);
 		break;
 	case 62:
-		WorkStation_62_ConfirmPayBy_OfficialCard(nKey);
+//		WorkStation_62_ConfirmPayBy_OfficialCard(nKey);
 		break;
 	case 63:
-		WorkStation_63_IC_Moni_SVC(nKey);
+//		WorkStation_63_IC_Moni_SVC(nKey);
 		break;
 	case 64:
-		WorkStation_64_IC_Moni_Month(nKey);
+//		WorkStation_64_IC_Moni_Month(nKey);
 		break;
 	case 66:
 		WorkStation_66_InputCarNo(nKey);

@@ -565,7 +565,6 @@ void ShowSelectitem205(void)
 }
 void SaveLanInfo205(void)
 {
-	char *Item="";
 	char SysCommamd[200];
 	memset(SysCommamd,0x00,200);
 	switch (EditConfig)

@@ -24,7 +24,7 @@ static void RecvUDPMessageSync_Sync(void)
 {
 	int RecvCount=0;
 	int RecvBuf[200];
-	int SocketRecvLen;
+	unsigned int SocketRecvLen;
 	SocketRecvLen = sizeof(their_Recv_addr_Sync);
 	while(1)
 	{

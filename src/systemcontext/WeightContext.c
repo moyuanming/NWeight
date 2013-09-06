@@ -47,7 +47,7 @@ float  GetWeightContext_WeightLimit_ByTon(void)
 	WeightLimit=GetWeightContext_WeightLimit();
 	return  WeightLimit/ 1000;
 }
-BOOL OverLoad30()
+BOOL OverLoad30(void)
 {
 	int Over = GetWeightContext_OverLoadWeightRate();
 	return Over<=30;

@@ -8,6 +8,7 @@
 #include "i_dev_TFI_MNS.h"
 #include "i_dev_TFI_YM.h"
 #include "i_dev_TFI_STD.h"
+#include "i_dev_TFI_KK.h"
 void I_DEV_LED_Init(void)
 {
 	//双涝坝等老费县为 9600 吐乌的费显为 1200

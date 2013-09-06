@@ -1,7 +1,5 @@
-
-
 #include "LocalIncludeFile.h"
-void WorkStation_67_GotoHistory()
+void WorkStation_67_GotoHistory(void)
 {
 	switch(GetLastWorkState())
 	{

@@ -33,20 +33,7 @@ static void ClaerFile(const char *InputPath,char *InputFileName)
 		echoic("ClearAndArchive 删除%s下的日期为%s的旧文件 ",InputPath,InputFileName);
 	}
 }
-/****************************************************************************************
-* 存档数据
-* 将旧数据使用tar压缩后存储到指定目录下
-*****************************************************************************************/
-static void ArchiveFile(const char *InputPath,char *InputFileName)
-{
-	char _sysCommand_[200];
-	ArchiveFileCommand(_sysCommand_,InputPath,InputFileName);
-	echoic("ClearAndArchive   Exec System :%s",_sysCommand_);
-	if (0==system(_sysCommand_))
-	{
-		echoic("ClearAndArchive 将%s下的日期为%s的旧文件压缩归档到%sArchive",InputPath,InputFileName,InputPath);
-	}
-}
+
 /****************************************************************************************
 * 扫描目录 查看日期 将符合条件的文件进行处理 一次只处理一批
 *****************************************************************************************/

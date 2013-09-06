@@ -101,22 +101,7 @@ void WorkStation_00_Wait_Begin_Work(int nKey)
 		break;
 	}
 }
-void GetUserNumberFromStatffCard()
-{
-	char * cardinfo;	
-	cardinfo=ReadStaffCard();
-	if (cardinfo!=NULL)
-	{			
-		SetG_Number(substring(cardinfo,6));
-		UI_Show_Input_Text( GetG_Number());
-		SetInput_Number_Count(6);		
-	}
-	else
-	{
-		UI_Show_Help_Info("抱歉!请重试或换卡");
-	}
-}
-
+ 
 static void ValidateUserNumber(BOOL UsedCar) 
 {
 	if (strlen(GetG_Number())==Getg_userNumberLen())
@@ -174,20 +159,7 @@ void WorkStation_01_Handl_Input_Number(int nKey)
 				UI_Show_Help_Info("手动登录被限制，请使用身份卡登录!");
 			}			
 			break;
-		case   CSC_CARDENTER :
-			if (LT_OnlyHand != GetHowToLogin())
-			{		
-				GetUserNumberFromStatffCard();	
-				ValidateUserNumber(TRUE);			
-			}
-			else 
-			{
-				UI_Show_Help_Info("身份卡被限制使用!请手动登录！");
-			}			
-			break;
-		case CSC_CARDEXIT:
-			UI_Show_Help_Info("身份卡已经被拿开!");
-			break;
+		 
 		case VK_CANCEL:
 			AddCancelCount();
 			if (GetCancelCount() ==1)

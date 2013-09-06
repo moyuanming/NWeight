@@ -20,7 +20,7 @@ int GetWeightContext_IsOverLoad(void);
 void InitWeightContextData(void);
 void SetMsg_ES_HT_WeightInfo(void);
 void SetMsg_TR_WeightInfo(void);
-
+BOOL OverLoad30(void);
 
 
 
