@@ -52,7 +52,7 @@
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(ProjectDir)\src\parameter\include;$(ProjectDir)\src\dev\IO\include;$(ProjectDir)\src\icardcontext\include;D:\Works\Linux\toolchain_R2_EABI\opt\ext-toolchain\lib\gcc\arm-none-linux-gnueabi\4.6.1\include-fixed;D:\Works\Linux\toolchain_R2_EABI\opt\ext-toolchain\lib\gcc\arm-none-linux-gnueabi\4.6.1\include;D:\Works\Linux\toolchain_R2_EABI\usr\arm-unknown-linux-gnueabi\sysroot\usr\include;$(ProjectDir)\src\ui\include;$(ProjectDir)\src\ui\800_600\include;$(ProjectDir)\src\ui\640_480\include;$(ProjectDir)\src\dev\ICR\inlcude;$(ProjectDir)\src\dev\TFI\include;$(ProjectDir)\src\dev\Print\include;$(ProjectDir)\src\messageBody\include;$(ProjectDir)\src\workflow\workflow_CloseToll\include;$(ProjectDir)\src\workflow\workflow_Close_main\include;$(ProjectDir)\src\workflow\include;$(ProjectDir)\src\systemcontext\include;$(ProjectDir)\src\sysconfig\include;$(ProjectDir)\src\SQLite\include;$(ProjectDir)\src\SetConifgFile\include;$(ProjectDir)\src\RemoteControl\include;$(ProjectDir)\src\param\include;$(ProjectDir)\src\msgQueueToFile\include;$(ProjectDir)\src\logc\include;$(ProjectDir)\src\global\include;$(ProjectDir)\src\communication\include;$(ProjectDir)\src\dev\Weight\include;$(ProjectDir)\src\dev\include;$(ProjectDir)\src\communication\include\Zmq;$(ProjectDir)\src\dev\VDM\include</IncludePath>
+    <IncludePath>$(ProjectDir)\src\dev\VPR\include;$(ProjectDir)\src\parameter\include;$(ProjectDir)\src\dev\IO\include;$(ProjectDir)\src\icardcontext\include;D:\Works\Linux\toolchain_R2_EABI\opt\ext-toolchain\lib\gcc\arm-none-linux-gnueabi\4.6.1\include-fixed;D:\Works\Linux\toolchain_R2_EABI\opt\ext-toolchain\lib\gcc\arm-none-linux-gnueabi\4.6.1\include;D:\Works\Linux\toolchain_R2_EABI\usr\arm-unknown-linux-gnueabi\sysroot\usr\include;$(ProjectDir)\src\ui\include;$(ProjectDir)\src\ui\800_600\include;$(ProjectDir)\src\ui\640_480\include;$(ProjectDir)\src\dev\ICR\inlcude;$(ProjectDir)\src\dev\TFI\include;$(ProjectDir)\src\dev\Print\include;$(ProjectDir)\src\messageBody\include;$(ProjectDir)\src\workflow\workflow_CloseToll\include;$(ProjectDir)\src\workflow\workflow_Close_main\include;$(ProjectDir)\src\workflow\include;$(ProjectDir)\src\systemcontext\include;$(ProjectDir)\src\sysconfig\include;$(ProjectDir)\src\SQLite\include;$(ProjectDir)\src\SetConifgFile\include;$(ProjectDir)\src\RemoteControl\include;$(ProjectDir)\src\param\include;$(ProjectDir)\src\msgQueueToFile\include;$(ProjectDir)\src\logc\include;$(ProjectDir)\src\global\include;$(ProjectDir)\src\communication\include;$(ProjectDir)\src\dev\Weight\include;$(ProjectDir)\src\dev\include;$(ProjectDir)\src\communication\include\Zmq;$(ProjectDir)\src\dev\VDM\include</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -107,6 +107,7 @@
     <ClCompile Include="src\dev\IO\i_dev_IO_SAT.c" />
     <ClCompile Include="src\dev\IO_BaseIO_State.c" />
     <ClCompile Include="src\dev\i_dev_KK_print.c" />
+    <ClCompile Include="src\dev\i_dev_VPR.c" />
     <ClCompile Include="src\dev\Print\i_dev_KK_printer.c" />
     <ClCompile Include="src\dev\Print\i_dev_printer.c" />
     <ClCompile Include="src\dev\Print\i_dev_S303_printer.c" />
@@ -163,7 +164,6 @@
     <ClCompile Include="src\systemcontext\FileContext.c" />
     <ClCompile Include="src\global\FileOperator.c" />
     <ClCompile Include="src\global\global.c" />
-    <ClCompile Include="src\dev\i_dev_ic.c" />
     <ClCompile Include="src\dev\i_dev_ioboard.c" />
     <ClCompile Include="src\dev\i_dev_keyboard.c" />
     <ClCompile Include="src\dev\i_dev_led.c" />
@@ -229,11 +229,9 @@
     <ClCompile Include="src\communication\Udp.c" />
     <ClCompile Include="src\SubProgarm\Uploader.c" />
     <ClCompile Include="src\systemcontext\UserContext.c" />
-    <ClCompile Include="src\workflow\wf_ic.c" />
     <ClCompile Include="src\workflow\wf_ioboard.c" />
     <ClCompile Include="src\workflow\wf_printer.c" />
     <ClCompile Include="src\workflow\workstate_Driver.c" />
-    <ClCompile Include="src\workflow\workstate_ic.c" />
     <ClCompile Include="src\workflow\workstate_Login_Logout.c" />
     <ClCompile Include="src\workflow\workstate_Lstdnyc.c" />
     <ClCompile Include="src\workflow\workstate_main.c" />
@@ -264,6 +262,7 @@
     <ClInclude Include="src\dev\include\CPSB.h" />
     <ClInclude Include="src\dev\include\IO_Board.h" />
     <ClInclude Include="src\dev\include\i_dev_vdm.h" />
+    <ClInclude Include="src\dev\include\i_dev_VPR.h" />
     <ClInclude Include="src\dev\include\tfi_lib.h" />
     <ClInclude Include="src\dev\include\VideoCaptureImage.h" />
     <ClInclude Include="src\dev\include\wds_protocol.h" />
@@ -328,7 +327,6 @@
     <ClInclude Include="src\messageBody\include\ExitVI.h" />
     <ClInclude Include="src\systemcontext\include\FileContext.h" />
     <ClInclude Include="src\global\include\global.h" />
-    <ClInclude Include="src\dev\include\i_dev_ic.h" />
     <ClInclude Include="src\dev\include\i_dev_ioboard.h" />
     <ClInclude Include="src\dev\include\i_dev_keyboard.h" />
     <ClInclude Include="src\sysconfig\include\IcKey.h" />

@@ -107,6 +107,7 @@
     <ClCompile Include="src\dev\IO\i_dev_IO_SAT.c" />
     <ClCompile Include="src\dev\IO_BaseIO_State.c" />
     <ClCompile Include="src\dev\i_dev_KK_print.c" />
+    <ClCompile Include="src\dev\i_dev_VPR.c" />
     <ClCompile Include="src\dev\Print\i_dev_KK_printer.c" />
     <ClCompile Include="src\dev\Print\i_dev_printer.c" />
     <ClCompile Include="src\dev\Print\i_dev_S303_printer.c" />
@@ -264,6 +265,7 @@
     <ClInclude Include="src\dev\include\CPSB.h" />
     <ClInclude Include="src\dev\include\IO_Board.h" />
     <ClInclude Include="src\dev\include\i_dev_vdm.h" />
+    <ClInclude Include="src\dev\include\i_dev_VPR.h" />
     <ClInclude Include="src\dev\include\tfi_lib.h" />
     <ClInclude Include="src\dev\include\VideoCaptureImage.h" />
     <ClInclude Include="src\dev\include\wds_protocol.h" />

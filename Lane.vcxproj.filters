@@ -474,6 +474,9 @@
     <ClCompile Include="src\dev\VPR\i_dev_VPR_HK.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\dev\i_dev_VPR.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\sysconfig\include\AppFunctionConfig.h">
@@ -894,6 +897,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\dev\VPR\include\i_dev_VPR_HK.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dev\include\i_dev_VPR.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

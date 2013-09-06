@@ -119,6 +119,7 @@ dev/TFI/i_dev_TFI_SG.c \
 dev/TFI/i_dev_TFI_YM.c \
 dev/VDM/i_dev_VDM_SAT.c \
 dev/IO/i_dev_IO_SAT.c \
+dev/i_dev_VPR.c \
 dev/VPR/i_dev_VPR_HK.c \
 dev/Print/i_dev_printer.c \
 dev/Print/i_dev_KK_printer.c \

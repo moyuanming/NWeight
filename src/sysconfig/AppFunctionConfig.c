@@ -124,6 +124,12 @@ char * GetIOBoardDLL(void)
 {   
 	return var_IOBoardDLL;
 }
+char var_VPRDLL[100];
+
+char * GetVPRDLL(void)
+{   
+	return var_VPRDLL;
+}
 /******************************************************************************************************
 *装载程序功能配置
 ******************************************************************************************************/
@@ -140,7 +146,7 @@ void LoadAppFunction(void)
 	FunIC = atoi(readItemInIniFile("FunIC"));   
 	FunCallTCS = atoi(readItemInIniFile("FunCallTCS")); 
 	FunVideo = atoi(readItemInIniFile("FunVideo")); 
-	FunCPSB = atoi(readItemInIniFile("FunCPSB"));    
+	FunCPSB = atoi(readItemInIniFile("FunVPR"));    
 	memset(TFIDLL,0x00,20);
 	strcpy(TFIDLL,readItemInIniFile("TFIDLL"));
 	memset(PrintDLL,0x00,20);
@@ -151,6 +157,8 @@ void LoadAppFunction(void)
 	strcpy(var_VDMDLL,readItemInIniFile("VDMDLL"));
 	memset(var_IOBoardDLL,0x00,100);
 	strcpy(var_IOBoardDLL,readItemInIniFile("IOBoardDLL"));
+		memset(var_IOBoardDLL,0x00,100);
+	strcpy(var_IOBoardDLL,readItemInIniFile("VPRDLL"));
 
 }
 

@@ -28,5 +28,6 @@ char *GetPrintDLL(void);
 char * GetICReader(void);
 char * GetVDMDLL(void);
 char * GetIOBoardDLL(void);
+char * GetVPRDLL(void);
 #endif	
 

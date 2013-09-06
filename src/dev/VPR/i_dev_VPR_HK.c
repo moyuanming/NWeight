@@ -9,19 +9,19 @@ void (*pDVR_Close)(void);
 void (*pClearCPHM)(void);
 char * (*pGetCPHM)(char *);
 void   *CPSB_handle = 0x00;
-int CPSB_isInit = 0;
-int CPSB_UnLoad(void)
+int VPR_HK_isInit = 0;
+int VPR_HK_UnLoad(void)
 {
 	if(CPSB_handle)
 	{
-		CPSB_isInit = 0;
+		VPR_HK_isInit = 0;
 		DVR_Close();
 		echoic("close libHCDVR.so");
 		dlclose( CPSB_handle );
 	}
-	return CPSB_isInit;
+	return VPR_HK_isInit;
 }
-int CPSB_Load(void)
+int VPR_HK_Load(void)
 {
 	echoic("load libHCDVR.so");
     CPSB_handle = dlopen( "libHCDVR.so", RTLD_LAZY );
@@ -65,7 +65,7 @@ int CPSB_Load(void)
 		{
 			echoic("load func ClearCPHM error");
 		}
-		CPSB_isInit = 1;
+		VPR_HK_isInit = 1;
 	    DVR_Open();
 	}
 	else
@@ -74,32 +74,32 @@ int CPSB_Load(void)
 	}
 	return 0;
 }
- int DVR_Open(void)
+ int VPR_HK_Open(void)
  {
-	 if(CPSB_isInit&&pDVR_Open)
+	 if(VPR_HK_isInit&&pDVR_Open)
 	 {
 		 pDVR_Open();
 		 return 0;
 	 }
 	 return 1;
  }
- void DVR_Close(void)
+ void VPR_HK_Close(void)
  {
-	 if(CPSB_isInit&&pDVR_Close)
+	 if(VPR_HK_isInit&&pDVR_Close)
 	 {
 		 pDVR_Close();
 	 }
  }
- void ClearCPHM(void)
+ void VPR_HK_ClearCPHM(void)
  {
-	 if(CPSB_isInit&&pClearCPHM)
+	 if(VPR_HK_isInit&&pClearCPHM)
 	 {
 		 pClearCPHM();
 	 }
  }
- char * GetCPHM(char *cp)
+ char * VPR_HK_GetCPHM(char *cp)
  {
-	 if(CPSB_isInit&&pGetCPHM)
+	 if(VPR_HK_isInit&&pGetCPHM)
 	 {
 		 return pGetCPHM(cp);
 	 }

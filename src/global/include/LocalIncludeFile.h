@@ -74,6 +74,7 @@
 #include "i_dev_TFI_HN.h"
 #include "i_dev_VDM_SAT.h"
 #include "i_dev_vdm.h"
+#include "i_dev_VPR.h"
 #include "EmrcDBOperator.h"
 #include "UI_InterFace.h"
 #include "UI_Macro.h"
