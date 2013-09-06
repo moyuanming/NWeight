@@ -303,7 +303,7 @@ void Set_WorkStation_30_SelectWorkMod()
 	Setg_CurrentLaneState(30);  
 	SetYuPeng(F);   
 	SetJiaoTong(F); 
-	SetLanGan(F);   echoic("___");	
+	SetLanGan(F);
 	SetRing(F); 
 	SendLaneInfo_default(); 
 }

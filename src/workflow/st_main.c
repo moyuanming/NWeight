@@ -165,7 +165,7 @@ void updateTime( void )
 		if (3==GetWorkState()|| -1== ZeroClockSyncTime_Hour)
 		{
 			I_DEV_VDM_Reset();
-			I_DEV_VDM_CollectNo(GetG_Number());
+			
 			ZeroClockSyncTime_Hour= rtc_time->tm_hour;
 		}
 	}
