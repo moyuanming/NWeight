@@ -49,10 +49,10 @@ void IO_STA_ReceiveThread(void)
 			{
 				memset(starecv,0x00,sizeof(starecv));
 				x=serial_read(Get_IOBoardCOM(), starecv,sizeof(starecv));
-				if (x>0 && starecv[0]==0x0a)
+				if (starecv[0]==0x0a)
 				{
 					x=serial_read(Get_IOBoardCOM(), &starecv[1],sizeof(starecv)-1);
-					if (x>0 && starecv[1]=='E')
+					if (starecv[1]=='E')
 					{
 						I_DEV_IO_SAT_Callback(starecv); 
 					}
