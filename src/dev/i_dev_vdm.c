@@ -110,7 +110,7 @@ void I_DEV_VDM_Reset_T(void)
 	I_DEV_VDM_ShowPlaza(GetLanConfigStationNo());	
 	I_DEV_VDM_LaneNO(GetLanConfigLaneNo());	
 	I_DEV_VDM_CollectNo(GetG_Number());
-	I_DEV_VDM_CarType(" ");	
+	I_DEV_VDM_CarType(" ");	 
 	I_DEV_VDM_CarKind(0);	
 	I_DEV_VDM_Cash(-1);	
 	//I_DEV_VDM_TextOut("DATE   -  -       :  :  ",11,0,23);	 
