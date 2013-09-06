@@ -157,8 +157,8 @@ void LoadAppFunction(void)
 	strcpy(var_VDMDLL,readItemInIniFile("VDMDLL"));
 	memset(var_IOBoardDLL,0x00,100);
 	strcpy(var_IOBoardDLL,readItemInIniFile("IOBoardDLL"));
-		memset(var_IOBoardDLL,0x00,100);
-	strcpy(var_IOBoardDLL,readItemInIniFile("VPRDLL"));
+	memset(var_VPRDLL,0x00,100);
+	strcpy(var_VPRDLL,readItemInIniFile("VPRDLL"));
 
 }
 
