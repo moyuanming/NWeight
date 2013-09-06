@@ -186,7 +186,14 @@ void Set_WorkStation_07_General_Second_OK(char *left,char *rihgt)
 
 void Set_WorkStation_09_Handl_Urgent_Car_Team()
 {   	
-	UI_ShowOperatorInfo("车队类型","紧急车队");	
+	if (GetUrgentType()==VK_HappyDay)
+	{
+		UI_ShowOperatorInfo("车队类型","节假日");
+	}
+	else 
+	{
+		UI_ShowOperatorInfo("车队类型","紧急车队");
+	}
 	UI_Show_Info("提示：\n按【确认】键抬杆放行，\n按【取消】键取消。");
 	Set_WorkStation(9); 
 	Setg_CurrentLaneState(14);  
@@ -211,8 +218,16 @@ void Set_WorkStation_13_Urgent_Car_Team_Passing()
 	UI_ClearCarKind(); 
 	UI_ClearCarType(); 
 	UI_ClearCarMoney();    
+	if (GetUrgentType()==VK_HappyDay)
+	{
+			UI_ShowOperatorInfo("节假日","正在通过");	
+	UI_Show_Info("提示：\n节假日队正在通过！\n如果确认车队已经通过。\n按【紧急】键继续下面的操作");
+	}
+	else 
+	{
 	UI_ShowOperatorInfo("紧急车队","正在通过");	
 	UI_Show_Info("提示：\n紧急车队正在通过！\n如果确认车队已经通过。\n按【紧急】键继续下面的操作");
+	}
 	Set_WorkStation(13);    
 	Setg_CurrentLaneState(16);  
 }
@@ -220,7 +235,14 @@ void Set_WorkStation_13_Urgent_Car_Team_Passing()
 
 void Set_WorkStation_16_Handl_Urgent_Car_Team_End()
 {   
-	UI_ShowOperatorInfo("结束紧急车队","请确认或取消");	
+	if (GetUrgentType()==VK_HappyDay)
+	{
+		UI_ShowOperatorInfo("结束节假日队","请确认或取消");	
+	}
+	else 
+	{
+		UI_ShowOperatorInfo("结束紧急车队","请确认或取消");	
+	}
 	UI_Show_Info("提示：\n按【确认】键确认结束，\n按【取消】键取消结束。");
 	Set_WorkStation(16);    
 	Setg_CurrentLaneState(16);  

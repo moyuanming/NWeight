@@ -18,8 +18,8 @@
 #define CARKIND_JINCHE		'8' //警车    0          是      1 0 00000000
 #define CARKIND_NONGYONG	'A' //农用车  0          是      1 4990007001
 
-
-
+void SetUrgentType(int ut);
+int GetUrgentType(void);
 void SetG_Urgent_Car_Team_Enabled(BOOL  value);
 int GetG_Urgent_Car_Team_Enabled(void);
 void AddG_Car_Pass_Count(void);

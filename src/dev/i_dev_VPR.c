@@ -4,7 +4,7 @@
 #include <assert.h>
 #include <dlfcn.h>
 #include  "i_dev_VPR_HK.h"
-
+#include "i_dev_VPR_HW.h"
 BOOL  CPSB_isInit = F ;
 int CPSB_UnLoad(void)
 {

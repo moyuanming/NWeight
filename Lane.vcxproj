@@ -52,7 +52,7 @@
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(ProjectDir)\src\parameter\include;$(ProjectDir)\src\dev\IO\include;$(ProjectDir)\src\icardcontext\include;D:\Works\Linux\toolchain_R2_EABI\opt\ext-toolchain\lib\gcc\arm-none-linux-gnueabi\4.6.1\include-fixed;D:\Works\Linux\toolchain_R2_EABI\opt\ext-toolchain\lib\gcc\arm-none-linux-gnueabi\4.6.1\include;D:\Works\Linux\toolchain_R2_EABI\usr\arm-unknown-linux-gnueabi\sysroot\usr\include;$(ProjectDir)\src\ui\include;$(ProjectDir)\src\ui\800_600\include;$(ProjectDir)\src\ui\640_480\include;$(ProjectDir)\src\dev\ICR\inlcude;$(ProjectDir)\src\dev\TFI\include;$(ProjectDir)\src\dev\Print\include;$(ProjectDir)\src\messageBody\include;$(ProjectDir)\src\workflow\workflow_CloseToll\include;$(ProjectDir)\src\workflow\workflow_Close_main\include;$(ProjectDir)\src\workflow\include;$(ProjectDir)\src\systemcontext\include;$(ProjectDir)\src\sysconfig\include;$(ProjectDir)\src\SQLite\include;$(ProjectDir)\src\SetConifgFile\include;$(ProjectDir)\src\RemoteControl\include;$(ProjectDir)\src\param\include;$(ProjectDir)\src\msgQueueToFile\include;$(ProjectDir)\src\logc\include;$(ProjectDir)\src\global\include;$(ProjectDir)\src\communication\include;$(ProjectDir)\src\dev\Weight\include;$(ProjectDir)\src\dev\include;$(ProjectDir)\src\communication\include\Zmq;$(ProjectDir)\src\dev\VDM\include</IncludePath>
+    <IncludePath>$(ProjectDir)\src\dev\VPR\include;$(ProjectDir)\src\parameter\include;$(ProjectDir)\src\dev\IO\include;$(ProjectDir)\src\icardcontext\include;D:\Works\Linux\toolchain_R2_EABI\opt\ext-toolchain\lib\gcc\arm-none-linux-gnueabi\4.6.1\include-fixed;D:\Works\Linux\toolchain_R2_EABI\opt\ext-toolchain\lib\gcc\arm-none-linux-gnueabi\4.6.1\include;D:\Works\Linux\toolchain_R2_EABI\usr\arm-unknown-linux-gnueabi\sysroot\usr\include;$(ProjectDir)\src\ui\include;$(ProjectDir)\src\ui\800_600\include;$(ProjectDir)\src\ui\640_480\include;$(ProjectDir)\src\dev\ICR\inlcude;$(ProjectDir)\src\dev\TFI\include;$(ProjectDir)\src\dev\Print\include;$(ProjectDir)\src\messageBody\include;$(ProjectDir)\src\workflow\workflow_CloseToll\include;$(ProjectDir)\src\workflow\workflow_Close_main\include;$(ProjectDir)\src\workflow\include;$(ProjectDir)\src\systemcontext\include;$(ProjectDir)\src\sysconfig\include;$(ProjectDir)\src\SQLite\include;$(ProjectDir)\src\SetConifgFile\include;$(ProjectDir)\src\RemoteControl\include;$(ProjectDir)\src\param\include;$(ProjectDir)\src\msgQueueToFile\include;$(ProjectDir)\src\logc\include;$(ProjectDir)\src\global\include;$(ProjectDir)\src\communication\include;$(ProjectDir)\src\dev\Weight\include;$(ProjectDir)\src\dev\include;$(ProjectDir)\src\communication\include\Zmq;$(ProjectDir)\src\dev\VDM\include</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -128,6 +128,7 @@
     <ClCompile Include="src\dev\VDM\i_dev_VDM_SAT.c" />
     <ClCompile Include="src\dev\VideoCaptureImage.c" />
     <ClCompile Include="src\dev\VPR\i_dev_VPR_HK.c" />
+    <ClCompile Include="src\dev\VPR\i_dev_VPR_HW.c" />
     <ClCompile Include="src\dev\Weight\wds_protocol.c" />
     <ClCompile Include="src\dev\Weight\wds_thread.c" />
     <ClCompile Include="src\dev\Weight\Weight_InterFace.c" />
@@ -287,6 +288,7 @@
     <ClInclude Include="src\dev\TFI\include\i_dev_TFI_YM.h" />
     <ClInclude Include="src\dev\VDM\include\i_dev_VDM_SAT.h" />
     <ClInclude Include="src\dev\VPR\include\i_dev_VPR_HK.h" />
+    <ClInclude Include="src\dev\VPR\include\i_dev_VPR_HW.h" />
     <ClInclude Include="src\dev\Weight\include\Weight_InterFace.h" />
     <ClInclude Include="src\global\include\3des.h" />
     <ClInclude Include="src\global\include\carlist.h" />

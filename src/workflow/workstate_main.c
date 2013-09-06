@@ -123,6 +123,8 @@ void WorkStation_03_Main_Work(int nKey)
 			SetYuPeng(T);
 			break;
 		case VK_URGENT:
+		case VK_HappyDay:
+			SetUrgentType(nKey);
 			Set_WorkStation_09_Handl_Urgent_Car_Team();
 			break;
 		case VK_XIABAN:

@@ -128,6 +128,7 @@
     <ClCompile Include="src\dev\VDM\i_dev_VDM_SAT.c" />
     <ClCompile Include="src\dev\VideoCaptureImage.c" />
     <ClCompile Include="src\dev\VPR\i_dev_VPR_HK.c" />
+    <ClCompile Include="src\dev\VPR\i_dev_VPR_HW.c" />
     <ClCompile Include="src\dev\Weight\wds_protocol.c" />
     <ClCompile Include="src\dev\Weight\wds_thread.c" />
     <ClCompile Include="src\dev\Weight\Weight_InterFace.c" />
@@ -284,6 +285,7 @@
     <ClInclude Include="src\dev\TFI\include\i_dev_TFI_YM.h" />
     <ClInclude Include="src\dev\VDM\include\i_dev_VDM_SAT.h" />
     <ClInclude Include="src\dev\VPR\include\i_dev_VPR_HK.h" />
+    <ClInclude Include="src\dev\VPR\include\i_dev_VPR_HW.h" />
     <ClInclude Include="src\dev\Weight\include\Weight_InterFace.h" />
     <ClInclude Include="src\global\include\3des.h" />
     <ClInclude Include="src\global\include\carlist.h" />
