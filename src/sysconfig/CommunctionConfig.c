@@ -73,21 +73,23 @@ int GetTCOPort(void)
 	return TCOPort;
 }
 
-char ___SVRCARDLIST[512];
-char *GetSVRCARDLIST(void)
-{	
-	return ___SVRCARDLIST;
+char _VPRIP[25];
+char *GetVPRIP(void)
+{
+	return _VPRIP;
 }
-char ___JOUCODE[512];
-char *GetJOUCODE(void)
-{	
-	return ___JOUCODE;
+void SetVPRIP(char *IP)
+{
+	memset(_VPRIP,0x00,25);
+	strncpy(_VPRIP,IP,25);
 }
-char ___KEYFILE[512];
-char *GetKEYFILE(void)
-{	
-	return ___KEYFILE;
+int _VPRPort = 0;
+int GetVPRPort(void)
+{
+	return _VPRPort;
 }
+ 
+ 
 void LoadCommunctionConfig(void)
 {	
 	echoic("正在装载通讯配置...");	
@@ -103,13 +105,8 @@ void LoadCommunctionConfig(void)
 	strcpy(TimeServerIP,readItemInIniFile("TimeServerIP")); 
 	SetTCOServerIP(readItemInIniFile("TCOServerIP"));
 	TCOPort = atoi(readItemInIniFile("TCOServerPort"));
-	/*IC卡列表信息的网络路径*/
-	memset(___SVRCARDLIST,0x00,512);
-	memset(___JOUCODE,0x00,512);
-	strcpy(___SVRCARDLIST,readItemInIniFile("SVRCARDLIST"));    
-	strcpy(___JOUCODE,readItemInIniFile("JOUCODE"));    
-	strcpy(___KEYFILE,readItemInIniFile("KEYFILE"));  
+  	SetVPRIP(readItemInIniFile("VPRIP"));
+	_VPRPort = atoi(readItemInIniFile("VPRPort"));
 	echoic("装载通讯配置完成"); 
-	//*--*/18999188155
 }
 

@@ -9,13 +9,12 @@ int GetFtpServerProt(void);
 char *GetFtpUserName(void);
 char *GetFtpPwd(void);
 char *GetTimeServerIP(void);
-
 void LoadCommunctionConfig(void);
 char *GetNtpDateCommand(void);
 char *GetTCOServerIP(void);
 int GetTCOPort(void);
-char *GetSVRCARDLIST(void);
-char *GetJOUCODE(void);
-char *GetKEYFILE(void);
+char *GetVPRIP(void);
+int GetVPRPort(void);
+void SetVPRIP(char *IP);
 #endif
 
