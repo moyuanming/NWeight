@@ -389,6 +389,7 @@
     <ClInclude Include="src\workflow\include\wf_printer.h" />
     <ClInclude Include="src\workflow\include\workState.h" />
     <ClInclude Include="src\workflow\include\workstate_Lstdnyc.h" />
+    <ClInclude Include="\\192.168.10.178\root\hwvpr\TestVPR\VPR.h" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
