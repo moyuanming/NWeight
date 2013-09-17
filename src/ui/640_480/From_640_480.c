@@ -10,6 +10,7 @@ HWND  UI_Out_640_480_Get_From_Handl(void)
 void UI_Out_640_480_Set_From_Handl(HWND hwnd)
 {	
 	From_Handl=hwnd;
+
 }
 void UI_Out_640_480_InitFrom(HWND hWnd)
 {
