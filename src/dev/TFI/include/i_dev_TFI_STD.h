@@ -11,4 +11,6 @@ void  TFI_STD_BaoJia(int CarType, int charge);
 void  TFI_STD_BJ(void);
 void SendStdCMD(char cmd);
 void ShowFullScreenText(char * content);
+
+
 #endif
