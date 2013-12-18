@@ -11,7 +11,7 @@ void WorkStation_67_GotoHistory(void)
 		if(GetG_WeightMenuStues()==8||GetG_WeightMenuStues()==9)
 		{
 			HandOnceOK(VK_RETURN,4);
-		}
+		}HandOnceOK(VK_RETURN,4);
 		else
 		{
 			Set_WorkStation_04_General_Validate_Car_Type_And_First_OK();	
